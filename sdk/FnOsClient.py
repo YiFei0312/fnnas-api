@@ -146,7 +146,8 @@ class BaseClient(ABC):
 
     async def send_request(self, req, **kwargs):
         reqid = get_reqid(self.backId)
-        data = {'req': req, 'reqid': reqid, **kwargs}
+        # data = {'req': req, 'reqid': reqid, **kwargs}
+        data = { **kwargs, 'req': req, 'reqid': reqid}
         if req == 'user.login':
             # 加密
             data = json.dumps(data, separators=(',', ':'))
@@ -223,6 +224,7 @@ class MainClient(BaseClient):
         # 这里注册回调函数，如果要给MainClient加处理请求，在这里加
         self.add_handler('util.crypto.getRSAPub', HandlerGetRSAPub)
         self.add_handler('user.login', HandlerLogin)
+        self.add_handler('appcgi.downloadcenter.task.addUris', HandlerDownlaod)
         # 连接后执行的方法
         await self.request(req='util.crypto.getRSAPub')
 
@@ -242,6 +244,18 @@ class MainClient(BaseClient):
     async def user_info(self):
         response = await self.request('user.info')
         return response
+
+    async def makedir(self, path=None):
+        data = {
+            "path": path,
+        }
+        return await self.request(req='file.mkdir', **data)
+    async def download(self):
+        data = {
+            "select_files": False,
+            "uris": ["magnet:?xt=urn:btih:SEMSX2LEYJROTVOG7X7OSQNROBWVJJ3Q&dn=&tr=http%3A%2F%2F104.143.10.186%3A8000%2Fannounce&tr=udp%3A%2F%2F104.143.10.186%3A8000%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=http%3A%2F%2Ftracker3.itzmx.com%3A6961%2Fannounce&tr=http%3A%2F%2Ftracker4.itzmx.com%3A2710%2Fannounce&tr=http%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.prq.to%2Fannounce&tr=http%3A%2F%2Fopen.acgtracker.com%3A1096%2Fannounce&tr=https%3A%2F%2Ft-115.rhcloud.com%2Fonly_for_ylbud&tr=http%3A%2F%2Ftracker1.itzmx.com%3A8080%2Fannounce&tr=http%3A%2F%2Ftracker2.itzmx.com%3A6961%2Fannounce&tr=udp%3A%2F%2Ftracker1.itzmx.com%3A8080%2Fannounce&tr=udp%3A%2F%2Ftracker2.itzmx.com%3A6961%2Fannounce&tr=udp%3A%2F%2Ftracker3.itzmx.com%3A6961%2Fannounce&tr=udp%3A%2F%2Ftracker4.itzmx.com%3A2710%2Fannounce&tr=http%3A%2F%2Ft.acg.rip%3A6699%2Fannounce&tr=https%3A%2F%2Ftr.bangumi.moe%3A9696%2Fannounce&tr=http%3A%2F%2Ftr.bangumi.moe%3A6969%2Fannounce"]
+        }
+        return await self.request(req='appcgi.downloadcenter.task.addUris', **data)
 
 
 class FileClient(BaseClient):
@@ -312,9 +326,9 @@ class FileClient(BaseClient):
         res = requests.post(url=url, headers=headers, files=files)
         print(res.status_code, file_name)
 
-    async def download(self):
-        # http://192.168.1.4:5666/multiple-download?token=90855a94e419e9cc0c751479ca933411
-        pass
+    # async def download(self):
+    #     # http://192.168.1.4:5666/multiple-download?token=90855a94e419e9cc0c751479ca933411
+    #     pass
 
     async def _checkUpload(self, local_path, nas_path, overwrite=2):
         size = os.path.getsize(local_path)

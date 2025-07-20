@@ -79,7 +79,9 @@ def get_signature_req(data, key: str):
         'user.info',
         'user.authToken',
         'file.ls',
-        'file.checkUpload'
+        'file.mkdir',
+        'file.checkUpload',
+        'appcgi.downloadcenter.task.addUris'
     ]
     req = data['req']
     json_str = json.dumps(data, separators=(',', ':'))  # 确保没有空格，等同于 JS 的 JSON.stringify

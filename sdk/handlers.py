@@ -35,6 +35,9 @@ async def HandlerGetSI(client, data):
 async def HandlerAuthToken(client, data):
     pass
 
+async def HandlerDownlaod(client, data):
+    pass
+
 
 async def HandlerFileList(client, data):
     print(data)

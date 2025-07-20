@@ -16,20 +16,24 @@ import logging
 async def main():
     # 启动飞牛连接
     client = FnOsClient(ping_interval=60)
-    await client.connect('ws://172.22.182.150:5666/websocket?type=main')
+    await client.connect('ws://192.168.88.181:5666/websocket?type=main')
     client.add_handler('user.info', HandlerUserInfo)
 
     try:
-        login_res = await client.login('dev', '8GMu~_u+nD1Rj3')
+        login_res = await client.login('DownloadBot', '}w>pOVkKc1K05(')
         print(login_res)
 
         res = await client.user_info()
         print(res)
         res = await client.authToken() # 非必须
+        print(res)
         # 上传文件
-        local_path = r'C:\Users\Administrator\Pictures\bg.jpg'
-        nas_path = f'vol1/1001/tmp_img/bg.jpg' # NAS绝对路径
-        res = await client.upload(local_path, nas_path)
+        # local_path = r'C:\Users\Administrator\Pictures\bg.jpg'
+        # nas_path = f'vol1/1001/tmp_img/bg.jpg' # NAS绝对路径
+        res = await client.download()
+        # print(res)
+        # res = await client.fileList("vol01/1000/Anime/test")
+        # # res = await client.upload(local_path, nas_path)
         print(res)
 
         # 看网站60秒就user.active一次，应该保活 目测30s超时
