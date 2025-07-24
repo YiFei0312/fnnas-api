@@ -250,12 +250,32 @@ class MainClient(BaseClient):
             "path": path,
         }
         return await self.request(req='file.mkdir', **data)
-    async def download(self):
+    async def add_download_task(self, uris:list[str], path:str=None):
+        if path:
+            data = {
+                "path": ''.join([f"/{x}" for x in path.split("/")[:-1]])
+            }
+            res = await self.request(req='file.ls', **data)
+            if path.split("/")[-1] not in [x["name"] for x in res["files"]]:
+                data = {
+                    "path": path
+                }
+                await self.request(req='file.mkdir', **data)
+            data = {
+                "default_save_dir": path
+            }
+            await self.request(req='appcgi.downloadcenter.config.setDefaultSaveDir', **data)
         data = {
             "select_files": False,
-            "uris": ["magnet:?xt=urn:btih:SEMSX2LEYJROTVOG7X7OSQNROBWVJJ3Q&dn=&tr=http%3A%2F%2F104.143.10.186%3A8000%2Fannounce&tr=udp%3A%2F%2F104.143.10.186%3A8000%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=http%3A%2F%2Ftracker3.itzmx.com%3A6961%2Fannounce&tr=http%3A%2F%2Ftracker4.itzmx.com%3A2710%2Fannounce&tr=http%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.prq.to%2Fannounce&tr=http%3A%2F%2Fopen.acgtracker.com%3A1096%2Fannounce&tr=https%3A%2F%2Ft-115.rhcloud.com%2Fonly_for_ylbud&tr=http%3A%2F%2Ftracker1.itzmx.com%3A8080%2Fannounce&tr=http%3A%2F%2Ftracker2.itzmx.com%3A6961%2Fannounce&tr=udp%3A%2F%2Ftracker1.itzmx.com%3A8080%2Fannounce&tr=udp%3A%2F%2Ftracker2.itzmx.com%3A6961%2Fannounce&tr=udp%3A%2F%2Ftracker3.itzmx.com%3A6961%2Fannounce&tr=udp%3A%2F%2Ftracker4.itzmx.com%3A2710%2Fannounce&tr=http%3A%2F%2Ft.acg.rip%3A6699%2Fannounce&tr=https%3A%2F%2Ftr.bangumi.moe%3A9696%2Fannounce&tr=http%3A%2F%2Ftr.bangumi.moe%3A6969%2Fannounce"]
+            "uris": uris,
         }
         return await self.request(req='appcgi.downloadcenter.task.addUris', **data)
+
+    async def set_default_download_path(self, path:str):
+        data = {
+            "default_save_dir": path
+        }
+        return await self.request(req='appcgi.downloadcenter.config.setDefaultSaveDir', **data)
 
 
 class FileClient(BaseClient):
