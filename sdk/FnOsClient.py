@@ -1,4 +1,3 @@
-import os.path
 from abc import ABC, abstractmethod
 import websockets
 import json
@@ -147,7 +146,7 @@ class BaseClient(ABC):
     async def send_request(self, req, **kwargs):
         reqid = get_reqid(self.backId)
         data = {'req': req, 'reqid': reqid, **kwargs}
-        if req == 'user.login':
+        if req in ['user.login', 'user.add']:
             # 加密
             data = json.dumps(data, separators=(',', ':'))
             data = login_encrypt(data, self.pub, self.key, self.iv)
@@ -243,6 +242,35 @@ class MainClient(BaseClient):
         response = await self.request('user.info')
         return response
 
+    async def setting_port(self, force_https=False, redirect=True, http_port=5666, https_port=5667):
+        "修改端口"
+        data = {
+            "data": {
+                "force_https": force_https,  # 强制Https
+                "redirect": redirect,  # 80和443跳转
+                "schema": {
+                    "http": {
+                        "port": http_port
+                    },
+                    "https": {
+                        "port": https_port
+                    }
+                }
+            }
+        }
+        response = await self.request('appcgi.network.gw.setting', **data)
+        return response
+
+    async def get_user_storage(self):
+        "获取磁盘信息"
+        data = {
+            "quotaInfo": True,
+            "spaceInfo": True,
+            "storInfo": True
+        }
+        response = await self.request("stor.getUserStorage", **data)
+        return response
+
 
 class FileClient(BaseClient):
     async def _init(self):
@@ -288,7 +316,6 @@ class FileClient(BaseClient):
         # checkUpload
         res = await self._checkUpload(local_path, nas_path.as_posix(), overwrite)
         uploadName = res.get('uploadName')
-
 
         url = 'http://172.22.182.150:5666/upload'
         headers = {
@@ -337,7 +364,8 @@ class FileClient(BaseClient):
             elif action == 'd':
                 await self.download()
 
-    async def start_observer(self, nas_path=None, local_path=os.getcwd(), recursive=False, interval=5, exclude: list = None):
+    async def start_observer(self, nas_path=None, local_path=os.getcwd(), recursive=False, interval=5,
+                             exclude: list = None):
         """
         启动文件变化监听， 原理是对比NAS和本地的修改时间谁更新
         :param nas_path: NAS路径 默认我的文件路径
@@ -397,6 +425,14 @@ class FileClient(BaseClient):
                     print(f"NAS不存在文件 '{name}'，从本地复制到NAS。")
                     self.file_update_queue.put_nowait((local_path_dict[name], f'{nas_path}/{name}', 'u'))
             await asyncio.sleep(interval)
+
+    async def file_search(self, key: str, path: list):
+        data = {
+            "key": key,
+            "path": path,
+        }
+        res = await self.request("appcgi.finder.fileSearch", **data)
+        return res
 
 class DownloadClient(BaseClient):
     async def _init(self):

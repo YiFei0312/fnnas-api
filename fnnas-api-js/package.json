@@ -1,0 +1,25 @@
+{
+  "name": "fnnas-api-js",
+  "version": "1.0.0",
+  "description": "FnOS API Client in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "node example.js"
+  },
+  "keywords": [
+    "fnos",
+    "api",
+    "client",
+    "websocket"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.14.2",
+    "crypto": "^1.0.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "https": "^1.0.0",
+    "http": "^0.0.1-security"
+  }
+}
