@@ -79,7 +79,13 @@ def get_signature_req(data, key: str):
         'user.info',
         'user.authToken',
         'file.ls',
-        'file.checkUpload'
+        'file.checkUpload',
+        'user.isAdmin',
+        'appcgi.downloadcenter.config.getDefaultSaveDir',
+        'appcgi.downloadcenter.config.setDefaultSaveDir',
+        'appcgi.downloadcenter.task.addUris',
+        'file.mkdir',
+        'file.download'
     ]
     req = data['req']
     json_str = json.dumps(data, separators=(',', ':'))  # 确保没有空格，等同于 JS 的 JSON.stringify

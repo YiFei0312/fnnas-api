@@ -4,7 +4,7 @@ import websockets
 import json
 import logging
 import signal
-from typing import Optional, List
+from typing import Optional, List, Union
 import asyncio
 from .exceptions import WebSocketConnectionError
 from .handlers import *
@@ -312,9 +312,9 @@ class FileClient(BaseClient):
         res = requests.post(url=url, headers=headers, files=files)
         print(res.status_code, file_name)
 
-    async def download(self):
-        # http://192.168.1.4:5666/multiple-download?token=REDACTED-TOKEN
-        pass
+    # async def download(self):
+    #     # http://192.168.1.4:5666/multiple-download?token=REDACTED-TOKEN
+    #     pass
 
     async def _checkUpload(self, local_path, nas_path, overwrite=2):
         size = os.path.getsize(local_path)
@@ -398,13 +398,144 @@ class FileClient(BaseClient):
                     self.file_update_queue.put_nowait((local_path_dict[name], f'{nas_path}/{name}', 'u'))
             await asyncio.sleep(interval)
 
+class DownloadClient(BaseClient):
+    async def _init(self):
+        await super()._init()
+
+    async def download(self, url: Union[list[str], str], save_path: str = None) -> bool:
+        """
+        下载文件
+        :param url: 下载链接
+        :param save_path: 保存路径
+        :return: bool
+        """
+        if isinstance(url, str):
+            url = [url]
+        data = {
+            "select_files": False,
+            "uris": url
+        }
+        if save_path is None:
+            res = await self.request(req='appcgi.downloadcenter.task.addUris', **data)
+        else:
+            # 记录默认保存路径
+            default_save_path = await self.get_default_save_dir()
+            if not await self.is_dir(save_path):
+                await self.mkdir(save_path)
+            await self.set_save_dir(save_path)
+            res = await self.request(req='appcgi.downloadcenter.task.addUris', **data)
+            # 恢复默认保存路径
+            await self.set_save_dir(default_save_path)
+        return  res.get("result") == "succ"
+
+    async def get_default_save_dir(self) -> str:
+        """
+        获取默认保存目录
+        :return: str
+        """
+        res = await self.request(req='appcgi.downloadcenter.config.getDefaultSaveDir')
+        return res["data"]["rsp"]
+
+    async def set_save_dir(self, save_dir: str) -> bool:
+        """
+        设置默认保存目录
+        :param save_dir: NAS路径
+        :return: bool
+        """
+        res = await self.request(req='appcgi.downloadcenter.config.setDefaultSaveDir', default_save_dir=save_dir)
+        return  res.get("result") == "succ"
+
+    async def mkdir(self, nas_path: str) -> bool:
+        """
+        创建目录
+        :param nas_path: NAS路径
+        :return: bool
+        """
+        res = await self.request(req='file.mkdir', path=nas_path)
+        return  res.get("result") == "succ"
+
+    async def is_dir(self, nas_path: str) -> bool:
+        """
+        判断目录是否存在
+        :param nas_path: NAS路径
+        :return: bool
+        """
+        res = await self.request(req='file.ls', path=nas_path)
+        if res.get("result") == "fail" and res.get("errno") == 4100:
+            return False
+        elif res.get("result") == "succ":
+            return True
+        else:
+            raise Exception(res)
+
+    async def file_list(self, nas_path: str=None) -> List[dict]:
+        """
+        获取文件列表
+        :param nas_path: NAS上的绝对路径，当值为None时返回当前用户文件
+        :return: 返回一个文件列表, 如果没有目录则返回None
+        example:[{"name": "文件夹A", "v": 3, "uid": 1000, "dir": 1},{"name": "文件夹B", "v": 2, "uid": 1000, "dir": 1}]
+        """
+        if nas_path is None:
+            res = await self.request(req='file.ls')
+        else:
+            res = await self.request(req='file.ls', path=nas_path)
+        if res.get("result") == "succ":
+            file_list = res.get("files")
+        elif res.get("result") == "fail" and res.get("errno") == 4100: # 目录不存在
+            print(f"目录 '{nas_path}' 不存在")
+            file_list = None
+        else:
+            raise Exception(res)
+        return  file_list
+
+    async def file_tree(self, nas_path: str=None, max_depth: int=1) -> List[dict]:
+        """
+        使用迭代方式获取完整的文件树结构
+        :param nas_path: NAS路径，None表示根目录
+        :param max_depth: 最大递归深度，防止无限递归
+        :return: 包含完整目录结构的文件树
+        example:
+        [
+            {"name": "文件夹A", "v": 3, "uid": 1000, "dir": 1,
+             "files": [{"name": "文件夹AA", "v": 2, "uid": 1000, "dir": 1, "files": [...]}]},
+            {"name": "文件夹B", "v": 2, "uid": 1000, "dir": 1}
+        ]
+        """
+        from collections import deque
+        root_files = await self.file_list(nas_path)
+        queue = deque()
+        for item in root_files:
+            if item.get("dir") == 1:
+                if nas_path is None:
+                    item_path = f"vol{item['v']}/{item['uid']}/{item['name']}"
+                else:
+                    item_path = f"{nas_path}/{item['name']}"
+                queue.append((item, item_path, 1))
+        while queue:
+            dir_item, dir_path, depth = queue.popleft()
+
+            if depth > max_depth:
+                self.logger.warning(f"Reached max depth {max_depth}, skipping: {dir_path}")
+                dir_item["files"] = []
+                continue
+            try:
+                sub_files = await self.file_list(dir_path)
+                dir_item["files"] = sub_files
+                for sub_item in sub_files:
+                    if sub_item.get("dir") == 1:
+                        sub_path = f"{dir_path}/{sub_item['name']}"
+                        queue.append((sub_item, sub_path, depth + 1))
+            except Exception as e:
+                self.logger.warning(f"Failed to list directory {dir_path}: {e}")
+                dir_item["files"] = []
+        return root_files
 
 class EmptyClient(BaseClient):
     async def _init(self):
         pass
 
 
-class FnOsClient(FileClient, MainClient, EmptyClient):
+class FnOsClient(FileClient, MainClient, EmptyClient, DownloadClient):
     """
     这里有个坑， 以后增加客户端， 请在EmptyClient前面继承
     如果在EmptyClient后面继承，就会调用BaseClient的_init
