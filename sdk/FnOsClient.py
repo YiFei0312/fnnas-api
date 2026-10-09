@@ -501,6 +501,8 @@ class DownloadClient(BaseClient):
             return False
         elif res.get("result") == "succ":
             return True
+        elif res.get("files") is not None:
+            return True
         else:
             raise Exception(res)
 
