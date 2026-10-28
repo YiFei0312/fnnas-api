@@ -13,6 +13,10 @@
   "any": "any"
 }
 ```
+> ⚠️ 参数**不一定**放在 `data` 里。`file.*` / `stor.*` / `user.*` 是把参数平铺在根上
+> （`{"req":"file.ls","reqid":"...","path":"vol1/1000"}`）；而 `appcgi.sharesvr.*` 这类
+> 模块的参数**必须**放进 `data`（`{"req":"...","data":{"page":1}}`），平铺会报
+> `errno 3000001 Invalid Params`。详见下面「请求参数放在哪里」一节。
 
 ### 响应格式
 
@@ -283,3 +287,158 @@ TvZJMueyhbrH/BtEmr1zU/Eb/WtvrmkACx+5pio2PfE={"req":"file.ls","reqid":"6915841c69
 | 3000012 | 分享失败，文件不存在 |
 | 3000013 | 分享失败，不支持分享软链、挂载等 |
 | 100000210 | 系统关键端口被防火墙规则拦截 |
+
+## 真机抓包补充的错误码
+
+下面这些是 2026-10 在真机（fnOS 1.2.0800）用 `tools/probe.py` 批量实测时抓到的，
+报文字段原样记录，供排查用：
+
+| errno | 服务端 errmsg | 实测接口示例 | 说明 |
+|-------|--------------|-------------|------|
+| `1` | `unexpected end of JSON input` | `appcgi.accountsrv.v1.token.list` | 参数体没传导致的解析错误（和 8192 一样属于「缺参数」） |
+| `1001` | `unexpected end of JSON input` | `appcgi.mountmgr.task.detail` | 同上，该模块自己的一套错误码 |
+| `3000001` | `Invalid Params` | `appcgi.netsvr.ddns.record.detail` | 参数不合法 |
+| `10000001` | `unexpected end of JSON input` | `appcgi.sac.ups.v1.check` | 参数解析失败 |
+| `10000002` | `接口不存在` | `__probe__.does.not.exist` | **未知 req**：拿它当「接口是否存在」的探针 |
+| `100000004` | - | `appcgi.network.gen.info` | 无效操作（该子功能在当前版本未启用） |
+| `100030002` | - | `appcgi.resmon.battery` | 无电池设备 |
+| `100060001` | - | `appcgi.sysinfo.getReservedPartition` | 无保留分区 |
+| `100060031` | - | `appcgi.sysinfo.getBootOnPowerFlag` | 该机型不支持来电自启 |
+| `100160045` | - | `appcgi.sysrestore.getSysBackupTask` | 系统备份任务不存在 |
+| `102550007` | `Bad Request` | `appcgi.license.soft.get` | 授权模块参数不合法 |
+| `266240` | - | `appcgi.iscsimgr.iscsi.lun.list` | 「该 App 未安装或未启动」——功能未开时所有子接口都会报它 |
+| `3000006` | `Not Found Error` | `appcgi.sharesvr.share.link.get` | 资源不存在（参数格式对，但那条分享没有） |
+| `65534` | - | 未登录时任意 appcgi 接口 | 未登录 / 会话失效（`0xfffe`） |
+| `135168` | - | `file.share.info`、`share.link.get` 传假 token | 分享 token / 资源找不到 |
+| `4101` | - | `file.share.add2` 传空 `shareName` | 分享名称校验失败（空值） |
+| `4112` | - | `file.share.add2` 传非空 `shareName` | 分享名称相关校验失败（该接口还缺别的必填参数，未测通） |
+| `4100` | - | `file.prop` / `file.rename` | 路径不存在（`file.prop` 里是**条目级** errno，外层仍 succ） |
+| `65535` | - | `file.extract` 传空 `fromCharset` | 服务端命令执行失败（`Too short switch: -fromcharset`） |
+
+> 判断接口是否存在，看 `errno` 是不是 `10000002`；
+> `8192 / 100000002 / 1001 / 1 / 3000001 / 102550007` 都表示**接口存在，只是参数不对**。
+
+## 响应外层结构不止一种
+
+同一个 WebSocket 连接里，不同模块的响应「外壳」不一样，写客户端时必须都兼容：
+
+| 结构 | 典型模块 | 示例 |
+|------|---------|------|
+| `{result, req, reqid, rev, data:{...}}` | `appcgi.network.*`、`appcgi.resmon.*`、`appcgi.sysinfo.*`、`appcgi.security.*` | 数据在 `data` 里 |
+| `{result, reqid, rsp:{...}}` | `appcgi.mountmgr.*` | 数据在 `rsp` 里 |
+| `{result, reqid, data:{...}}` | `appcgi.sac.*`、`appcgi.netsvr.*` | 数据在 `data` 里 |
+| 平铺（`{业务字段..., reqid}`） | `file.*`、`stor.*` | 如 `{"files":[...],"uver":1,"reqid":"..."}`，业务字段直接挂在根上 |
+
+> ⚠️ **成功响应可能没有 `result` 字段**。实测 `file.ls`、`stor.listDisk` 成功时返回的 JSON
+> 只有业务字段 + `reqid`（`reqid` 还在最后面）；只有**失败**时才会出现 `"result":"fail"` 和 `errno`。
+> 所以判断成功不能只看 `result == "succ"`，应该看「没有 `errno` / 有预期业务字段」。
+
+SDK 里的 `sdk/api/curated.py:unwrap()` 就是干这个的：
+依次尝试 `data`、`rsp`，都没有就返回原响应；`check()` 只在 `result == "fail"` 时抛异常。
+
+## 请求参数放在哪里：平铺 还是 data
+
+和响应外壳一样，**请求参数的位置也是分模块的**，这一条是 2026-01 实测分享接口时才发现并确认的：
+
+| 写法 | 报文 | 适用模块 |
+|------|------|---------|
+| 平铺 | `{"req":"file.ls","reqid":"...","path":"vol1/1000"}` | `file.*`、`stor.*`、`user.*`、`notify.*`、`appcgi.share.*` |
+| `data` 封装 | `{"req":"appcgi.sharesvr.share.link.list","reqid":"...","data":{"page":1,"pageSize":100}}` | `appcgi.sharesvr.*` 的带参接口（`share.link.list/get/create/update/remove/clear`、`share.permission.set` 等） |
+
+实测对照（同一个接口、同一份参数，只改封装方式）：
+
+```jsonc
+// 平铺 —— 服务端说参数不合法
+{"req":"appcgi.sharesvr.share.link.list","reqid":"...","page":1,"pageSize":100,"keyword":"","isAdmin":false,"type":0,"sortColumn":"createdTime","sortType":"DESC"}
+{"result":"fail","errno":3000001,"errmsg":"Invalid Params","data":null}
+
+// 包一层 data —— 正常返回
+{"req":"appcgi.sharesvr.share.link.list","reqid":"...","data":{"page":1,"pageSize":100,"keyword":"","isAdmin":false,"type":0,"sortColumn":"createdTime","sortType":"DESC"}}
+{"result":"succ","data":{"total":0,"list":null}}
+```
+
+另外两个实测出来的细节：
+
+- `appcgi.sharesvr.*` 里 **`id` 必须是字符串**：`{"data":{"id":"c55bd4d2b4e5404a90"}}` 正常，
+  `{"data":{"id":1}}` 直接 `Invalid Params`（连「找不到」都不给你）。
+- 反过来，`file.*` 传 `data` 不会报错但**参数会被忽略**（`file.ls` 会安静地列错目录），
+  所以不能「不管三七二十一都包 data」。
+
+**怎么判断该用哪种：**
+
+1. 先按模块猜（上表）；
+2. 拿到 `errno 3000001 Invalid Params` / `1001` 就换另一种写法重试——这两种错误表示
+   请求体没被解析，**请求没有执行**，重试是安全的；
+3. 不想记就交给 SDK：
+   - `await client.call(req, params, nested=True)` —— 强制包 `data`
+   - `await client.call_auto(req, params)` —— 先平铺，只有报「参数非法」才自动改包 `data`
+     重发，并把该接口的正确写法记进 `client.nested_reqs`，下次直接走对的那条
+
+> 分享接口的完整实测记录（含原始报文）见 [docs/modules/share.md](modules/share.md)
+> 与 `data/share_probe.json`；复跑用 `python tools/probe_share.py --yes`。
+
+## 写接口是异步任务：ack + 同 reqid 的推送
+
+`file.*` 里的写操作（`file.cp` / `file.mv` / `file.rm` / `file.compress` / `file.extract` /
+`file.setAcl2` / `file.chown` / `file.usage` …）**不是「一问一答」**：先回一个「任务已受理」，
+真正结果**用同一个 `reqid` 推送回来**。
+
+```jsonc
+// 1) 请求
+{"req":"file.cp","reqid":"6ad…002e","files":["/vol1/1000/tmp/a.jpg"],
+ "pathTo":"/vol1/1000/tmp/dst","overwrite":1,"details":{"name":"a.jpg","count":1}}
+
+// 2) 立刻返回：没有 result，只有 taskId
+{"sysNotify":"taskId","taskId":"OdkhlbCaRg+61xHFGLc29w==","reqid":"6ad…002e"}
+
+// 3) 推送：任务回显（taskInfo 里是原参数）
+{"sysNotify":"taskInfo","taskInfo":{"req":"file.cp","reqid":"6ad…002e", …}}
+
+// 4) 推送：进度
+{"percent":100,"time":0,"speed":0,"size":1880200,"sizeTotal":1880200,"reqid":"6ad…002e"}
+
+// 5) 推送：最终结果
+{"result":"succ","reqid":"6ad…002e"}
+{"result":"fail","reqid":"6ad…0032","failedFilesCount":1,
+ "failedFiles":[{"file":"/vol1/1000/tmp/dst/renamed.jpg","errno":4100}]}
+```
+
+必须记住的几点：
+
+- **只发请求、不看推送 = 不知道成败**。实测源文件不存在时 `file.mv` 的 ack 仍是
+  `succ`，只有推送是 `fail`；
+- 判定标准是「带 `result` 字段且 `reqid` 相同的那条推送」；`taskInfo` 和进度是过程消息
+  （前端看到 `sysNotify` 就跳过）；
+- SDK 里 `sdk/filetasks.py` 的 `wait_file_task(client, reqid)` 把这套封好了：
+  客户端 `__init__` 时挂常驻嗅探器，结果不会漏；`remove_push_handler()` 清空时也不会
+  误删它。另有 `is_task_ok()` / `task_error()` / `call_file_task()`；
+- 只读接口（`file.ls` / `file.prop` / `file.calc` / `file.access` …）和 `file.rename` /
+  `file.mkdir` 是同步的，失败直接回 `errno`。
+- `file.usage` 这类接口还会**推多条分类结果**（`{category:"docker", fileSizeTotal:…}`）
+  再推 `{"result":"succ"}`，所以「一条推送」并不等于全部数据。
+
+## 心跳：`ping_interval=None` 曾经是死循环（已修）
+
+`_ping_loop` 的逻辑是「发 ping → `asyncio.sleep(ping_interval)`」。如果 `ping_interval`
+传 `None`，`asyncio.sleep(None)` 会抛 `TypeError`，被循环里的 `except Exception` 吞掉后
+立刻重试 —— 变成疯狂发 ping 的死循环，实测 1 分钟刷出十几万条 `{"res":"pong"}`
+（把推送回调打爆）。现在 `_ping_loop` 会在 `ping_interval` 为空/≤0 时直接返回，
+即「不发应用层心跳」。要长期挂着连接就老老实实传 `ping_interval=60`。
+
+## 服务端主动推送
+
+有两类报文没有对应的请求：
+
+1. **心跳回包**：`{"res":"pong"}`
+2. **业务推送**：形如 `{"notify":[{"title":..., "content":"{...json...}", ...}]}`，
+   或者 `{"result":"succ","data":{...}}` 这种「迟到的异步结果」。
+
+它们都**不带 `reqid`**（或者 reqid 对不上任何在途请求），
+用 `sdk/recorder.py` 录制、`tools/watch.py` 做归类统计。
+推送内容里的 `content` 字段经常是一段 JSON 字符串，需要二次 `json.loads`。
+
+## 连接类型（type 参数）
+
+`ws://<host>:5666/websocket?type=main`、`?type=file`、`?type=timer`
+**共用同一套接口**——实测同一批接口在三种 `type` 下返回完全一致，
+所以只需要连一个（推荐 `main`），不用为不同业务分别建连。

@@ -9,10 +9,21 @@ from .exceptions import WebSocketConnectionError
 from .handlers import *
 from .utils import *
 from .encryption import login_encrypt, get_signature_req, get_signature
+from .api.curated import (SystemApiMixin, StorageApiMixin, FileOpsApiMixin,
+                          ShareApiMixin)
+from .push import push_matches
+
+# 「参数非法」错误码：这几个只可能是参数没被服务端识别，请求没有执行，可以安全重试
+INVALID_PARAMS_ERRNOS = frozenset({3000001, 1001})
+
+
+def _is_invalid_params(resp):
+    return (isinstance(resp, dict) and resp.get("result") == "fail"
+            and resp.get("errno") in INVALID_PARAMS_ERRNOS)
 
 
 class BaseClient(ABC):
-    def __init__(self, ping_interval=30, logger=None):
+    def __init__(self, ping_interval=30, logger=None, recorder=None, timeout=None):
         self.websocket = None
         self.handlers = {}
         self.pending_requests = {}
@@ -22,6 +33,23 @@ class BaseClient(ABC):
         self._listen_task = None
         self._ping_task = None
         self.__url = None
+
+        # 报文录制器（sdk.recorder.TrafficRecorder），为 None 时不录制
+        self.recorder = recorder
+        # 单次请求默认超时（秒）；None 表示一直等
+        self.timeout = timeout
+        # 由 ws 地址推导出的 http 地址，上传/下载等 http 接口用
+        self.base_url = None
+        # 封装好的接口命名空间（client.api.file.ls ...），首次访问时创建
+        self._api_root = None
+        # 已确认「参数要包 data」的接口（client.call_auto 自动学习结果）
+        self.nested_reqs = set()
+        # 服务端主动推送的处理函数列表 [(matcher, callback), ...]
+        self.push_handlers = []
+        # 常驻嗅探「异步文件任务的最终结果」推送（ack + 同 reqid 推送的模型，
+        # 详见 sdk/filetasks.py 与 docs/modules/file.md）
+        from .filetasks import install_sniffer
+        install_sniffer(self)
 
         # 下面数据自动初始化
         self.sign_key = None
@@ -55,7 +83,7 @@ class BaseClient(ABC):
     @property
     async def connected(self):
         """检查连接是否活跃"""
-        if self.websocket is None or self.websocket.closed:
+        if not ws_is_open(self.websocket):
             return False
         try:
             # 快速发送 Ping 测试
@@ -63,6 +91,24 @@ class BaseClient(ABC):
             return True
         except (websockets.ConnectionClosed, asyncio.TimeoutError):
             return False
+
+    @property
+    def api(self):
+        """
+        封装好的接口命名空间，覆盖 tools/scan_web.py 扫到的全部接口：
+
+            await client.api.file.ls(path='vol1/1000')          # 文件列表
+            await client.api.appcgi.sysinfo.get_uptime()        # 开机时长
+            await client.api.stor.list_disk()                   # 硬盘列表
+            await client.api.call('file.prop', {'path': '...'}) # 通用调用
+
+        支持的辅助方法：find(关键字) / groups() / methods(分组) /
+        readonly_methods() / help(req)
+        """
+        if self._api_root is None:
+            from .api import build_api
+            self._api_root = build_api(self)
+        return self._api_root
 
     @abstractmethod
     async def _init(self, *args, **kwargs):
@@ -72,9 +118,14 @@ class BaseClient(ABC):
     async def connect(self, url: str = None, *args, **kwargs):
         if url is not None:
             self.__url = url
+        if self.__url:
+            self.base_url = http_base_from_ws(self.__url)
         try:
             # 坑 服务器不会响应ping，他是使用消息进行ping测活， 所以关闭框架的自动ping
-            self.websocket = await websockets.connect(self.__url, ping_interval=None)
+            # 15.x 是 ping_interval=None，17.x 已不推荐 None，这里显式关闭心跳并自己发 ping
+            self.websocket = await websockets.connect(
+                self.__url, ping_interval=None, open_timeout=getattr(self, 'open_timeout', 15)
+            )
             # 创建监听任务
             self._listen_task = asyncio.create_task(self._listen())
             # 创建心跳任务
@@ -93,6 +144,10 @@ class BaseClient(ABC):
                 self.logger.debug(f"Received: {message}")
                 if 'reqid' in data:
                     reqid = data['reqid']
+                    req_type = self.req_mapping.get(reqid)
+                    # 录制报文（在 pop 之前拿到 req，方便推送/异常时也能对上号）
+                    if self.recorder is not None:
+                        self.recorder.on_recv(message, req=req_type, reqid=reqid, payload=data)
                     # 返回响应
                     if reqid in self.pending_requests:
                         handler = self.pending_requests.pop(reqid)
@@ -105,10 +160,15 @@ class BaseClient(ABC):
                         req_type = self.req_mapping.pop(reqid)
                         handler = self.handlers.get(req_type, HandlerDefault)
                         await handler(self, data)
+                    elif reqid not in self.pending_requests:
+                        # reqid 对不上任何在途请求 = 迟到的异步结果/服务端消息
+                        await self._dispatch_push(data)
                 else:
-                    pass
-                    # 处理没有reqid的消息
-                    # self.logger.info(f"Received message without reqid: {data}")
+                    # 没有 reqid 的消息 = 服务端主动推送（状态变化、任务进度等）
+                    if self.recorder is not None:
+                        self.recorder.on_recv(message, payload=data)
+                    self.logger.debug(f"Received push: {message}")
+                    await self._dispatch_push(data)
             except asyncio.CancelledError:
                 break
             except websockets.ConnectionClosed as e:
@@ -120,7 +180,62 @@ class BaseClient(ABC):
                 self.logger.exception(e)
         self.logger.debug(f"_listen end...")
 
+    # ---------------- 服务端主动推送（消息） ----------------
+    def add_push_handler(self, matcher=None, callback=None):
+        """
+        注册服务端推送的处理函数。
+
+        :param matcher: 过滤条件，三选一
+            - None 或 "*"：所有推送（包括 {"res":"pong"} 心跳回包）
+            - 字符串：payload 顶层有这个键，或事件字段值等于它（常用 "notify"）
+            - callable：matcher(payload) 返回真时触发
+        :param callback: callback(client, payload)，可以是普通函数或协程函数
+
+        支持装饰器写法：
+            @client.add_push_handler("notify")
+            def on_notify(client, payload): ...
+
+        相关工具（sdk.push）：extract_notify(payload) 解析通知内容，
+        event_of(payload) 起可读事件名。
+        """
+        def register(func):
+            self.push_handlers.append((matcher, func))
+            return func
+
+        if callback is None:
+            return register
+        return register(callback)
+
+    def remove_push_handler(self, callback=None):
+        """
+        注销推送处理函数；不传参数则清空全部（SDK 内部的处理函数会保留，
+        比如 sdk/filetasks.py 用来等异步任务结果的嗅探器）。"""
+        if callback is None:
+            self.push_handlers = [(m, cb) for m, cb in self.push_handlers
+                                  if getattr(cb, "_internal", False)]
+        else:
+            self.push_handlers = [(m, cb) for m, cb in self.push_handlers if cb is not callback]
+
+    async def _dispatch_push(self, data):
+        """把一条推送分发给所有命中的处理函数（单个回调出错不影响其它）"""
+        for matcher, callback in list(self.push_handlers):
+            if not push_matches(matcher, data):
+                continue
+            try:
+                result = callback(self, data)
+                if asyncio.iscoroutine(result):
+                    await result
+            except Exception as e:
+                self.logger.exception(f"推送处理函数异常: {e}")
+
     async def _ping_loop(self):
+        # ping_interval 传 None / 0 / 负数 表示「不发应用层心跳」。
+        # 注意：不能直接进循环，否则 asyncio.sleep(None) 会抛 TypeError，
+        # 被下面的 except 吞掉后立刻重试 —— 变成疯狂发 ping 的死循环
+        # （实测 1 分钟能刷出十几万个 {"res":"pong"}）。
+        if not self.ping_interval or self.ping_interval <= 0:
+            self.logger.debug("ping_interval 未开启，跳过应用层心跳")
+            return
         while True:
             try:
                 await self.send_ping()
@@ -146,6 +261,7 @@ class BaseClient(ABC):
     async def send_request(self, req, **kwargs):
         reqid = get_reqid(self.backId)
         data = {'req': req, 'reqid': reqid, **kwargs}
+        logical = dict(data)          # 录制用的逻辑参数（加密前）
         if req in ['user.login', 'user.add']:
             # 加密
             data = json.dumps(data, separators=(',', ':'))
@@ -156,17 +272,71 @@ class BaseClient(ABC):
 
         await self.websocket.send(message)
         self.req_mapping[reqid] = req
+        if self.recorder is not None:
+            self.recorder.on_send(req, reqid, params=logical, raw=message)
         self.logger.debug(f"Sent: {req} {message}")
         return reqid
 
     def add_handler(self, req, handler):
         self.handlers[req] = handler
 
-    async def request(self, req, **kwargs):
+    async def request(self, req, timeout=None, **kwargs):
+        """
+        发送请求并等待响应。
+        :param timeout: 单次请求超时秒数，默认用构造函数里的 timeout，None 表示一直等
+        """
         reqid = await self.send_request(req, **kwargs)
         future = asyncio.Future()
         self.pending_requests[reqid] = lambda data: future.set_result(data)
-        return await future
+        wait = self.timeout if timeout is None else timeout
+        try:
+            if wait is None:
+                return await future
+            return await asyncio.wait_for(future, timeout=wait)
+        except asyncio.TimeoutError:
+            self.pending_requests.pop(reqid, None)
+            self.req_mapping.pop(reqid, None)
+            raise
+
+    async def call(self, req, params=None, timeout=None, nested=False):
+        """
+        通用调用入口，参数用字典传，方便动态构造请求：
+            await client.call('file.ls', {'path': 'vol1/1000'})
+            await client.call('appcgi.resmon.cpu')
+
+        :param nested: 把参数包一层 data 再发。部分 appcgi 接口（appcgi.sharesvr.*、
+                       appcgi.mountmgr.*）的参数必须写成 {"data": {...}}，平铺发会被判定
+                       为参数非法（errno 3000001 Invalid Params）。详见 docs/protocol.md。
+
+            await client.call('appcgi.sharesvr.share.link.list', {'page': 1}, nested=True)
+            # 实际发出：{"req": "...", "data": {"page": 1}}
+        """
+        if nested:
+            return await self.request(req, timeout=timeout, data=(params or {}))
+        return await self.request(req, timeout=timeout, **(params or {}))
+
+    async def call_auto(self, req, params=None, timeout=None):
+        """
+        自动适配参数封装方式：先平铺发，只有明确返回「参数非法」时才改成 data 嵌套重发。
+
+        为什么要自动试：飞牛的接口分两派 —— file.* / stor.* 参数平铺，
+        appcgi.sharesvr.* 等要包 data；凭记忆很容易写错，报错又只有一句 Invalid Params。
+        只有 errno 属于「参数不合法」（3000001 / 1001）且参数非空时才重试，
+        这几种错误意味着请求根本没有执行，重发不会产生副作用。
+        成功用哪种写法会记进 client.nested_reqs，之后同一接口直接走对的那种。
+
+        想完全掌控报文形状时请用 client.call(..., nested=True/False)。
+        """
+        merged = dict(params or {})
+        if req in self.nested_reqs:
+            return await self.call(req, merged, timeout=timeout, nested=True)
+        resp = await self.call(req, merged, timeout=timeout)
+        if merged and _is_invalid_params(resp):
+            retry = await self.call(req, merged, timeout=timeout, nested=True)
+            if not _is_invalid_params(retry):
+                self.nested_reqs.add(req)
+            return retry
+        return resp
 
     async def close(self, timeout: float = 5.0):
         """关闭连接并取消所有任务"""
@@ -177,6 +347,15 @@ class BaseClient(ABC):
         if self._listen_task:
             self._listen_task.cancel()
             tasks.append(self._listen_task)
+        if self.websocket is not None:
+            try:
+                await self.websocket.close()
+            except Exception:
+                pass
+        if tasks:
+            await asyncio.gather(*tasks, return_exceptions=True)
+        # 未完成的请求直接放弃，避免调用方永远挂着
+        self.pending_requests.clear()
         self.logger.info("Connection closed.")
 
     def run_polling(
@@ -305,7 +484,7 @@ class FileClient(BaseClient):
         :param local_path: 本地文件路径（绝对或相对路径）
         :param nas_path:  NAS文件绝对路径
         :param overwrite: 0跳过 1上传并覆盖 2保留两者
-        :return:
+        :return: dict(status_code, file_name, upload_name, url)
         """
         from pathlib import Path
         nas_path = Path(nas_path)
@@ -317,30 +496,36 @@ class FileClient(BaseClient):
         res = await self._checkUpload(local_path, nas_path.as_posix(), overwrite)
         uploadName = res.get('uploadName')
 
-        url = 'http://172.22.182.150:5666/upload'
+        if not self.base_url:
+            raise RuntimeError("尚未 connect，无法确定上传地址（base_url 为空）")
+        url = f'{self.base_url}/upload'
         headers = {
-            'Referer': 'http://172.22.182.150:5666/p/assets/upload.worker-CPfLJtMs.js',
+            'Referer': f'{self.base_url}/p/assets/upload.worker.js',
             'Trim-Overwrite': str(overwrite),
             'Trim-Token': self.token,
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+                          '(KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
             'Accept': 'application/json, text/plain, */*',
             'Trim-Mtim': mtim,
             'Trim-Path': f'{folder}/{uploadName}',
-            # 'origin': 'http://192.168.1.4:5666',
-            # 'referer': 'http://192.168.1.4:5666/',
         }
         headers['Trim-Sign'] = get_signature(headers['Trim-Path'], self.sign_key)
         import requests
         import mimetypes
         mime_type, encoding = mimetypes.guess_type(local_path)
-        files = {
-            "trim-upload-file": (file_name, open(local_path, 'rb'), mime_type)
+        with open(local_path, 'rb') as fp:
+            files = {"trim-upload-file": (file_name, fp, mime_type)}
+            res = requests.post(url=url, headers=headers, files=files)
+        self.logger.info(f"upload {file_name} -> {res.status_code}")
+        return {
+            'status_code': res.status_code,
+            'file_name': file_name,
+            'upload_name': uploadName,
+            'url': url,
         }
-        res = requests.post(url=url, headers=headers, files=files)
-        print(res.status_code, file_name)
 
     # async def download(self):
-    #     # http://192.168.1.4:5666/multiple-download?token=REDACTED-TOKEN
+    #     # http://192.168.1.4:5666/multiple-download?token=0
     #     pass
 
     async def _checkUpload(self, local_path, nas_path, overwrite=2):
@@ -573,7 +758,8 @@ class EmptyClient(BaseClient):
         pass
 
 
-class FnOsClient(FileClient, MainClient, EmptyClient, DownloadClient):
+class FnOsClient(FileClient, MainClient, SystemApiMixin, StorageApiMixin, FileOpsApiMixin,
+                 ShareApiMixin, EmptyClient, DownloadClient):
     """
     这里有个坑， 以后增加客户端， 请在EmptyClient前面继承
     如果在EmptyClient后面继承，就会调用BaseClient的_init
@@ -581,6 +767,9 @@ class FnOsClient(FileClient, MainClient, EmptyClient, DownloadClient):
     所以写了一个EmptyClient, 让它不调用BaseClient的_init
     此时的MRO是FnOsClient=>MainClient=>FileClient=>EmptyClient=>BaseClient ...
     由于EmptyClient没有调用super()._init() 所以不会调用到BaseClient的_init
+
+    SystemApiMixin / StorageApiMixin / FileOpsApiMixin / ShareApiMixin 是只加方法的封装层
+    （sdk/api/curated.py），放在 EmptyClient 前面，不影响 _init 链路。
     """
 
     async def _init(self):

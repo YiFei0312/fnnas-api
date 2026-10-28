@@ -1,0 +1,3453 @@
+{
+  "generated_at": "2026-10-17 16:25:44",
+  "meta": {
+    "source": "data\\web-cache\\p, data\\web-cache\\assets",
+    "base": "http://192.168.1.10:5666",
+    "auth_header": "authx",
+    "auth_key": "EAECCF25-80A6-4666-A7C2-A76904A74AB6",
+    "auth_key_file": "DwoaW7jboWaGEYYE.js",
+    "auth_cookie": "fnos-token",
+    "note": "真实地址 = base + /p + 路径；请求头 authx + Cookie: fnos-token=<WS登录token>",
+    "param_extracted_at": "2026-10-17 16:25:45",
+    "probed_at": "2026-10-17 16:25:51",
+    "probe_account": "demo-user",
+    "probe_note": "cookie fnos-token + authx 签名；GET 全量实测，写接口只测可逆场景（建/改/删相册）"
+  },
+  "endpoints": [
+    {
+      "api": "settingAIApi",
+      "name": "checkRequirement",
+      "kind": "query",
+      "url": "/api/v1/ai-base/check-requirement",
+      "method": "GET",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "cpu",
+        "cpuPassed",
+        "cpuRequirement",
+        "memory",
+        "memoryPassed",
+        "memoryRequirement",
+        "passed"
+      ],
+      "probe_sample": "{\"cpu\": \"Genuine Intel(R) 0000\", \"cpuRequirement\": \"\", \"cpuPassed\": true, \"memory\": \"64GB\", \"memoryRequirement\": \"2GB\", \"memoryPassed\": true, \"passed\": true}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "settingAIApi",
+      "name": "setDataVol",
+      "kind": "mutation",
+      "url": "/api/v1/ai-base/data-vol",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "setGPU",
+      "kind": "mutation",
+      "url": "/api/v1/ai-base/gpu",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "getGPU",
+      "kind": "query",
+      "url": "/api/v1/ai-base/gpus",
+      "method": "GET",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": [{\"id\": \"gpu-42888-0-0\", \"name\": \"Intel UHD Graphics\"}, {\"id\": \"gpu-22176-0-0\", \"name\": \"Intel Arc(TM) A770 Graphics\"}]}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "settingAIApi",
+      "name": "initAIAction",
+      "kind": "mutation",
+      "url": "/api/v1/ai-base/init",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "getBaseSetting",
+      "kind": "query",
+      "url": "/api/v1/ai-base/setting",
+      "method": "GET",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "dataVol",
+        "gpuId",
+        "hasOfficialPkg",
+        "internalAIFaceModelName",
+        "internalAISmartRecModelName"
+      ],
+      "probe_sample": "{\"dataVol\": 1, \"gpuId\": \"gpu-42888-0-0\", \"hasOfficialPkg\": false, \"internalAIFaceModelName\": \"\", \"internalAISmartRecModelName\": \"\"}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "settingAIApi",
+      "name": "validateGPU",
+      "kind": "mutation",
+      "url": "/api/v1/ai-base/validate-gpu",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "cancelInstallFaceModel",
+      "kind": "mutation",
+      "url": "/api/v1/ai-face/cancel-install",
+      "method": "POST",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "getAIFaceRunParamsDefault",
+      "kind": "query",
+      "url": "/api/v1/ai-face/default-run-params",
+      "method": "GET",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "detConfidence",
+        "eps",
+        "minSamples"
+      ],
+      "probe_sample": "{\"detConfidence\": 0.65, \"eps\": 0.36, \"minSamples\": 5}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "settingAIApi",
+      "name": "enabledAIFace",
+      "kind": "mutation",
+      "url": "/api/v1/ai-face/enabled",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "installAIFace",
+      "kind": "mutation",
+      "url": "/api/v1/ai-face/install",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "getAIFaceInstallOptions",
+      "kind": "query",
+      "url": "/api/v1/ai-face/install-options",
+      "method": "GET",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "models"
+      ],
+      "probe_sample": "{\"models\": [{\"category\": \"face\", \"name\": \"GeneralV1.0.1\", \"size\": \"medium\", \"title\": \"人脸识别\", \"description\": \"\\\"人脸识别\\\"功能将识别照片和视频中的人脸，并将同一个人的照片和视频聚合成人物相册。若关闭，新添加的照片和视频将不会执行人脸识别任务，但已识别的人物仍会保留。\", \"supportedLanguages\": null, \"available\": true}]}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "settingAIApi",
+      "name": "startRunAIFaceTask",
+      "kind": "mutation",
+      "url": "/api/v1/ai-face/run",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [
+        "allowGpuDecoding",
+        "selectedGpuSequence",
+        "allowCpuDecoding"
+      ],
+      "params_keys_loose": [
+        "id",
+        "taskId",
+        "taskType",
+        "to",
+        "replace",
+        "state",
+        "parentFolderPath",
+        "childFolderPaths",
+        "isNeedReRunAll",
+        "files",
+        "isFolderView",
+        "onUploaded",
+        "albumId"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{allowGpuDecoding:e?`allow`:`deny`,selectedGpuSequence:c.length>0&&!(!(o==null||(t=o.data)==null)&&t.selectedGpuSequence)&&e?c[0].sequence:void 0}",
+        "{allowGpuDecoding:`allow`,selectedGpuSequence:e}",
+        "{allowCpuDecoding:e?`allow`:`deny`}"
+      ]
+    },
+    {
+      "api": "settingAIApi",
+      "name": "updateAIFaceRunParams",
+      "kind": "mutation",
+      "url": "/api/v1/ai-face/run-params",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "getAIFaceStatus",
+      "kind": "query",
+      "url": "/api/v1/ai-face/status",
+      "method": "GET",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [
+        "ids"
+      ],
+      "params_keys_loose": [
+        "checkDisabled",
+        "showFiles"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{ids:[t]}"
+      ],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "detConfidence",
+        "enabled",
+        "eps",
+        "installProcess",
+        "installed",
+        "installedModelName",
+        "minSamples",
+        "pkgProcess"
+      ],
+      "probe_sample": "{\"enabled\": true, \"installed\": true, \"installedModelName\": \"GeneralV1.0.1\", \"installProcess\": null, \"pkgProcess\": null, \"detConfidence\": 0.65, \"eps\": 0.36, \"minSamples\": 5}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "settingAIApi",
+      "name": "unInstallAIFaceModel",
+      "kind": "mutation",
+      "url": "/api/v1/ai-face/uninstall",
+      "method": "POST",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "exploreApi",
+      "name": "addFaceToPerson",
+      "kind": "mutation",
+      "url": "/api/v1/ai-person/addFacesToPerson",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "exploreApi",
+      "name": "createPerson",
+      "kind": "mutation",
+      "url": "/api/v1/ai-person/create",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "exploreApi",
+      "name": "getPerson",
+      "kind": "query",
+      "url": "/api/v1/ai-person/detail",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "id"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "birthday",
+        "faceId",
+        "id",
+        "isHide",
+        "itemCount",
+        "name",
+        "photoCount",
+        "updatedAt",
+        "videoCount"
+      ],
+      "probe_sample": "{\"id\": 7, \"name\": \"\", \"faceId\": 108, \"itemCount\": 59, \"photoCount\": 59, \"videoCount\": 0, \"birthday\": \"0001-01-01T00:00:00Z\", \"isHide\": false, \"updatedAt\": 0}",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "id": 7
+      }
+    },
+    {
+      "api": "exploreApi",
+      "name": "getPersons",
+      "kind": "query",
+      "url": "/api/v1/ai-person/list",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [
+        "direction",
+        "initialPageParam"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{...x,direction:e,initialPageParam:t,refetchCachedPages:r}"
+      ],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": [{\"id\": 7, \"name\": \"\", \"faceId\": 108, \"itemCount\": 59, \"birthday\": \"0001-01-01T00:00:00Z\", \"isHide\": false, \"updatedAt\": 0}, {\"id\": 1, \"name\": \"\", \"faceId\": 8, \"itemCount\": 35, \"birthday\": \"0001-01-01T00:00:00Z\", \"isHide\": false, \"updatedAt\": 0}, {\"id\": 9, \"name\": \"\", \"faceId\": 407, \"itemCount\": 24, \"birthday\": \"0001-01-01T00:00:00Z\", \"isHide\": false, \"updatedAt\": 0}, {\"id\": 10, \"name\": \"",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "exploreApi",
+      "name": "mergePersons",
+      "kind": "mutation",
+      "url": "/api/v1/ai-person/mergePeople",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "id",
+        "candidateList"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{id:Number(t),candidateList:Array.from(e.keys()).filter(e=>e!==Number(t))}"
+      ]
+    },
+    {
+      "api": "exploreApi",
+      "name": "getPersonTimeline",
+      "kind": "query",
+      "url": "/api/v1/ai-person/photoLibrary/timeLine",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "id",
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list",
+        "nasDate"
+      ],
+      "probe_sample": "{\"list\": [{\"year\": 2026, \"month\": 5, \"day\": 14, \"itemCount\": 1}, {\"year\": 2026, \"month\": 2, \"day\": 22, \"itemCount\": 2}, {\"year\": 2026, \"month\": 2, \"day\": 10, \"itemCount\": 1}, {\"year\": 2026, \"month\": 1, \"day\": 28, \"itemCount\": 1}, {\"year\": 2026, \"month\": 1, \"day\": 27, \"itemCount\": 1}, {\"year\": 2025, \"month\": 10, \"day\": 31, \"itemCount\": 1}, {\"year\": 2025, \"month\": 6, \"day\": 21, \"itemCount\": 37}, {\"y",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "id": 7,
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "exploreApi",
+      "name": "posterFromPhoto",
+      "kind": "mutation",
+      "url": "/api/v1/ai-person/posterFromPhoto",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "id",
+        "userPhotoId"
+      ],
+      "params_keys_loose": [
+        "photoUUID"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{id:F.albumId,userPhotoId:b.id}"
+      ]
+    },
+    {
+      "api": "exploreApi",
+      "name": "removePerson",
+      "kind": "mutation",
+      "url": "/api/v1/ai-person/remove",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "ids"
+      ],
+      "params_keys_loose": [
+        "to",
+        "reloadDocument",
+        "state",
+        "folderPath",
+        "desc",
+        "orderBy",
+        "limit",
+        "offset",
+        "initalPersonIds",
+        "personData",
+        "id",
+        "name",
+        "candidateList",
+        "visibleList",
+        "hiddenList"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{ids:n}"
+      ]
+    },
+    {
+      "api": "exploreApi",
+      "name": "removeFacesFromPerson",
+      "kind": "mutation",
+      "url": "/api/v1/ai-person/removeFacesFromPerson",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "exploreApi",
+      "name": "removePhotoFromPerson",
+      "kind": "mutation",
+      "url": "/api/v1/ai-person/removePhotosFromPerson",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "personId",
+        "userPhotoIds"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{personId:Number(b),userPhotoIds:Array.from(t.keys())}",
+        "{personId:F.albumId,userPhotoIds:[b.id]}"
+      ]
+    },
+    {
+      "api": "exploreApi",
+      "name": "renamePerson",
+      "kind": "mutation",
+      "url": "/api/v1/ai-person/rename",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "id",
+        "name"
+      ],
+      "params_keys_loose": [
+        "oldDir",
+        "newDir",
+        "force",
+        "repeatStrategy",
+        "overwriteStrategy",
+        "ids",
+        "photoUUID",
+        "size",
+        "autoSearch",
+        "files",
+        "onUploaded",
+        "title",
+        "clsConfig",
+        "creatable",
+        "showFiles",
+        "disabledPaths",
+        "onNewFolderCreateHandler",
+        "to",
+        "params",
+        "replace"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{id:r,name:a}"
+      ]
+    },
+    {
+      "api": "exploreApi",
+      "name": "separatePhotoFromPerson",
+      "kind": "mutation",
+      "url": "/api/v1/ai-person/separatePhotoFromPerson",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "personId",
+        "userPhotoIds"
+      ],
+      "params_keys_loose": [
+        "ids",
+        "queryCb",
+        "id",
+        "albumId",
+        "name",
+        "to",
+        "params"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{personId:t,userPhotoIds:n}"
+      ]
+    },
+    {
+      "api": "exploreApi",
+      "name": "setVisibility",
+      "kind": "mutation",
+      "url": "/api/v1/ai-person/setVisibility",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "visibleList",
+        "hiddenList"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{visibleList:[...X.keys()],hiddenList:[]}"
+      ]
+    },
+    {
+      "api": "exploreApi",
+      "name": "transferPhotoToPerson",
+      "kind": "mutation",
+      "url": "/api/v1/ai-person/transferPhotosFromPerson",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "cancelInstallSmartRecModel",
+      "kind": "mutation",
+      "url": "/api/v1/ai-smart-rec/cancel-install",
+      "method": "POST",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [
+        "props",
+        "current",
+        "keyframes"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{props:r,current:e,...o}",
+        "{...e,keyframes:[0,t]}"
+      ]
+    },
+    {
+      "api": "exploreApi",
+      "name": "getAiCategories",
+      "kind": "query",
+      "url": "/api/v1/ai-smart-rec/categories",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [],
+      "params_keys_loose": [
+        "data",
+        "ind",
+        "pos",
+        "key",
+        "parentPos",
+        "level"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{data:Object.assign({},n),ind:o,pos:l,key:e===null?l:e,parentPos:s.node?s.pos:null,level:Number(s.level)+1}"
+      ],
+      "probe_code": 400,
+      "probe_msg": "invalid params",
+      "probe_keys": "NoneType",
+      "probe_sample": "null",
+      "probe": "HTTP 200 / code 400 invalid params"
+    },
+    {
+      "api": "settingAIApi",
+      "name": "enabledCategory",
+      "kind": "mutation",
+      "url": "/api/v1/ai-smart-rec/category-enabled",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "getSmartRecRunParamsDefault",
+      "kind": "query",
+      "url": "/api/v1/ai-smart-rec/default-run-params",
+      "method": "GET",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "similarityThreshold"
+      ],
+      "probe_sample": "{\"similarityThreshold\": 0.15}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "settingAIApi",
+      "name": "enabledAISmartRec",
+      "kind": "mutation",
+      "url": "/api/v1/ai-smart-rec/enabled",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "installAISmartRec",
+      "kind": "mutation",
+      "url": "/api/v1/ai-smart-rec/install",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "getAISmartRecInstallOptions",
+      "kind": "query",
+      "url": "/api/v1/ai-smart-rec/install-options",
+      "method": "GET",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "defaultModelName",
+        "models"
+      ],
+      "probe_sample": "{\"models\": [{\"category\": \"imgTxtRec\", \"name\": \"Large\", \"size\": \"large\", \"title\": \"增强模型（推荐）\", \"description\": \"支持中文和英文搜索，识别效果更好，准确率更高，适合以中文和英文为主的使用场景。\", \"supportedLanguages\": [\"zh-CN\", \"en-US\"], \"available\": true}, {\"category\": \"imgTxtRec\", \"name\": \"Medium\", \"size\": \"medium\", \"title\": \"基础模型\", \"description\": \"支持中文和英文搜索，适合日常使用，识别结果稳定，能够满足大多数基础检索需求。\", \"supportedLanguages\": [\"zh-CN\", \"en-US\"], \"availabl",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "settingAIApi",
+      "name": "startRunAISmartRecTask",
+      "kind": "mutation",
+      "url": "/api/v1/ai-smart-rec/run",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [
+        "ABORT",
+        "AFTER_DEFINITION_CHANGE",
+        "AUTOPLAY_PREVENTED",
+        "AUTOPLAY_STARTED",
+        "BEFORE_DEFINITION_CHANGE",
+        "BUFFER_CHANGE",
+        "CANPLAY",
+        "CANPLAY_THROUGH",
+        "COMPLETE",
+        "CSS_FULLSCREEN_CHANGE",
+        "DEFINITION_CHANGE",
+        "DESTROY",
+        "DOWNLOAD_SPEED_CHANGE",
+        "DURATION_CHANGE",
+        "EMPTIED",
+        "ENDED",
+        "ENTER_PLAYER",
+        "ERROR",
+        "FPS_STUCK",
+        "FULLSCREEN_CHANGE"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{ABORT:()=>An,AFTER_DEFINITION_CHANGE:()=>Zn,AUTOPLAY_PREVENTED:()=>Ln,AUTOPLAY_STARTED:()=>In,BEFORE_DEFINITION_CHANGE:()=>Xn,BUFFER_CHANGE:()=>jn,CANPLAY:()=>vn,CANPLAY_THROUGH:(",
+        "{frag:e,part:null,payload:i,networkDetails:a}"
+      ]
+    },
+    {
+      "api": "settingAIApi",
+      "name": "updateSmartRecRunParams",
+      "kind": "mutation",
+      "url": "/api/v1/ai-smart-rec/run-params",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "enabledCheckSimilar",
+      "kind": "mutation",
+      "url": "/api/v1/ai-smart-rec/similarity-enabled",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "getAISmartRecStatus",
+      "kind": "query",
+      "url": "/api/v1/ai-smart-rec/status",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "categoryEnabled",
+        "enabled",
+        "hasReced",
+        "hasRemain",
+        "installProcess",
+        "installed",
+        "installedModelName",
+        "pkgProcess",
+        "similarityThreshold",
+        "videoEnabled"
+      ],
+      "probe_sample": "{\"enabled\": true, \"categoryEnabled\": true, \"videoEnabled\": true, \"similarityThreshold\": 0.15, \"installed\": true, \"installedModelName\": \"Large\", \"installProcess\": null, \"pkgProcess\": null, \"hasRemain\": null, \"hasReced\": null}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "settingAIApi",
+      "name": "unInstallAISmartRecModel",
+      "kind": "mutation",
+      "url": "/api/v1/ai-smart-rec/uninstall",
+      "method": "POST",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "updateSmartCategory",
+      "kind": "mutation",
+      "url": "/api/v1/ai-smart-rec/update-smart-category",
+      "method": "POST",
+      "fields": [],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "settingAIApi",
+      "name": "enabledVideoRec",
+      "kind": "mutation",
+      "url": "/api/v1/ai-smart-rec/video-enabled",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "HSeTM5F1A3GjBo0c2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "albumApi",
+      "name": "getBabyAlbumTimeline",
+      "kind": "query",
+      "url": "/api/v1/album/baby/timeline",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe": "跳过（本次没有可用的 id 参数）"
+    },
+    {
+      "api": "albumApi",
+      "name": "addConditionalAlbum",
+      "kind": "mutation",
+      "url": "/api/v1/album/condition/add",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "albumApi",
+      "name": "getConditionalAlbumList",
+      "kind": "query",
+      "url": "/api/v1/album/condition/list",
+      "method": "GET",
+      "fields": [
+        "params",
+        "providesTags"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 400,
+      "probe_msg": "invalid params",
+      "probe_keys": "NoneType",
+      "probe_sample": "null",
+      "probe": "HTTP 200 / code 400 invalid params"
+    },
+    {
+      "api": "albumApi",
+      "name": "delConditionalAlbum",
+      "kind": "mutation",
+      "url": "/api/v1/album/condition/remove",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "albumApi",
+      "name": "addAlbum",
+      "kind": "mutation",
+      "url": "/api/v1/album/create",
+      "method": "POST",
+      "fields": [
+        "body",
+        "invalidatesTags"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "album_name",
+        "ids"
+      ],
+      "params_keys_loose": [],
+      "param_source": "inline",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "albumId",
+        "repeatCount",
+        "successCount"
+      ],
+      "probe_sample": "{\"albumId\": 7, \"repeatCount\": 0, \"successCount\": 0}",
+      "probe": "HTTP 200 / code 0",
+      "probe_body": {
+        "album_name": "fnapi-test-1792225551",
+        "ids": []
+      }
+    },
+    {
+      "api": "albumApi",
+      "name": "delete",
+      "kind": "mutation",
+      "url": "/api/v1/album/delete",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "album_id"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": "NoneType",
+      "probe_sample": "null",
+      "probe": "HTTP 200 / code 0",
+      "probe_body": {
+        "album_id": 7
+      }
+    },
+    {
+      "api": "albumApi",
+      "name": "downLoadAll",
+      "kind": "query",
+      "url": "/api/v1/album/download/all",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "albumApi",
+      "name": "getItem",
+      "kind": "query",
+      "url": "/api/v1/album/item",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "album_id"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe": "HTTP 200 / code 0",
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "albumId",
+        "albumName",
+        "babyDay",
+        "babyMonth",
+        "babyYear",
+        "birthday",
+        "category",
+        "displayType",
+        "endDateTime",
+        "grantPermission",
+        "grants",
+        "hasOtherUserPhoto",
+        "lunarDay",
+        "lunarMonth",
+        "ownerId",
+        "ownerName",
+        "photoCount",
+        "posterImgUrl",
+        "posterUrl",
+        "readableUsers",
+        "shared",
+        "source",
+        "specialNode",
+        "startDateTime",
+        "videoCount"
+      ],
+      "probe_sample": "{\"albumId\": 7, \"albumName\": \"sample\", \"source\": \"user\", \"photoCount\": 0, \"videoCount\": 0, \"posterUrl\": \"\", \"posterImgUrl\": \"\", \"startDateTime\": \"\", \"endDateTime\": \"\", \"shared\": 0, \"ownerId\": 1, \"ownerName\": \"demo-user\", \"grants\": [], \"hasOtherUserPhoto\": false, \"grantPermission\": \"\", \"readableUsers\": null, \"category\": 0, \"birthday\": \"\", \"displayType\": 0, \"babyYear\": 0, \"babyMonth\": 0, \"",
+      "probe_params": {
+        "album_id": 7
+      }
+    },
+    {
+      "api": "albumApi",
+      "name": "getList",
+      "kind": "query",
+      "url": "/api/v1/album/list",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "sort_direction",
+        "sort_by",
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [],
+      "param_source": "inline",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": []}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "albumApi",
+      "name": "getAlbumTimeline",
+      "kind": "query",
+      "url": "/api/v1/album/normal/timeline",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "startTime",
+        "endTime",
+        "albumId"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe": "HTTP 200 / code 0",
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list",
+        "nasDate"
+      ],
+      "probe_sample": "{\"list\": [], \"nasDate\": \"2026-10-17\"}",
+      "probe_params": {
+        "startTime": "2026:10:04 00:00:00",
+        "endTime": "2026:10:04 23:59:59",
+        "albumId": 7
+      }
+    },
+    {
+      "api": "albumApi",
+      "name": "getAlbumsByPhoto",
+      "kind": "query",
+      "url": "/api/v1/album/photo/belong",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "album_id"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": null}",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "album_id": 7
+      }
+    },
+    {
+      "api": "albumApi",
+      "name": "deletePhotoFromAlbum",
+      "kind": "mutation",
+      "url": "/api/v1/album/photo/remove",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "ids",
+        "album_id"
+      ],
+      "params_keys_loose": [
+        "id",
+        "taskId",
+        "taskType",
+        "oldDir",
+        "onRefresh",
+        "onScan",
+        "source",
+        "albumId",
+        "onUploaded"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{ids:r,album_id:n}"
+      ],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": "NoneType",
+      "probe_sample": "null",
+      "probe": "HTTP 200 / code 0",
+      "probe_body": {
+        "ids": [
+          6958
+        ],
+        "album_id": 7
+      }
+    },
+    {
+      "api": "albumApi",
+      "name": "remove",
+      "kind": "mutation",
+      "url": "/api/v1/album/remove",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "albumApi",
+      "name": "updateName",
+      "kind": "mutation",
+      "url": "/api/v1/album/update/name",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "album_id",
+        "album_name"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": "NoneType",
+      "probe_sample": "null",
+      "probe": "HTTP 200 / code 0",
+      "probe_body": {
+        "album_id": 7,
+        "album_name": "fnapi-test-1792225551-renamed"
+      }
+    },
+    {
+      "api": "albumApi",
+      "name": "updatePoster",
+      "kind": "mutation",
+      "url": "/api/v1/album/update/poster",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "album_id",
+        "id"
+      ],
+      "params_keys_loose": [
+        "albumId",
+        "conditionSettings"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{album_id:t.albumId,id:e[0]}",
+        "{album_id:Number(l),id:e[0]}"
+      ]
+    },
+    {
+      "api": "albumApi",
+      "name": "updateAlbumSetting",
+      "kind": "mutation",
+      "url": "/api/v1/album/update/setting",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "albumId",
+        "conditionSettings"
+      ],
+      "params_keys_loose": [
+        "album_id",
+        "id"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{albumId:t,conditionSettings:{relatedPersonIds:n,relatedFolderPaths:[],relatedTagIds:[]}}"
+      ]
+    },
+    {
+      "api": "shareApi",
+      "name": "cancel",
+      "kind": "query",
+      "url": "/api/v1/album_grant/cancel",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "B8RasvHeFEYlBmIA2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "shareApi",
+      "name": "create",
+      "kind": "query",
+      "url": "/api/v1/album_grant/create",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "B8RasvHeFEYlBmIA2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "shareApi",
+      "name": "getAlbumGrantListMine",
+      "kind": "query",
+      "url": "/api/v1/album_grant/list_mine",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "B8RasvHeFEYlBmIA2.js",
+      "params_keys": [
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [
+        "props",
+        "current",
+        "keyframes"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{props:r,current:e,...o}",
+        "{...e,keyframes:[0,t]}"
+      ],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "count",
+        "hasNext",
+        "list"
+      ],
+      "probe_sample": "{\"count\": null, \"hasNext\": null, \"list\": []}",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "shareApi",
+      "name": "getAlbumGrantListToMe",
+      "kind": "query",
+      "url": "/api/v1/album_grant/list_to_me",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "B8RasvHeFEYlBmIA2.js",
+      "params_keys": [
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "count",
+        "hasNext",
+        "list"
+      ],
+      "probe_sample": "{\"count\": null, \"hasNext\": null, \"list\": []}",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "shareApi",
+      "name": "update",
+      "kind": "query",
+      "url": "/api/v1/album_grant/update",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "B8RasvHeFEYlBmIA2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "userApi",
+      "name": "getVersion",
+      "kind": "query",
+      "url": "/api/v1/app/version",
+      "method": "GET",
+      "fields": [],
+      "asset": "Dz2k_qXzEWCaMrm32.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "version"
+      ],
+      "probe_sample": "{\"version\": \"0.9.13\"}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "userApi",
+      "name": "getSetting",
+      "kind": "query",
+      "url": "/api/v1/config/detail",
+      "method": "GET",
+      "fields": [],
+      "asset": "Dz2k_qXzEWCaMrm32.js",
+      "params_keys": [],
+      "params_keys_loose": [
+        "props",
+        "current",
+        "keyframes"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{props:r,current:e,...o}",
+        "{...e,keyframes:[0,t]}"
+      ],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "overwriteStrategy",
+        "repeatStrategy"
+      ],
+      "probe_sample": "{\"repeatStrategy\": \"ignore\", \"overwriteStrategy\": \"\"}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "userApi",
+      "name": "updateSetting",
+      "kind": "mutation",
+      "url": "/api/v1/config/update",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Dz2k_qXzEWCaMrm32.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "exploreApi",
+      "name": "getGeos",
+      "kind": "query",
+      "url": "/api/v1/explore/geos",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "count",
+        "hasNext",
+        "list"
+      ],
+      "probe_sample": "{\"count\": null, \"hasNext\": null, \"list\": [{\"country\": \"中国\", \"city\": \"武汉市\", \"itemCount\": 323, \"posterUrl\": \"/p/api/v1/stream/p/t/952/s/899b27f4-1649-43cd-9d48-935595427abd\"}, {\"country\": \"中国\", \"city\": \"鄂州市\", \"itemCount\": 24, \"posterUrl\": \"/p/api/v1/stream/p/t/2554/s/2c73c9f0-54fb-4cce-9cc0-0384f081918f\"}, {\"country\": \"中国\", \"city\": \"十堰市\", \"itemCount\": 9, \"posterUrl\": \"/p/api/v1/stream/p/t/2674/s/2cd",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "exploreApi",
+      "name": "getRecentPhotosTimeline",
+      "kind": "query",
+      "url": "/api/v1/explore/recent_timeline",
+      "method": "GET",
+      "fields": [],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [
+        "queryArgs",
+        "endpointDefinition"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{queryArgs:n,endpointDefinition:K(a,t),endpointName:t}",
+        "{queryArgs:c,endpointDefinition:a,endpointName:r}"
+      ],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list",
+        "nasDate"
+      ],
+      "probe_sample": "{\"list\": [{\"year\": 2026, \"month\": 10, \"day\": 4, \"itemCount\": 644}, {\"year\": 2026, \"month\": 9, \"day\": 21, \"itemCount\": 6881}], \"nasDate\": \"2026-10-17\"}",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "exploreApi",
+      "name": "getTags",
+      "kind": "query",
+      "url": "/api/v1/explore/tags",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "count",
+        "hasNext",
+        "list"
+      ],
+      "probe_sample": "{\"count\": null, \"hasNext\": null, \"list\": []}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "folderViewApi",
+      "name": "copyFolderOrFile",
+      "kind": "mutation",
+      "url": "/api/v1/file/copy",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "folderViewApi",
+      "name": "removeFolderOrFile",
+      "kind": "mutation",
+      "url": "/api/v1/file/delete",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "folderViewApi",
+      "name": "moveFolderOrFile",
+      "kind": "mutation",
+      "url": "/api/v1/file/move",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "folderViewApi",
+      "name": "renameFolderOrFile",
+      "kind": "mutation",
+      "url": "/api/v1/file/rename",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "folderViewApi",
+      "name": "cancelTask",
+      "kind": "mutation",
+      "url": "/api/v1/file/task/cancel",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "folderViewApi",
+      "name": "deleteTask",
+      "kind": "mutation",
+      "url": "/api/v1/file/task/delete",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "serverApi",
+      "name": "reIdentifyMotionPhoto",
+      "kind": "mutation",
+      "url": "/api/v1/fixer/photoType",
+      "method": "POST",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "serverApi",
+      "name": "getReIdentifyMotionPhotoStatus",
+      "kind": "query",
+      "url": "/api/v1/fixer/photoType/status",
+      "method": "GET",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": null,
+      "probe_msg": "",
+      "probe_keys": "NoneType",
+      "probe_sample": "null",
+      "probe": "HTTP 501 / code None "
+    },
+    {
+      "api": "folderViewApi",
+      "name": "getFolderPoster",
+      "kind": "query",
+      "url": "/api/v1/folder_view/cover",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "folderViewApi",
+      "name": "setFolderPoster",
+      "kind": "mutation",
+      "url": "/api/v1/folder_view/cover/setting",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "folderViewApi",
+      "name": "getFileList",
+      "kind": "query",
+      "url": "/api/v1/folder_view/getFileList",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list",
+        "total"
+      ],
+      "probe_sample": "{\"list\": [], \"total\": 0}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "folderViewApi",
+      "name": "getFolderList",
+      "kind": "query",
+      "url": "/api/v1/folder_view/getFolderList",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 4023,
+      "probe_msg": "Does not exist or no permission",
+      "probe_keys": "NoneType",
+      "probe_sample": "null",
+      "probe": "HTTP 200 / code 4023 Does not exist or no permission"
+    },
+    {
+      "api": "albumApi",
+      "name": "addPhoto",
+      "kind": "mutation",
+      "url": "/api/v1/gallery/addTo/album",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "ids",
+        "album_id",
+        "album_name",
+        "albumId"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose+inline",
+      "param_evidence": [
+        "{ids:e,albumId:n.albumId}"
+      ],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "albumId",
+        "albumName",
+        "repeatCount",
+        "successCount"
+      ],
+      "probe_sample": "{\"albumId\": 7, \"albumName\": \"sample\", \"repeatCount\": 1, \"successCount\": 1}",
+      "probe": "HTTP 200 / code 0",
+      "probe_body": {
+        "ids": [
+          6958
+        ],
+        "album_id": 7
+      }
+    },
+    {
+      "api": "galleryApi",
+      "name": "getList",
+      "kind": "query",
+      "url": "/api/v1/gallery/getList",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "start_time",
+        "end_time",
+        "limit",
+        "offset",
+        "mode"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "count",
+        "hasNext",
+        "list"
+      ],
+      "probe_sample": "{\"count\": null, \"hasNext\": null, \"list\": [{\"id\": 6958, \"ownerId\": 0, \"dateTime\": \"2026:10:04 16:30:20\", \"photoDateTime\": \"2026:10:04 16:30:20\", \"timeZoneOffset\": 480, \"fileType\": \"mp4\", \"isRaw\": false, \"category\": \"video\", \"fileName\": \"sample.MP4\", \"fileSize\": 4603763329, \"description\": \"\", \"isCollect\": 0, \"mp\": \"11.1MP\", \"filePath\": \"/vol3/1000/photo/sample/sample/sample",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "start_time": "2026:10:04 00:00:00",
+        "end_time": "2026:10:04 23:59:59",
+        "limit": 5,
+        "offset": 0,
+        "mode": "datetime"
+      }
+    },
+    {
+      "api": "galleryApi",
+      "name": "getOne",
+      "kind": "query",
+      "url": "/api/v1/gallery/getOne",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "id"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "additional",
+        "category",
+        "dateTime",
+        "description",
+        "fileName",
+        "filePath",
+        "fileSize",
+        "fileType",
+        "flash",
+        "height",
+        "id",
+        "isCanPreview",
+        "isCollect",
+        "isLive",
+        "isRaw",
+        "mediaDuration",
+        "mp",
+        "ownerId",
+        "ownerName",
+        "photoDateTime",
+        "photoUUID",
+        "rotation",
+        "showFilePath",
+        "thumbnailStatus",
+        "timeZoneOffset",
+        "width"
+      ],
+      "probe_sample": "{\"id\": 6958, \"ownerId\": 1, \"ownerName\": \"demo-user\", \"dateTime\": \"2026:10:04 16:30:20\", \"photoDateTime\": \"2026:10:04 16:30:20\", \"timeZoneOffset\": 480, \"fileType\": \"mp4\", \"isRaw\": false, \"category\": \"video\", \"fileName\": \"sample.MP4\", \"fileSize\": 4603763329, \"description\": \"\", \"isCollect\": 0, \"mp\": \"11.1MP\", \"filePath\": \"/vol3/1000/photo/sample/sample/sample",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "id": 6958
+      }
+    },
+    {
+      "api": "galleryApi",
+      "name": "getTimeline",
+      "kind": "query",
+      "url": "/api/v1/gallery/timeline",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list",
+        "nasDate"
+      ],
+      "probe_sample": "{\"list\": [{\"year\": 2026, \"month\": 10, \"day\": 4, \"itemCount\": 10}, {\"year\": 2026, \"month\": 10, \"day\": 2, \"itemCount\": 8}, {\"year\": 2026, \"month\": 9, \"day\": 30, \"itemCount\": 1}, {\"year\": 2026, \"month\": 9, \"day\": 16, \"itemCount\": 1}, {\"year\": 2026, \"month\": 9, \"day\": 7, \"itemCount\": 4}, {\"year\": 2026, \"month\": 9, \"day\": 6, \"itemCount\": 1}, {\"year\": 2026, \"month\": 9, \"day\": 5, \"itemCount\": 6}, {\"year\"",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "uploadApi",
+      "name": "heartBeat",
+      "kind": "mutation",
+      "url": "/api/v1/google_takeout/heartbeat",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "taskId"
+      ],
+      "params_keys_loose": [
+        "currPath",
+        "parentPath",
+        "treeData",
+        "ids",
+        "albumId",
+        "to",
+        "params",
+        "oldPersonId",
+        "newPersonId",
+        "userPhotoIds"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{taskId:e}",
+        "{taskId:e}"
+      ]
+    },
+    {
+      "api": "uploadApi",
+      "name": "noticeGoogleTakeoutUploaded",
+      "kind": "mutation",
+      "url": "/api/v1/google_takeout/notice",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "folderPath",
+        "taskId"
+      ],
+      "params_keys_loose": [
+        "code",
+        "errMsg",
+        "payload",
+        "photos",
+        "ids",
+        "queryCb",
+        "to",
+        "params",
+        "replace"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{folderPath:t,taskId:o}"
+      ]
+    },
+    {
+      "api": "uploadApi",
+      "name": "prepareGoogleTakeout",
+      "kind": "mutation",
+      "url": "/api/v1/google_takeout/prepare",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [
+        "ids",
+        "queryCb",
+        "id",
+        "albumId",
+        "name",
+        "to",
+        "params",
+        "personId",
+        "userPhotoIds"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{ids:t,queryCb:()=>{r(X())}}",
+        "{id:t.id}"
+      ]
+    },
+    {
+      "api": "userApi",
+      "name": "executeFixTask",
+      "kind": "mutation",
+      "url": "/api/v1/maintain/task/${e.taskType}",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Dz2k_qXzEWCaMrm32.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "mapApi",
+      "name": "getCenter",
+      "kind": "query",
+      "url": "/api/v1/map/preview/initCenter",
+      "method": "GET",
+      "fields": [],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "lat",
+        "lon"
+      ],
+      "probe_sample": "{\"lat\": \"35.9\", \"lon\": \"103.833\"}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "mapApi",
+      "name": "getBoundary",
+      "kind": "query",
+      "url": "/api/v1/map/preview/mapBoundary",
+      "method": "GET",
+      "fields": [],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "maxLat",
+        "maxLon",
+        "minLat",
+        "minLon"
+      ],
+      "probe_sample": "{\"minLat\": \"0.000000\", \"maxLat\": \"32.669410\", \"minLon\": \"0.000000\", \"maxLon\": \"114.907199\"}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "mapApi",
+      "name": "getTimeline",
+      "kind": "query",
+      "url": "/api/v1/map/timeLine",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 400,
+      "probe_msg": "invalid params",
+      "probe_keys": "NoneType",
+      "probe_sample": "null",
+      "probe": "HTTP 200 / code 400 invalid params"
+    },
+    {
+      "api": "exploreApi",
+      "name": "getMediaCategories",
+      "kind": "query",
+      "url": "/api/v1/media_category/list",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "Cwg-m-io2KF22IcJ.js",
+      "params_keys": [
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": [{\"id\": 1060, \"category\": 1, \"uuid\": \"8187e53a-b8b6-4dea-a922-4784423d4385\", \"count\": 7253}, {\"id\": 1060, \"category\": 8, \"uuid\": \"8187e53a-b8b6-4dea-a922-4784423d4385\", \"count\": 2091}, {\"id\": 6216, \"category\": 5, \"uuid\": \"7e9d45b6-6fb1-4827-9244-27f648466770\", \"count\": 391}, {\"id\": 6958, \"category\": 2, \"uuid\": \"b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0\", \"count\": 272}, {\"id\": 782, \"category\": ",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "serverApi",
+      "name": "addScanFolder",
+      "kind": "mutation",
+      "url": "/api/v1/photo/folder/add",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [
+        "folder_path",
+        "is_default"
+      ],
+      "params_keys_loose": [],
+      "param_source": "inline",
+      "param_evidence": []
+    },
+    {
+      "api": "userApi",
+      "name": "getBackupLocation",
+      "kind": "query",
+      "url": "/api/v1/photo/folder/defaultInit",
+      "method": "GET",
+      "fields": [],
+      "asset": "Dz2k_qXzEWCaMrm32.js",
+      "params_keys": [],
+      "params_keys_loose": [
+        "to"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{to:e}"
+      ],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "defaultBackupPath"
+      ],
+      "probe_sample": "{\"defaultBackupPath\": \"/vol3/1000/sample\"}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "serverApi",
+      "name": "getSelectedFolderList",
+      "kind": "query",
+      "url": "/api/v1/photo/folder/list",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": [{\"folderId\": 1, \"folderPath\": \"/vol3/1000/photo\", \"photoCount\": 7253, \"videoCount\": 272, \"status\": 1, \"isDefault\": true, \"hasWriteAccess\": {\"quotaCurr\": 0, \"quotaMax\": 6970623279104, \"hasWriteAccess\": true}}]}",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "serverApi",
+      "name": "addNewFolder",
+      "kind": "mutation",
+      "url": "/api/v1/photo/folder/new",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [
+        "to"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{to:e}"
+      ]
+    },
+    {
+      "api": "serverApi",
+      "name": "reConnectFolder",
+      "kind": "mutation",
+      "url": "/api/v1/photo/folder/reconnect",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "serverApi",
+      "name": "delScanFolder",
+      "kind": "mutation",
+      "url": "/api/v1/photo/folder/remove",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [
+        "folder_id"
+      ],
+      "params_keys_loose": [],
+      "param_source": "inline",
+      "param_evidence": []
+    },
+    {
+      "api": "serverApi",
+      "name": "getSelectedFolderManage",
+      "kind": "query",
+      "url": "/api/v1/photo/folder/view",
+      "method": "GET",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "myFile",
+        "otherShared",
+        "removables"
+      ],
+      "probe_sample": "{\"myFile\": [{\"folderId\": 1, \"folderPath\": \"/vol3/1000/photo\", \"photoCount\": 0, \"videoCount\": 0, \"status\": 1, \"isDefault\": true, \"hasWriteAccess\": {\"quotaCurr\": 0, \"quotaMax\": 0, \"hasWriteAccess\": false}}], \"otherShared\": [], \"removables\": []}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "uploadApi",
+      "name": "getUploadSupportList",
+      "kind": "query",
+      "url": "/api/v1/photo/support/list",
+      "method": "GET",
+      "fields": [],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": [\"rmvb\", \"webp\", \"nef\", \"mef\", \"3g2\", \"mp4\", \"mpg\", \"m2t\", \"srw\", \"xvid\", \"rm\", \"kc2\", \"qt\", \"raf\", \"erf\", \"mkv\", \"dng\", \"avif\", \"jpx\", \"mts\", \"avi\", \"jpeg\", \"kdc\", \"livp\", \"rw2\", \"mdc\", \"jp2\", \"asf\", \"mpeg\", \"m2ts\", \"vob\", \"3fr\", \"rwl\", \"ts\", \"arw\", \"cr2\", \"crw\", \"nrw\", \"orf\", \"dcs\", \"divx\", \"mov\", \"cr3\", \"mos\", \"dat\", \"sr2\", \"dcr\", \"k25\", \"mrw\", \"raw\", \"gif\", \"ptx\", \"drf\", \"wmv\", \"f4v\",",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "uploadApi",
+      "name": "getUploadPath",
+      "kind": "query",
+      "url": "/api/v1/photo/upload/path",
+      "method": "GET",
+      "fields": [],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "deviceBackupPath",
+        "uploadPath"
+      ],
+      "probe_sample": "{\"deviceBackupPath\": \"\", \"uploadPath\": \"/vol3/1000/photo/.@#local\"}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "tagApi",
+      "name": "addTag",
+      "kind": "mutation",
+      "url": "/api/v1/preview/tag/add",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "tag_name",
+        "tagName"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose+inline",
+      "param_evidence": [
+        "{tagName:e}"
+      ]
+    },
+    {
+      "api": "tagApi",
+      "name": "addForPhoto",
+      "kind": "mutation",
+      "url": "/api/v1/preview/tag/addForPhoto",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "ids",
+        "tag_ids"
+      ],
+      "params_keys_loose": [],
+      "param_source": "inline",
+      "param_evidence": []
+    },
+    {
+      "api": "tagApi",
+      "name": "delForPhoto",
+      "kind": "mutation",
+      "url": "/api/v1/preview/tag/delForPhoto",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "ids",
+        "tag_ids"
+      ],
+      "params_keys_loose": [],
+      "param_source": "inline",
+      "param_evidence": []
+    },
+    {
+      "api": "galleryApi",
+      "name": "updateDateTime",
+      "kind": "mutation",
+      "url": "/api/v1/preview/update/dateTime",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "ids",
+        "date_time",
+        "time_zone_offset",
+        "dateTime",
+        "timeZoneOffset"
+      ],
+      "params_keys_loose": [
+        "photos",
+        "files",
+        "onUploaded",
+        "okButtonProps"
+      ],
+      "param_source": "call_site+call_site_loose+inline",
+      "param_evidence": [
+        "{ids:n,dateTime:a,timeZoneOffset:i.timezone}"
+      ]
+    },
+    {
+      "api": "mapApi",
+      "name": "updateGeo",
+      "kind": "mutation",
+      "url": "/api/v1/preview/update/geo",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "ids",
+        "latitude",
+        "longitude",
+        "poiId"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{ids:c,latitude:String(a),longitude:String(i),poiId:A||void 0}"
+      ]
+    },
+    {
+      "api": "recycleApi",
+      "name": "addToRecycleBin",
+      "kind": "mutation",
+      "url": "/api/v1/recycle-bin/add",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "ids"
+      ],
+      "params_keys_loose": [
+        "toAlbumDetailPage",
+        "onRefresh",
+        "oldDir",
+        "shareLinkPurview",
+        "gpuId",
+        "files",
+        "onUploaded",
+        "isFolderView",
+        "folderPath",
+        "isSelected",
+        "id",
+        "photoUUID",
+        "size",
+        "index2",
+        "index3",
+        "albumId",
+        "grants",
+        "name",
+        "successCount",
+        "total"
+      ],
+      "param_source": "call_site+call_site_loose+inline",
+      "param_evidence": [
+        "{ids:n}",
+        "{ids:[e]}"
+      ]
+    },
+    {
+      "api": "recycleApi",
+      "name": "cleanAll",
+      "kind": "mutation",
+      "url": "/api/v1/recycle-bin/clean-all",
+      "method": "POST",
+      "fields": [],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [
+        "ids"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{ids:n}",
+        "{ids:n}"
+      ]
+    },
+    {
+      "api": "recycleApi",
+      "name": "deleteFromRecycleBin",
+      "kind": "mutation",
+      "url": "/api/v1/recycle-bin/delete",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "ids"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose+inline",
+      "param_evidence": [
+        "{ids:n}"
+      ]
+    },
+    {
+      "api": "recycleApi",
+      "name": "restoreFromRecycleBin",
+      "kind": "mutation",
+      "url": "/api/v1/recycle-bin/restore",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "ids"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose+inline",
+      "param_evidence": [
+        "{ids:n}"
+      ]
+    },
+    {
+      "api": "recycleApi",
+      "name": "getTimeline",
+      "kind": "query",
+      "url": "/api/v1/recycle-bin/timeline",
+      "method": "GET",
+      "fields": [],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list",
+        "nasDate"
+      ],
+      "probe_sample": "{\"list\": [{\"year\": 2026, \"month\": 9, \"day\": 22, \"itemCount\": 24, \"now\": 1792225547}], \"nasDate\": \"2026-10-17\"}",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "similarApi",
+      "name": "startCheckSimilar",
+      "kind": "mutation",
+      "url": "/api/v1/repeat-photo/check",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "checkSimilarity"
+      ],
+      "params_keys_loose": [
+        "photoId",
+        "chunkIndex",
+        "groupId"
+      ],
+      "param_source": "call_site_loose+inline",
+      "param_evidence": [
+        "{photoId:n,chunkIndex:i,groupId:e.id}"
+      ]
+    },
+    {
+      "api": "similarApi",
+      "name": "excludePhoto",
+      "kind": "mutation",
+      "url": "/api/v1/repeat-photo/exclude",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "type",
+        "photoIds",
+        "groupId"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{type:`PhotoId`,photoIds:[e]}",
+        "{type:`Group`,groupId:e}"
+      ]
+    },
+    {
+      "api": "similarApi",
+      "name": "keepPhoto",
+      "kind": "mutation",
+      "url": "/api/v1/repeat-photo/keep",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "photoId"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{photoId:e}"
+      ]
+    },
+    {
+      "api": "similarApi",
+      "name": "mergePhotos",
+      "kind": "mutation",
+      "url": "/api/v1/repeat-photo/merge",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "type",
+        "groupId"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{type:`All`}",
+        "{type:`Group`,groupId:e}"
+      ]
+    },
+    {
+      "api": "searchApi",
+      "name": "searchIndex",
+      "kind": "query",
+      "url": "/api/v1/search/index",
+      "method": "GET",
+      "fields": [],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": "str",
+      "probe_sample": "\"更新索引请求成功\"",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "searchApi",
+      "name": "searchIndexStatus",
+      "kind": "query",
+      "url": "/api/v1/search/index/status",
+      "method": "GET",
+      "fields": [],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 4016,
+      "probe_msg": "Index is rebuilding, please do not repeat operation",
+      "probe_keys": "NoneType",
+      "probe_sample": "null",
+      "probe": "HTTP 200 / code 4016 Index is rebuilding, please do not repeat operation"
+    },
+    {
+      "api": "serverApi",
+      "name": "getArchitecture",
+      "kind": "query",
+      "url": "/api/v1/server/architecture",
+      "method": "GET",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [
+        "props",
+        "current",
+        "keyframes"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{props:r,current:e,...o}",
+        "{...e,keyframes:[0,t]}"
+      ],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "architecture"
+      ],
+      "probe_sample": "{\"architecture\": \"x86\"}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "serverApi",
+      "name": "getTargetSelectedFolder",
+      "kind": "mutation",
+      "url": "/api/v1/server/file_list",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "serverApi",
+      "name": "getServerFolderManage",
+      "kind": "query",
+      "url": "/api/v1/server/folder_manage",
+      "method": "GET",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [
+        "ids"
+      ],
+      "params_keys_loose": [
+        "checkDisabled",
+        "showFiles"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{ids:[t]}"
+      ],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "myFavorites",
+        "myFile",
+        "otherShared",
+        "outsideMount",
+        "removables"
+      ],
+      "probe_sample": "{\"myFile\": [{\"name\": \"vol1\", \"path\": \"/\", \"isDir\": true, \"writeable\": true, \"readable\": true, \"mtim\": 0}, {\"name\": \"vol2\", \"path\": \"/\", \"isDir\": true, \"writeable\": true, \"readable\": true, \"mtim\": 0}, {\"name\": \"vol3\", \"path\": \"/\", \"isDir\": true, \"writeable\": true, \"readable\": true, \"mtim\": 0}, {\"name\": \"vol4\", \"path\": \"/\", \"isDir\": true, \"writeable\": true, \"readable\": true, \"mtim\": 0}, {\"name\": \"vo",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "serverApi",
+      "name": "getSeverSysInfo",
+      "kind": "query",
+      "url": "/api/v1/server/sys_info",
+      "method": "GET",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "isOfficialNas",
+        "nasDate",
+        "offsetMinutes",
+        "thumbnailUrlPrefix",
+        "timeZoneOffset"
+      ],
+      "probe_sample": "{\"isOfficialNas\": false, \"nasDate\": \"2026-10-17\", \"offsetMinutes\": 480, \"thumbnailUrlPrefix\": \"/p/api/v1/stream/\", \"timeZoneOffset\": 28800}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "serverApi",
+      "name": "getUsersGroupAll",
+      "kind": "query",
+      "url": "/api/v1/server/user_group_all",
+      "method": "GET",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "count",
+        "hasNext",
+        "list"
+      ],
+      "probe_sample": "{\"count\": null, \"hasNext\": null, \"list\": [{\"id\": 1000, \"name\": \"Administrators\", \"users\": [{\"id\": 1000, \"name\": \"demo-user\"}]}, {\"id\": 1001, \"name\": \"Users\", \"users\": [{\"id\": 1000, \"name\": \"demo-user\"}]}]}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "serverApi",
+      "name": "getUsersAll",
+      "kind": "query",
+      "url": "/api/v1/server/users_all",
+      "method": "GET",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "count",
+        "hasNext",
+        "list"
+      ],
+      "probe_sample": "{\"count\": null, \"hasNext\": null, \"list\": [{\"id\": 1000, \"name\": \"demo-user\"}]}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "shareApi",
+      "name": "cleanupInvalidLink",
+      "kind": "mutation",
+      "url": "/api/v1/share_link/cleanupInvalid",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "B8RasvHeFEYlBmIA2.js",
+      "params_keys": [],
+      "params_keys_loose": [
+        "to"
+      ],
+      "param_source": "call_site_loose",
+      "param_evidence": [
+        "{to:e}"
+      ]
+    },
+    {
+      "api": "shareApi",
+      "name": "removeLink",
+      "kind": "mutation",
+      "url": "/api/v1/share_link/delete",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "B8RasvHeFEYlBmIA2.js",
+      "params_keys": [
+        "ids"
+      ],
+      "params_keys_loose": [
+        "checkDisabled",
+        "showFiles"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{ids:[t]}"
+      ]
+    },
+    {
+      "api": "shareApi",
+      "name": "getShareLinkDetail",
+      "kind": "query",
+      "url": "/api/v1/share_link/detail",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "B8RasvHeFEYlBmIA2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe": "跳过（本次没有可用的 id 参数）"
+    },
+    {
+      "api": "shareApi",
+      "name": "getShareLinkList",
+      "kind": "query",
+      "url": "/api/v1/share_link/list",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "B8RasvHeFEYlBmIA2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": []}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "shareApi",
+      "name": "createShareLink",
+      "kind": "mutation",
+      "url": "/api/v1/share_link/new",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "B8RasvHeFEYlBmIA2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "shareApi",
+      "name": "updateShareLink",
+      "kind": "mutation",
+      "url": "/api/v1/share_link/update",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "B8RasvHeFEYlBmIA2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "userApi",
+      "name": "getSysConfig",
+      "kind": "query",
+      "url": "/api/v1/sys_config/list",
+      "method": "GET",
+      "fields": [],
+      "asset": "Dz2k_qXzEWCaMrm32.js",
+      "params_keys": [
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "language",
+        "shareLinkPurview",
+        "timeFormat"
+      ],
+      "probe_sample": "{\"shareLinkPurview\": \"all\", \"timeFormat\": \"\", \"language\": \"\"}",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "userApi",
+      "name": "updateSysConfig",
+      "kind": "mutation",
+      "url": "/api/v1/sys_config/setting",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "Dz2k_qXzEWCaMrm32.js",
+      "params_keys": [
+        "ids"
+      ],
+      "params_keys_loose": [
+        "checkDisabled",
+        "showFiles"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{ids:[t]}"
+      ]
+    },
+    {
+      "api": "serverApi",
+      "name": "getTimezoneList",
+      "kind": "query",
+      "url": "/api/v1/sys_config/time_zone/support",
+      "method": "GET",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": [{\"offsetMinutes\": -720, \"offset\": \"-12:00\", \"label\": {\"zh-CN\": \"GMT-12:00\"}, \"zones\": [\"Etc/GMT+12\"]}, {\"offsetMinutes\": -660, \"offset\": \"-11:00\", \"label\": {\"zh-CN\": \"GMT-11:00\"}, \"zones\": [\"Etc/GMT+11\"]}, {\"offsetMinutes\": -600, \"offset\": \"-10:00\", \"label\": {\"zh-CN\": \"GMT-10:00（夏威夷，阿留申）\"}, \"zones\": [\"America/Adak\", \"Pacific/Honolulu\"]}, {\"offsetMinutes\": -570, \"offset\": \"-09:30\", \"label",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "serverApi",
+      "name": "getVideoDecodeConfig",
+      "kind": "query",
+      "url": "/api/v1/sys_config/video_decode",
+      "method": "GET",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "allowCpuDecoding",
+        "allowGpuDecoding",
+        "selectedGpuSequence"
+      ],
+      "probe_sample": "{\"allowCpuDecoding\": \"allow\", \"allowGpuDecoding\": \"allow\", \"selectedGpuSequence\": 1}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "serverApi",
+      "name": "setVideoDecodeConfig",
+      "kind": "mutation",
+      "url": "/api/v1/sys_config/video_decode",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [
+        "allowGpuDecoding",
+        "selectedGpuSequence",
+        "allowCpuDecoding"
+      ],
+      "params_keys_loose": [
+        "id",
+        "taskId",
+        "taskType",
+        "to",
+        "replace",
+        "state",
+        "parentFolderPath",
+        "childFolderPaths",
+        "isNeedReRunAll",
+        "files",
+        "isFolderView",
+        "onUploaded",
+        "albumId"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{allowGpuDecoding:e?`allow`:`deny`,selectedGpuSequence:c.length>0&&!(!(o==null||(t=o.data)==null)&&t.selectedGpuSequence)&&e?c[0].sequence:void 0}",
+        "{allowGpuDecoding:`allow`,selectedGpuSequence:e}",
+        "{allowCpuDecoding:e?`allow`:`deny`}"
+      ]
+    },
+    {
+      "api": "serverApi",
+      "name": "getVideoDecodeGPUList",
+      "kind": "query",
+      "url": "/api/v1/sys_config/video_decode/list_gpu",
+      "method": "GET",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [
+        "offset",
+        "limit"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": [{\"sequence\": 1, \"model\": \"Intel UHD Graphics\"}, {\"sequence\": 2, \"model\": \"Intel Arc(TM) A770 Graphics\"}]}",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "offset": 0,
+        "limit": 10
+      }
+    },
+    {
+      "api": "taskApi",
+      "name": "getErrorTaskList",
+      "kind": "query",
+      "url": "/api/v1/task-panel/fail",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe": "跳过（本次没有可用的 id 参数）"
+    },
+    {
+      "api": "taskApi",
+      "name": "detSingleFace",
+      "kind": "mutation",
+      "url": "/api/v1/task-panel/retry-one",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "id",
+        "taskId",
+        "taskType"
+      ],
+      "params_keys_loose": [
+        "to",
+        "replace",
+        "state",
+        "parentFolderPath",
+        "childFolderPaths",
+        "allowGpuDecoding",
+        "selectedGpuSequence",
+        "allowCpuDecoding",
+        "isNeedReRunAll",
+        "files",
+        "isFolderView",
+        "onUploaded",
+        "albumId"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{id:a.id,taskId:t,taskType:e}"
+      ]
+    },
+    {
+      "api": "taskApi",
+      "name": "skipSingleFace",
+      "kind": "mutation",
+      "url": "/api/v1/task-panel/skip-one",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "id",
+        "taskId",
+        "taskType"
+      ],
+      "params_keys_loose": [
+        "oldDir",
+        "onRefresh",
+        "onScan",
+        "ids",
+        "album_id",
+        "source",
+        "albumId",
+        "onUploaded"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{id:a.id,taskId:t,taskType:e}"
+      ]
+    },
+    {
+      "api": "galleryApi",
+      "name": "refreshThumbnail",
+      "kind": "mutation",
+      "url": "/api/v1/thumbnail/refresh",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "ids"
+      ],
+      "params_keys_loose": [
+        "oldDir",
+        "newDir",
+        "force",
+        "repeatStrategy",
+        "overwriteStrategy",
+        "id",
+        "photoUUID",
+        "size",
+        "autoSearch",
+        "files",
+        "onUploaded",
+        "title",
+        "clsConfig",
+        "creatable",
+        "showFiles",
+        "disabledPaths",
+        "onNewFolderCreateHandler",
+        "to",
+        "params",
+        "replace"
+      ],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{ids:r}"
+      ]
+    },
+    {
+      "api": "galleryApi",
+      "name": "getThumbnailStatus",
+      "kind": "query",
+      "url": "/api/v1/thumbnail/status",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "ids"
+      ],
+      "params_keys_loose": [],
+      "param_source": "inline",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": [{\"id\": 6958, \"thumbnailStatus\": 1}]}",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "ids": 6958
+      }
+    },
+    {
+      "api": "userApi",
+      "name": "getCurrentUser",
+      "kind": "query",
+      "url": "/api/v1/user/info",
+      "method": "GET",
+      "fields": [],
+      "asset": "Dz2k_qXzEWCaMrm32.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "id",
+        "isAdmin",
+        "name",
+        "nasUid",
+        "photoCount",
+        "videoCount"
+      ],
+      "probe_sample": "{\"id\": 1, \"name\": \"demo-user\", \"photoCount\": null, \"videoCount\": null, \"isAdmin\": true, \"nasUid\": 1000}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "galleryApi",
+      "name": "getStat",
+      "kind": "query",
+      "url": "/api/v1/user_photo/stat",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "id",
+        "isAdmin",
+        "nasUid",
+        "photoCount",
+        "videoCount"
+      ],
+      "probe_sample": "{\"id\": 0, \"photoCount\": 7253, \"videoCount\": 272, \"isAdmin\": false, \"nasUid\": 0}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "decodeApi",
+      "name": "getDecodeInfo",
+      "kind": "query",
+      "url": "/api/v1/video/decode/info",
+      "method": "GET",
+      "fields": [
+        "params"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "id"
+      ],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "audioStreamInfo",
+        "containerFormat",
+        "isBluray",
+        "quality",
+        "videoStreamInfo"
+      ],
+      "probe_sample": "{\"quality\": [{\"resolution\": \"4k\", \"bitrate\": 119977804, \"progressive\": true}, {\"resolution\": \"4k\", \"bitrate\": 60000000, \"progressive\": true}, {\"resolution\": \"4k\", \"bitrate\": 40000000, \"progressive\": true}, {\"resolution\": \"4k\", \"bitrate\": 30000000, \"progressive\": true}, {\"resolution\": \"4k\", \"bitrate\": 25000000, \"progressive\": true}, {\"resolution\": \"4k\", \"bitrate\": 20000000, \"progressive\": true}, {\"",
+      "probe": "HTTP 200 / code 0",
+      "probe_params": {
+        "id": 6958
+      }
+    },
+    {
+      "api": "decodeApi",
+      "name": "playVideo",
+      "kind": "mutation",
+      "url": "/api/v1/video/decode/play",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "id",
+        "bitrate",
+        "resolution",
+        "audioIndex",
+        "audioEncoder",
+        "videoEncoder",
+        "channels"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{id:h.id,bitrate:N.bitrate,resolution:N.resolution,audioIndex:P?(P==null?void 0:P.index)??-2:-2,audioEncoder:Ue?void 0:Qe(),videoEncoder:ot(F==null?void 0:F.codecName,{isForceH264:on(),profile:F==null"
+      ]
+    },
+    {
+      "api": "decodeApi",
+      "name": "updateQuality",
+      "kind": "mutation",
+      "url": "/api/v1/video/decode/quality",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [
+        "id",
+        "bitrate",
+        "playLink",
+        "resolution",
+        "startTimestamp"
+      ],
+      "params_keys_loose": [],
+      "param_source": "call_site+call_site_loose",
+      "param_evidence": [
+        "{id:t.id,bitrate:a.bitrate,playLink:s,resolution:a.resolution,startTimestamp:r}"
+      ]
+    },
+    {
+      "api": "uploadApi",
+      "name": "getUploadPathV2",
+      "kind": "query",
+      "url": "/api/v2/photo/upload/path",
+      "method": "GET",
+      "fields": [],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "upload"
+      ],
+      "probe_sample": "{\"upload\": {\"path\": \"/vol3/1000/photo/.@#local\", \"quotaCurr\": 0, \"quotaMax\": 6970623279104, \"hasAccess\": true}}",
+      "probe": "HTTP 200 / code 0"
+    },
+    {
+      "api": "searchApi",
+      "name": "searchResults",
+      "kind": "query",
+      "url": "/api/v2/search/results",
+      "method": "POST",
+      "fields": [
+        "body"
+      ],
+      "asset": "cHuxC1VZO4H4qKRj2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": []
+    },
+    {
+      "api": "serverApi",
+      "name": "getPools",
+      "kind": "query",
+      "url": "/api/v2/server/pools",
+      "method": "GET",
+      "fields": [],
+      "asset": "CXSWinGwhBUuXjav2.js",
+      "params_keys": [],
+      "params_keys_loose": [],
+      "param_source": "未解析（参数由变量传入）",
+      "param_evidence": [],
+      "probe_code": 0,
+      "probe_msg": "",
+      "probe_keys": [
+        "list"
+      ],
+      "probe_sample": "{\"list\": [{\"name\": \"vol1\", \"path\": \"/vol1/1000\", \"writeable\": true, \"readable\": true, \"availableSpace\": 235007737856}, {\"name\": \"vol2\", \"path\": \"/vol2/1000\", \"writeable\": true, \"readable\": true, \"availableSpace\": 458681745408}, {\"name\": \"vol3\", \"path\": \"/vol3/1000\", \"writeable\": true, \"readable\": true, \"availableSpace\": 10658534318080}, {\"name\": \"vol4\", \"path\": \"/vol4/1000\", \"writeable\": true, \"re",
+      "probe": "HTTP 200 / code 0"
+    }
+  ]
+}

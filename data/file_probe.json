@@ -1,0 +1,1639 @@
+{
+  "generated_at": "2026-10-17 03:03:36",
+  "url": "ws://192.168.1.10:5666/websocket?type=main",
+  "username": "demo-user",
+  "base": "/vol1/1000/tmp",
+  "result": {
+    "scratch": "/vol1/1000/tmp/fnapi_filetest_20261017_030318",
+    "original": "/vol1/1000/tmp/20260127_195353.jpg",
+    "baseline_restored": true,
+    "original_unchanged": true,
+    "kept": false,
+    "error": null,
+    "fav_hit": true,
+    "trash_hit": false
+  },
+  "error": null,
+  "notes": [
+    "两种 path 写法结果一致：True（1 项：20260127_195353.jpg）",
+    "不存在的路径：外层 succ，条目里 errno=4100（4100 = 路径不存在）",
+    "file.usage 返回 taskId=\"uKif6a+9TJij6dHwUCA6GQ==\"，分类用量靠推送（sysNotify=\"taskId\"）",
+    "下载核对：HTTP 200，1880200 字节，与原文件大小一致：True",
+    "回收站现有 10 项（只读，不动它们）",
+    "回收站条目字段：['btim', 'dir', 'mtim', 'name', 'rmTime', 'rmUid', 'uid', 'v']",
+    "上传落地：True（/vol1/1000/tmp/fnapi_filetest_20261017_030318/upload.txt，服务端文件名 uploadName=upload.txt.~#0）",
+    "收藏夹命中：True",
+    "复制件出现：True（/vol1/1000/tmp/fnapi_filetest_20261017_030318/20260127_195353.jpg）",
+    "改名后存在：True（/vol1/1000/tmp/fnapi_filetest_20261017_030318/renamed.jpg）",
+    "移动后存在：True（/vol1/1000/tmp/fnapi_filetest_20261017_030318/sub/renamed.jpg）",
+    "压缩包出现：True（/vol1/1000/tmp/fnapi_filetest_20261017_030318/arch.zip）",
+    "解压结果：['renamed.jpg']",
+    "上传落地：True（/vol1/1000/tmp/fnapi_filetest_20261017_030318/trash-victim.txt，服务端文件名 uploadName=trash-victim.txt.~#0）",
+    "原位置已消失：True",
+    "顶层回收站 10 条，字段 ['btim', 'dir', 'mtim', 'name', 'rmTime', 'rmUid', 'uid', 'v']",
+    "path 模式返回 1 条（内容与 file.ls 一致，不是回收站条目）",
+    "还原是否真的回来了：False（回 succ 但文件没回来 → files 路径形态未确认）",
+    "临时目录已删除：True",
+    "/vol1/1000/sample",
+    "原文件 size/mtim/btim 未变：True",
+    "注意：有 1 个 20 字节的测试文件进了回收站且没能还原回来（file.trash.restore 语义未确认），可在 Web UI 里清掉"
+  ],
+  "pushes_count": 49,
+  "pushes": [
+    {
+      "at": "03:03:18",
+      "payload": {
+        "uver": 117436739026944,
+        "reqid": "6ad274f66ad274f60000033e0003",
+        "result": "succ"
+      }
+    },
+    {
+      "at": "03:03:18",
+      "payload": {
+        "uver": 117436739026944,
+        "reqid": "6ad274f66ad274f60000033e0005",
+        "result": "succ"
+      }
+    },
+    {
+      "at": "03:03:18",
+      "payload": {
+        "uver": 117436739026944,
+        "reqid": "6ad274f66ad274f60000033e0006",
+        "result": "succ"
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "category": "iscsi",
+        "fileSizeTotal": 0,
+        "space": 0,
+        "fileCount": 0,
+        "dirCount": 0,
+        "reqid": "6ad274f76ad274f60000033e0014"
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "category": "timemachine",
+        "fileSizeTotal": 0,
+        "space": 0,
+        "fileCount": 0,
+        "dirCount": 0,
+        "reqid": "6ad274f76ad274f60000033e0014"
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "category": "app",
+        "fileSizeTotal": 0,
+        "space": 0,
+        "fileCount": 0,
+        "dirCount": 0,
+        "reqid": "6ad274f76ad274f60000033e0014"
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "category": "docker",
+        "fileSizeTotal": 0,
+        "space": 0,
+        "fileCount": 0,
+        "dirCount": 0,
+        "reqid": "6ad274f76ad274f60000033e0014"
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "category": "vm",
+        "fileSizeTotal": 0,
+        "space": 0,
+        "fileCount": 0,
+        "dirCount": 0,
+        "reqid": "6ad274f76ad274f60000033e0014"
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "category": "fileversion",
+        "fileSizeTotal": 0,
+        "space": 0,
+        "fileCount": 0,
+        "dirCount": 0,
+        "reqid": "6ad274f76ad274f60000033e0014"
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "result": "succ",
+        "reqid": "6ad274f76ad274f60000033e0014"
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "uver": 117436739026944,
+        "reqid": "6ad274f76ad274f60000033e0019",
+        "result": "succ"
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "uver": 117436739026944,
+        "reqid": "6ad274f76ad274f60000033e001a",
+        "result": "succ"
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "sysNotify": "fileFav",
+        "type": "add",
+        "id": 5,
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318",
+        "datetime": 1792177399
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "sysNotify": "fileFav",
+        "type": "del",
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+      }
+    },
+    {
+      "at": "03:03:19",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.cp",
+          "reqid": "6ad274f76ad274f60000033e002e",
+          "pathTo": "/vol1/1000/tmp/fnapi_filetest_20261017_030318",
+          "overwrite": 1,
+          "details": {
+            "name": "20260127_195353.jpg",
+            "count": 1
+          },
+          "taskId": "Sf7JaEkGTGa/Dt88zTlGqw=="
+        }
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "percent": 100,
+        "time": 0,
+        "speed": 0,
+        "size": 1880200,
+        "sizeTotal": 1880200,
+        "reqid": "6ad274f76ad274f60000033e002e"
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "result": "succ",
+        "reqid": "6ad274f76ad274f60000033e002e"
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.mv",
+          "reqid": "6ad274f86ad274f60000033e0032",
+          "pathTo": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/sub",
+          "overwrite": 1,
+          "details": {
+            "name": "renamed.jpg",
+            "count": 1
+          },
+          "taskId": "rPc1LntjQAuJjBb9V5HLtA=="
+        }
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "percent": 100,
+        "time": 0,
+        "speed": 0,
+        "size": 1880200,
+        "sizeTotal": 1880200,
+        "reqid": "6ad274f86ad274f60000033e0032"
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "result": "succ",
+        "reqid": "6ad274f86ad274f60000033e0032"
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.compress",
+          "reqid": "6ad274f86ad274f60000033e0034",
+          "description": "fnapi 测试压缩",
+          "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/arch.zip",
+          "level": 0,
+          "details": {
+            "name": "arch.zip",
+            "count": 1
+          },
+          "taskId": "/Rfw68QGRMGCyPqZQLp5LA=="
+        }
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "percent": 100,
+        "size": 1880277,
+        "sizeTotal": 1880277,
+        "time": 0,
+        "reqid": "6ad274f86ad274f60000033e0034"
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "result": "succ",
+        "reqid": "6ad274f86ad274f60000033e0034"
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.extract",
+          "reqid": "6ad274f86ad274f60000033e0038",
+          "description": "fnapi 测试解压",
+          "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/out",
+          "file": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/arch.zip",
+          "overwrite": 1,
+          "details": {
+            "name": "arch.zip",
+            "count": 1
+          },
+          "taskId": "Wy7XtlIARHKoo1PRf3eXnA=="
+        }
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "percent": 100,
+        "size": 0,
+        "sizeTotal": 0,
+        "time": 0,
+        "reqid": "6ad274f86ad274f60000033e0038"
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "percent": 100,
+        "size": 1880200,
+        "sizeTotal": 1880200,
+        "time": 0,
+        "reqid": "6ad274f86ad274f60000033e0038"
+      }
+    },
+    {
+      "at": "03:03:20",
+      "payload": {
+        "result": "succ",
+        "reqid": "6ad274f86ad274f60000033e0038"
+      }
+    },
+    {
+      "at": "03:03:22",
+      "payload": {
+        "uver": 117436739026944,
+        "reqid": "6ad274fa6ad274f60000033e003a",
+        "result": "succ"
+      }
+    },
+    {
+      "at": "03:03:22",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.setAcl2",
+          "reqid": "6ad274fa6ad274f60000033e003c",
+          "permset": [],
+          "details": {
+            "name": "fnapi_filetest_20261017_030318",
+            "dir": 1,
+            "count": 1
+          },
+          "sub": 1,
+          "taskId": "s3j3uboXSqWoFTfA8doe1Q=="
+        }
+      }
+    },
+    {
+      "at": "03:03:22",
+      "payload": {
+        "result": "succ",
+        "reqid": "6ad274fa6ad274f60000033e003c"
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.chown",
+          "reqid": "6ad274fb6ad274f60000033e003f",
+          "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318",
+          "uid": 1000,
+          "gid": 1000,
+          "taskId": "dON8AITHTymQ8KuvHeMHlg=="
+        }
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.chown",
+          "reqid": "6ad274fb6ad274f60000033e0040",
+          "uid": 1000,
+          "gid": 1000,
+          "taskId": "nfjL9t6pQQCB7ORMBBoNNg=="
+        }
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "result": "succ",
+        "reqid": "6ad274fb6ad274f60000033e0040"
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.trimacl.conv",
+          "reqid": "6ad274fb6ad274f60000033e0041",
+          "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318",
+          "taskId": "/+r+WdwZQZmpuTdHM9D91w=="
+        }
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.trimacl.conv",
+          "reqid": "6ad274fb6ad274f60000033e0042",
+          "taskId": "7ORUdsZEQxavM/QNMypPGA=="
+        }
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.trimacl.conv",
+          "reqid": "6ad274fb6ad274f60000033e0043",
+          "taskId": "l/Z3M9b2RN+HKR2sqKp3Bw=="
+        }
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.trimacl.conv",
+          "reqid": "6ad274fb6ad274f60000033e0044",
+          "dir": "/vol1/1000/tmp/fnapi_filetest_20261017_030318",
+          "taskId": "jHD+/RuoRDWLOYtW8/DXjQ=="
+        }
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.trimacl.conv.report",
+          "reqid": "6ad274fb6ad274f60000033e0045",
+          "taskId": "M9aNsdPlQ7+YV6PhUZNWgQ=="
+        }
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.trimacl.conv.report",
+          "reqid": "6ad274fb6ad274f60000033e0046",
+          "taskId": "yXt7ToKJTuyscXTOkjc+zQ=="
+        }
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.trimacl.conv.report",
+          "reqid": "6ad274fb6ad274f60000033e0047",
+          "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318",
+          "taskId": "LPp+l3NeRUOie4S6ffNVZw=="
+        }
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.rm",
+          "reqid": "6ad274fb6ad274f60000033e004a",
+          "moveToTrashbin": true,
+          "details": {
+            "name": "trash-victim.txt",
+            "count": 1
+          },
+          "taskId": "FH2xO5G4SH2vJALYg+RtVQ=="
+        }
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "result": "succ",
+        "reqid": "6ad274fb6ad274f60000033e004a"
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "uver": 117436739026944,
+        "reqid": "6ad274fb6ad274f60000033e004c",
+        "result": "succ"
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "uver": 117436739026944,
+        "reqid": "6ad274fb6ad274f60000033e004d",
+        "result": "succ"
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.trash.restore",
+          "reqid": "6ad274fb6ad274f60000033e004e",
+          "overwrite": 1,
+          "details": {
+            "name": "trash-victim.txt",
+            "count": 1
+          },
+          "taskId": "ZUiIKQQzQ32acF4U8ZCjLA=="
+        }
+      }
+    },
+    {
+      "at": "03:03:23",
+      "payload": {
+        "result": "succ",
+        "reqid": "6ad274fb6ad274f60000033e004e"
+      }
+    },
+    {
+      "at": "03:03:35",
+      "payload": {
+        "sysNotify": "taskInfo",
+        "taskInfo": {
+          "req": "file.rm",
+          "reqid": "6ad275076ad274f60000033e0062",
+          "moveToTrashbin": false,
+          "details": {
+            "name": "fnapi_filetest_20261017_030318",
+            "dir": 1,
+            "count": 1
+          },
+          "taskId": "BFq02xqcS6qymQtD51GIeg=="
+        }
+      }
+    },
+    {
+      "at": "03:03:35",
+      "payload": {
+        "result": "succ",
+        "reqid": "6ad275076ad274f60000033e0062"
+      }
+    },
+    {
+      "at": "03:03:36",
+      "payload": {
+        "uver": 117436739026944,
+        "reqid": "6ad275086ad274f60000033e0064",
+        "result": "succ"
+      }
+    }
+  ],
+  "calls": [
+    {
+      "req": "file.ls",
+      "params": {
+        "path": "/vol1/1000/tmp"
+      },
+      "nested": false,
+      "note": "列目录（相对路径写法）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 30.2,
+      "resp_keys": [
+        "files",
+        "uver"
+      ],
+      "sample": "{\"files\": [{\"name\": \"20260127_195353.jpg\", \"uid\": 1000, \"size\": 1880200, \"mtim\": 1769517306, \"btim\": 1792167850}], \"uver\": 117436739026944, \"reqid\": \"6ad274f66ad274f60000033e0005\"}"
+    },
+    {
+      "req": "file.ls",
+      "params": {
+        "path": "/vol1/1000/tmp"
+      },
+      "nested": false,
+      "note": "列目录（绝对路径写法，对比）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 32.0,
+      "resp_keys": [
+        "files",
+        "uver"
+      ],
+      "sample": "{\"files\": [{\"name\": \"20260127_195353.jpg\", \"uid\": 1000, \"size\": 1880200, \"mtim\": 1769517306, \"btim\": 1792167850}], \"uver\": 117436739026944, \"reqid\": \"6ad274f66ad274f60000033e0006\"}"
+    },
+    {
+      "req": "file.lsDir",
+      "params": {
+        "path": "/vol1/1000/tmp"
+      },
+      "nested": false,
+      "note": "列目录（分页/精简版）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 16.1,
+      "resp_keys": [
+        "uver"
+      ],
+      "sample": "{\"uver\": 117436739026944, \"reqid\": \"6ad274f66ad274f60000033e0007\", \"result\": \"succ\"}"
+    },
+    {
+      "req": "file.prop",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/20260127_195353.jpg"
+        ]
+      },
+      "nested": false,
+      "note": "多个路径的属性",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 38.1,
+      "resp_keys": [
+        "prop",
+        "uver"
+      ],
+      "sample": "{\"prop\": [{\"uid\": 1000, \"size\": 1880200, \"space\": 1884160, \"mtim\": 1769517306, \"btim\": 1792167850}], \"uver\": 117436739026944, \"result\": \"succ\", \"reqid\": \"6ad274f66ad274f60000033e0008\"}"
+    },
+    {
+      "req": "file.prop",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp"
+        ]
+      },
+      "nested": false,
+      "note": "目录属性",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 17.1,
+      "resp_keys": [
+        "prop",
+        "uver"
+      ],
+      "sample": "{\"prop\": [{\"uid\": 1000, \"size\": 38, \"space\": 0, \"mtim\": 1792177389, \"btim\": 1792167830, \"dir\": 1}], \"uver\": 117436739026944, \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0009\"}"
+    },
+    {
+      "req": "file.prop",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/__not_exist__.bin"
+        ]
+      },
+      "nested": false,
+      "note": "不存在的文件 → 看条目里的 errno",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 29.8,
+      "resp_keys": [
+        "prop",
+        "uver"
+      ],
+      "sample": "{\"prop\": [{\"errno\": 4100}], \"uver\": 117436739026944, \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e000a\"}"
+    },
+    {
+      "req": "file.access",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/20260127_195353.jpg"
+        ]
+      },
+      "nested": false,
+      "note": "当前用户权限位",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 37.6,
+      "resp_keys": [
+        "access"
+      ],
+      "sample": "{\"access\": [32718], \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e000b\"}"
+    },
+    {
+      "req": "file.calc",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/20260127_195353.jpg"
+        ]
+      },
+      "nested": false,
+      "note": "统计（同步返回 totals）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 42.4,
+      "resp_keys": [
+        "dirCount",
+        "fileCount",
+        "fileSizeTotal",
+        "space"
+      ],
+      "sample": "{\"fileSizeTotal\": 1880200, \"space\": 1884160, \"fileCount\": 1, \"dirCount\": 0, \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e000c\"}"
+    },
+    {
+      "req": "file.getAcl",
+      "params": {
+        "path": "/vol1/1000/tmp/20260127_195353.jpg"
+      },
+      "nested": false,
+      "note": "读 ACL",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 16.1,
+      "resp_keys": [
+        "aclType",
+        "uver"
+      ],
+      "sample": "{\"aclType\": \"trimacl\", \"uver\": 117436739026944, \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e000d\"}"
+    },
+    {
+      "req": "file.getAcl",
+      "params": {
+        "path": "/vol1/1000/tmp/20260127_195353.jpg",
+        "getProp": true
+      },
+      "nested": false,
+      "note": "读 ACL + 属性",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 37.3,
+      "resp_keys": [
+        "aclType",
+        "prop",
+        "uver"
+      ],
+      "sample": "{\"aclType\": \"trimacl\", \"prop\": {\"uid\": 1000, \"size\": 1880200, \"space\": 1884160, \"mtim\": 1769517306, \"btim\": 1792167850}, \"uver\": 117436739026944, \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e000e\"}"
+    },
+    {
+      "req": "file.size",
+      "params": {
+        "path": "/vol1/1000/tmp/20260127_195353.jpg"
+      },
+      "nested": false,
+      "note": "占用大小（参数名未确认，逐个试）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 18.4,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274f76ad274f60000033e000f\"}"
+    },
+    {
+      "req": "file.size",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/20260127_195353.jpg"
+        ]
+      },
+      "nested": false,
+      "note": "占用大小（参数名未确认，逐个试）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 21.7,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274f76ad274f60000033e0010\"}"
+    },
+    {
+      "req": "file.size",
+      "params": {
+        "file": "/vol1/1000/tmp/20260127_195353.jpg"
+      },
+      "nested": false,
+      "note": "占用大小（参数名未确认，逐个试）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 29.0,
+      "resp_keys": [
+        "size"
+      ],
+      "sample": "{\"size\": 1880200, \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0011\"}"
+    },
+    {
+      "req": "file.size",
+      "params": {
+        "paths": [
+          "/vol1/1000/tmp/20260127_195353.jpg"
+        ]
+      },
+      "nested": false,
+      "note": "占用大小（参数名未确认，逐个试）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 32.5,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274f76ad274f60000033e0012\"}"
+    },
+    {
+      "req": "file.size",
+      "params": {
+        "file": "/vol1/1000/tmp"
+      },
+      "nested": false,
+      "note": "占用大小（参数名未确认，逐个试）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 14.9,
+      "resp_keys": [
+        "size"
+      ],
+      "sample": "{\"size\": 38, \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0013\"}"
+    },
+    {
+      "req": "file.usage",
+      "params": {},
+      "nested": false,
+      "note": "存储占用统计（异步任务）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 32.0,
+      "resp_keys": [
+        "sysNotify",
+        "taskId"
+      ],
+      "sample": "{\"sysNotify\": \"taskId\", \"taskId\": \"uKif6a+9TJij6dHwUCA6GQ==\", \"reqid\": \"6ad274f76ad274f60000033e0014\"}"
+    },
+    {
+      "req": "file.download",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/20260127_195353.jpg"
+        ]
+      },
+      "nested": false,
+      "note": "取下载地址",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 18.4,
+      "resp_keys": [
+        "download"
+      ],
+      "sample": "{\"download\": [{\"uri\": \"/download//vol1/1000/tmp/20260127_195353.jpg?t=1792782198&sign=REDACTED\"}], \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0015\"}"
+    },
+    {
+      "req": "file.download(HTTP)",
+      "params": {
+        "url": "http://192.168.1.10:5666/download//vol1/1000/tmp/20260127_195353.jpg?t=1792782198&sign=REDACTED"
+      },
+      "nested": false,
+      "note": "GET file.download 给的 uri",
+      "status": "succ",
+      "errno": null,
+      "resp_keys": [
+        "http"
+      ],
+      "elapsed_ms": null,
+      "sample": "{\"http\": 200, \"bytes\": 1880200}"
+    },
+    {
+      "req": "file.fav.list",
+      "params": {},
+      "nested": false,
+      "note": "收藏夹",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 33.4,
+      "resp_keys": [
+        "fav",
+        "uver"
+      ],
+      "sample": "{\"fav\": [{\"id\": 1, \"datetime\": 1790023187, \"path\": \"/vol3/1000/video/sample\", \"uid\": 1000, \"mtim\": 1780122656, \"btim\": 1743079625, \"dir\": 1}], \"uver\": 117436739026944, \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0017\"}"
+    },
+    {
+      "req": "file.recent.list",
+      "params": {},
+      "nested": false,
+      "note": "最近访问",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 48.4,
+      "resp_keys": [
+        "recent",
+        "uver"
+      ],
+      "sample": "{\"recent\": [{\"id\": 59, \"datetime\": 1792164201, \"path\": \"/vol4/1000/code/fnnas-api/interfaces.html\", \"uid\": 1000, \"size\": 1314636, \"mtim\": 1792163509, \"btim\": 1792164181}, {\"id\": 58, \"datetime\": 1791862849, \"path\": \"/vol3/1000/document/sample/sample/sample.pdf\", \"uid\": 1000, \"size\": 105106884, \"mtim\": 1791860269, \"btim\": 1791860269}, {\"id\": 57, \"datetime\": 1791860956, \"path\": \"/vol3/1000/document/sample/sample/sample.pdf\", \"uid\": 1000, \"size\": 312766166, \"mtim\": 1791860404, \"btim\": 1791860400}, {\"id\": 50, \"datetime\": 1791858346, \"path\": \"/vol3/1000/document/sample/sample/sample.pdf\", \"uid\": 1000, \"size\": 393805066, \"mtim\": 1767369206, \"btim\": 1771685316}, {\"id\": 48, \"datetime\": 1791807578, \"path\": \"/vol1/@appshare/xunlei/downloads/漫画后续/187.pdf\", \"uid\": 975, \"size\": 6585459, \"mtim\": 1791806132, \"btim\": 1791806090}, {\"id\": 47, \"datetime\": 1791807373, \"path\": \"vol1/@appshare/xunlei/downloads/漫画后续/187.pdf\", \"uid\": 975, \"size\": 6585459, \"mtim\": 1791806132, \"btim\": 1791806090}, {\"id\": 46, \"datetime\": 1791806313, \"path\": \"/vol3/1000/document/sample/sample.pdf\", \"uid\": 1000, \"size\": 193804014, \"mtim\": 1708499901, \"btim\": 1775204616}, {\"id\": 45, \"datetime\": 1791806288, \"path\": \"/vol3/1000/document/sample/sample.pdf\", \"uid\": 1000, \"size\": 164643126, \"mtim\": 1708499063, \"btim\": 1775204599}, {\"id\": 39, \"datetime\": 1791476038, \"path\": \"/vol3/1000/video/sample/sample/sample/sample.mp4\", \"uid\": 1000, \"size\": 6519958070, \"mtim\": 1791396864, \"btim\": 1791394144}, {\"id\": 40, \"datetime\": 1791475921, \"path\": \"/vol3/1000/video/sample/sample/sample/sample.mp4\", \"uid\": 1000, \"size\": 2477598401, \"mtim\": 1791396086, \"btim\": 1791394165}, {\"id\": 41, \"datetime\": 1791475815, \"path\": \"/vol3/1000/video/sample/sample/sample/sample.mp4\", \"uid\": 1000, \"size\": 1886447939, \"mtim\": 1791396084, \"btim\": 1791394141}, {\"id\": 38, \"datetime\": 1791130513, \"path\": \"/vol3/1000/photo/sample/sample.png\", \"uid\": 1000, \"size\": 372974, \"mtim\": 1752882478, \"btim\": 1772376371}, {\"id\": 37, \"datetime\": 1791130511, \"path\": \"/vol3/1000/photo/sample/sample.jpg\", \"uid\": 1000, \"size\": 149773, \"mtim\": 1769003694, \"btim\": 1791130462}, {\"id\": 36, \"datetime\": 1791130507, \"path\": \"/vol3/1000/photo/sample/sample.jpg\", \"uid\": 1000, \"size\": 2595178, \"mtim\": 1769003694, \"btim\": 1791130462}, {\"id\": 8, \"datetime\": 1790029411, \"path\": \"/vol4/1000/code/sample/sample.sh\", \"uid\": 1000, \"size\": 2583, \"mtim\": 1789751854, \"btim\": 1789751854}, {\"id\": 7, \"datetime\": 1790029382, \"path\": \"/vol4/1000/code/sample/sample.sh\", \"uid\": 1000, \"size\": 680, \"mtim\": 1790029666, \"btim\": 1790029666}], \"uver\": 117436739026944, \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0018\"}"
+    },
+    {
+      "req": "file.trash.list",
+      "params": {},
+      "nested": false,
+      "note": "回收站（当前用户）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 31.6,
+      "resp_keys": [
+        "files",
+        "uver"
+      ],
+      "sample": "{\"files\": [{\"name\": \"terraria\", \"v\": 4, \"uid\": 1000, \"mtim\": 1788444772, \"btim\": 1787570070, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1787570070}, {\"name\": \"code\", \"v\": 4, \"uid\": 1000, \"mtim\": 1787677011, \"btim\": 1787677011, \"dir\": 1, \"rmUid\": 0, \"rmTime\": 1787677011}, {\"name\": \"MCserver\", \"v\": 4, \"uid\": 1000, \"mtim\": 1788102653, \"btim\": 1782839975, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1788102658}, {\"name\": \"palserver\", \"v\": 4, \"uid\": 1000, \"mtim\": 1789333175, \"btim\": 1788452067, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1788452067}, {\"name\": \"model\", \"v\": 1, \"uid\": 1000, \"mtim\": 1791979056, \"btim\": 1791979056, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1791979056}, {\"name\": \"tmp\", \"v\": 1, \"uid\": 1000, \"mtim\": 1792177315, \"btim\": 1792177172, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1792177172}, {\"name\": \"BACKUP\", \"v\": 3, \"uid\": 1000, \"mtim\": 1789457476, \"btim\": 1789457476, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1789457476}, {\"name\": \"photo\", \"v\": 3, \"uid\": 1000, \"mtim\": 1789457997, \"btim\": 1789457997, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1789457997}, {\"name\": \"video\", \"v\": 3, \"uid\": 1000, \"mtim\": 1790023295, \"btim\": 1790023295, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1790023295}, {\"name\": \"download\", \"v\": 3, \"uid\": 1000, \"mtim\": 1790026535, \"btim\": 1790026535, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1790026535}], \"uver\": 117436739026944, \"reqid\": \"6ad274f76ad274f60000033e0019\"}"
+    },
+    {
+      "req": "file.trash.list",
+      "params": {
+        "uid": 1000
+      },
+      "nested": false,
+      "note": "回收站（指定 uid，管理员）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 15.8,
+      "resp_keys": [
+        "files",
+        "uver"
+      ],
+      "sample": "{\"files\": [{\"name\": \"terraria\", \"v\": 4, \"uid\": 1000, \"mtim\": 1788444772, \"btim\": 1787570070, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1787570070}, {\"name\": \"code\", \"v\": 4, \"uid\": 1000, \"mtim\": 1787677011, \"btim\": 1787677011, \"dir\": 1, \"rmUid\": 0, \"rmTime\": 1787677011}, {\"name\": \"MCserver\", \"v\": 4, \"uid\": 1000, \"mtim\": 1788102653, \"btim\": 1782839975, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1788102658}, {\"name\": \"palserver\", \"v\": 4, \"uid\": 1000, \"mtim\": 1789333175, \"btim\": 1788452067, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1788452067}, {\"name\": \"model\", \"v\": 1, \"uid\": 1000, \"mtim\": 1791979056, \"btim\": 1791979056, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1791979056}, {\"name\": \"tmp\", \"v\": 1, \"uid\": 1000, \"mtim\": 1792177315, \"btim\": 1792177172, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1792177172}, {\"name\": \"BACKUP\", \"v\": 3, \"uid\": 1000, \"mtim\": 1789457476, \"btim\": 1789457476, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1789457476}, {\"name\": \"photo\", \"v\": 3, \"uid\": 1000, \"mtim\": 1789457997, \"btim\": 1789457997, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1789457997}, {\"name\": \"video\", \"v\": 3, \"uid\": 1000, \"mtim\": 1790023295, \"btim\": 1790023295, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1790023295}, {\"name\": \"download\", \"v\": 3, \"uid\": 1000, \"mtim\": 1790026535, \"btim\": 1790026535, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1790026535}], \"uver\": 117436739026944, \"reqid\": \"6ad274f76ad274f60000033e001a\"}"
+    },
+    {
+      "req": "file.team.lsDir",
+      "params": {},
+      "nested": false,
+      "note": "团队空间目录（本机可能没有）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 32.1,
+      "resp_keys": [
+        "uver"
+      ],
+      "sample": "{\"uver\": 117436739026944, \"reqid\": \"6ad274f76ad274f60000033e001b\", \"result\": \"succ\"}"
+    },
+    {
+      "req": "file.cancel",
+      "params": {
+        "taskId": 999999999
+      },
+      "nested": false,
+      "note": "取消任务（先试错误参数名）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 0.0,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274f76ad274f60000033e001c\"}"
+    },
+    {
+      "req": "file.cancel",
+      "params": {
+        "taskId": "999999999"
+      },
+      "nested": false,
+      "note": "取消任务（先试错误参数名）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 0.0,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274f76ad274f60000033e001d\"}"
+    },
+    {
+      "req": "file.cancel",
+      "params": {
+        "taskIds": [
+          999999999
+        ]
+      },
+      "nested": false,
+      "note": "取消任务（先试错误参数名）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 0.0,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274f76ad274f60000033e001e\"}"
+    },
+    {
+      "req": "file.cancel",
+      "params": {
+        "id": 999999999
+      },
+      "nested": false,
+      "note": "取消任务（先试错误参数名）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 15.7,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274f76ad274f60000033e001f\"}"
+    },
+    {
+      "req": "file.mkdir",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+      },
+      "nested": false,
+      "note": "新建临时目录",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 22.7,
+      "resp_keys": [],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0020\"}"
+    },
+    {
+      "req": "file.mkdir",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/sub"
+      },
+      "nested": false,
+      "note": "建子目录（给 mv 用）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 26.8,
+      "resp_keys": [],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0022\"}"
+    },
+    {
+      "req": "file.checkUpload",
+      "params": {
+        "size": 420,
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/upload.txt",
+        "overwrite": 0
+      },
+      "nested": false,
+      "note": "上传前置检查（拿 uploadName）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 6.8,
+      "resp_keys": [
+        "uploadName"
+      ],
+      "sample": "{\"uploadName\": \"upload.txt.~#0\", \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0023\"}"
+    },
+    {
+      "req": "file.upload(HTTP)",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/upload.txt",
+        "size": 420
+      },
+      "nested": false,
+      "note": "POST /upload（multipart）",
+      "status": "succ",
+      "errno": null,
+      "resp_keys": [
+        "http"
+      ],
+      "sample": "",
+      "elapsed_ms": null
+    },
+    {
+      "req": "file.checkUpload",
+      "params": {
+        "size": 420,
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/fresh.txt"
+      },
+      "nested": false,
+      "note": "新文件（overwrite 省略）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 0.0,
+      "resp_keys": [
+        "uploadName"
+      ],
+      "sample": "{\"uploadName\": \"fresh.txt.~#0\", \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0025\"}"
+    },
+    {
+      "req": "file.checkUpload",
+      "params": {
+        "size": 420,
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/upload.txt",
+        "overwrite": 0
+      },
+      "nested": false,
+      "note": "已存在 + overwrite=0",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 15.8,
+      "resp_keys": [
+        "skip"
+      ],
+      "sample": "{\"skip\": 1, \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0026\"}"
+    },
+    {
+      "req": "file.checkUpload",
+      "params": {
+        "size": 420,
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/upload.txt",
+        "overwrite": 1
+      },
+      "nested": false,
+      "note": "已存在 + overwrite=1",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 0.0,
+      "resp_keys": [
+        "uploadName"
+      ],
+      "sample": "{\"uploadName\": \"upload.txt.~#0\", \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0027\"}"
+    },
+    {
+      "req": "file.checkUpload",
+      "params": {
+        "size": 420,
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/upload.txt",
+        "overwrite": 2
+      },
+      "nested": false,
+      "note": "已存在 + overwrite=2",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 0.0,
+      "resp_keys": [
+        "uploadName"
+      ],
+      "sample": "{\"uploadName\": \"upload.txt.~#1\", \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0028\"}"
+    },
+    {
+      "req": "file.fav.add",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+      },
+      "nested": false,
+      "note": "加收藏",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 46.4,
+      "resp_keys": [],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e0029\"}"
+    },
+    {
+      "req": "file.fav.list",
+      "params": {},
+      "nested": false,
+      "note": "收藏夹里应出现临时目录",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 15.9,
+      "resp_keys": [
+        "fav",
+        "uver"
+      ],
+      "sample": "{\"fav\": [{\"id\": 5, \"datetime\": 1792177399, \"path\": \"/vol1/1000/tmp/fnapi_filetest_20261017_030318\", \"uid\": 1000, \"mtim\": 1792177399, \"btim\": 1792177399, \"dir\": 1}, {\"id\": 1, \"datetime\": 1790023187, \"path\": \"/vol3/1000/video/sample\", \"uid\": 1000, \"mtim\": 1780122656, \"btim\": 1743079625, \"dir\": 1}], \"uver\": 117436739026944, \"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e002a\"}"
+    },
+    {
+      "req": "file.fav.del",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+      },
+      "nested": false,
+      "note": "取消收藏",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 48.2,
+      "resp_keys": [],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e002b\"}"
+    },
+    {
+      "req": "file.recent.add",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/upload.txt"
+      },
+      "nested": false,
+      "note": "加最近访问",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 15.3,
+      "resp_keys": [],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e002c\"}"
+    },
+    {
+      "req": "file.recent.del",
+      "params": {
+        "path": [
+          "/vol1/1000/tmp/fnapi_filetest_20261017_030318/upload.txt"
+        ]
+      },
+      "nested": false,
+      "note": "删最近访问（注意 path 是数组）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 16.1,
+      "resp_keys": [],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e002d\"}"
+    },
+    {
+      "req": "file.cp",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/20260127_195353.jpg"
+        ],
+        "pathTo": "/vol1/1000/tmp/fnapi_filetest_20261017_030318",
+        "overwrite": 1,
+        "details": {
+          "name": "20260127_195353.jpg",
+          "count": 1
+        }
+      },
+      "nested": false,
+      "note": "复制原文件到临时目录",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 21.0,
+      "resp_keys": [
+        "sysNotify",
+        "taskId"
+      ],
+      "sample": "{\"sysNotify\": \"taskId\", \"taskId\": \"Sf7JaEkGTGa/Dt88zTlGqw==\", \"reqid\": \"6ad274f76ad274f60000033e002e\"}",
+      "task_reqid": "6ad274f76ad274f60000033e002e",
+      "task_status": "succ",
+      "task_sample": "{\"result\": \"succ\", \"reqid\": \"6ad274f76ad274f60000033e002e\"}"
+    },
+    {
+      "req": "file.rename",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/20260127_195353.jpg",
+        "newName": "renamed.jpg"
+      },
+      "nested": false,
+      "note": "改名（同步接口，失败会直接回 errno）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 32.0,
+      "resp_keys": [],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad274f86ad274f60000033e0030\"}"
+    },
+    {
+      "req": "file.mv",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/fnapi_filetest_20261017_030318/renamed.jpg"
+        ],
+        "pathTo": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/sub",
+        "overwrite": 1,
+        "details": {
+          "name": "renamed.jpg",
+          "count": 1
+        }
+      },
+      "nested": false,
+      "note": "移动到子目录",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 24.0,
+      "resp_keys": [
+        "sysNotify",
+        "taskId"
+      ],
+      "sample": "{\"sysNotify\": \"taskId\", \"taskId\": \"rPc1LntjQAuJjBb9V5HLtA==\", \"reqid\": \"6ad274f86ad274f60000033e0032\"}",
+      "task_reqid": "6ad274f86ad274f60000033e0032",
+      "task_status": "succ",
+      "task_sample": "{\"result\": \"succ\", \"reqid\": \"6ad274f86ad274f60000033e0032\"}"
+    },
+    {
+      "req": "file.compress",
+      "params": {
+        "description": "fnapi 测试压缩",
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/arch.zip",
+        "files": [
+          "/vol1/1000/tmp/fnapi_filetest_20261017_030318/sub/renamed.jpg"
+        ],
+        "level": 0,
+        "details": {
+          "name": "arch.zip",
+          "count": 1
+        }
+      },
+      "nested": false,
+      "note": "压缩（files 用 /vol1/1000/tmp/fnapi_filetest_20261017_030318/sub/renamed.jpg 这种写法）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 31.9,
+      "resp_keys": [
+        "sysNotify",
+        "taskId"
+      ],
+      "sample": "{\"sysNotify\": \"taskId\", \"taskId\": \"/Rfw68QGRMGCyPqZQLp5LA==\", \"reqid\": \"6ad274f86ad274f60000033e0034\"}",
+      "task_reqid": "6ad274f86ad274f60000033e0034",
+      "task_status": "succ",
+      "task_sample": "{\"result\": \"succ\", \"reqid\": \"6ad274f86ad274f60000033e0034\"}"
+    },
+    {
+      "req": "file.extract",
+      "params": {
+        "description": "fnapi 测试解压",
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/out",
+        "file": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/arch.zip",
+        "overwrite": 1,
+        "details": {
+          "name": "arch.zip",
+          "count": 1
+        }
+      },
+      "nested": false,
+      "note": "解压到 out/（不传 fromCharset）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 21.3,
+      "resp_keys": [
+        "sysNotify",
+        "taskId"
+      ],
+      "sample": "{\"sysNotify\": \"taskId\", \"taskId\": \"Wy7XtlIARHKoo1PRf3eXnA==\", \"reqid\": \"6ad274f86ad274f60000033e0038\"}",
+      "task_reqid": "6ad274f86ad274f60000033e0038",
+      "task_status": "succ",
+      "task_sample": "{\"result\": \"succ\", \"reqid\": \"6ad274f86ad274f60000033e0038\"}"
+    },
+    {
+      "req": "file.getAcl",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+      },
+      "nested": false,
+      "note": "先读当前 ACL",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 20.1,
+      "resp_keys": [
+        "aclType",
+        "uver"
+      ],
+      "sample": "{\"aclType\": \"trimacl\", \"uver\": 117436739026944, \"result\": \"succ\", \"reqid\": \"6ad274fa6ad274f60000033e003b\"}"
+    },
+    {
+      "req": "file.setAcl2",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+        ],
+        "permset": [],
+        "details": {
+          "name": "fnapi_filetest_20261017_030318",
+          "dir": 1,
+          "count": 1
+        },
+        "sub": 1
+      },
+      "nested": false,
+      "note": "写回同样的 ACL（setAcl2，UI 用的就是它）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 27.7,
+      "resp_keys": [
+        "sysNotify",
+        "taskId"
+      ],
+      "sample": "{\"sysNotify\": \"taskId\", \"taskId\": \"s3j3uboXSqWoFTfA8doe1Q==\", \"reqid\": \"6ad274fa6ad274f60000033e003c\"}",
+      "task_reqid": "6ad274fa6ad274f60000033e003c",
+      "task_status": "succ",
+      "task_sample": "{\"result\": \"succ\", \"reqid\": \"6ad274fa6ad274f60000033e003c\"}"
+    },
+    {
+      "req": "file.setAcl",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+        ],
+        "permset": [],
+        "details": {
+          "name": "fnapi_filetest_20261017_030318",
+          "dir": 1,
+          "count": 1
+        }
+      },
+      "nested": false,
+      "note": "旧接口 setAcl（对照）",
+      "status": "unknown",
+      "errno": 10000002,
+      "elapsed_ms": 559.0,
+      "resp_keys": [],
+      "sample": "{\"errno\": 10000002, \"result\": \"fail\", \"reqid\": \"6ad274fa6ad274f60000033e003d\"}"
+    },
+    {
+      "req": "file.chown",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318",
+        "uid": 1000,
+        "gid": 1000
+      },
+      "nested": false,
+      "note": "chown 的错误参数写法（path）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 81.2,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274fb6ad274f60000033e003f\"}"
+    },
+    {
+      "req": "file.chown",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+        ],
+        "uid": 1000,
+        "gid": 1000
+      },
+      "nested": false,
+      "note": "chown 成原所有者（1000→1000，无净变化）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 30.4,
+      "resp_keys": [
+        "sysNotify",
+        "taskId"
+      ],
+      "sample": "{\"sysNotify\": \"taskId\", \"taskId\": \"nfjL9t6pQQCB7ORMBBoNNg==\", \"reqid\": \"6ad274fb6ad274f60000033e0040\"}",
+      "task_reqid": "6ad274fb6ad274f60000033e0040",
+      "task_status": "succ",
+      "task_sample": "{\"result\": \"succ\", \"reqid\": \"6ad274fb6ad274f60000033e0040\"}"
+    },
+    {
+      "req": "file.trimacl.conv",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+      },
+      "nested": false,
+      "note": "权限转 ACL 模型（参数未确认）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 21.2,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274fb6ad274f60000033e0041\"}"
+    },
+    {
+      "req": "file.trimacl.conv",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+        ]
+      },
+      "nested": false,
+      "note": "权限转 ACL 模型（参数未确认）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 10.9,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274fb6ad274f60000033e0042\"}"
+    },
+    {
+      "req": "file.trimacl.conv",
+      "params": {
+        "taskId": "x"
+      },
+      "nested": false,
+      "note": "权限转 ACL 模型（参数未确认）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 19.9,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274fb6ad274f60000033e0043\"}"
+    },
+    {
+      "req": "file.trimacl.conv",
+      "params": {
+        "dir": "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+      },
+      "nested": false,
+      "note": "权限转 ACL 模型（参数未确认）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 16.1,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274fb6ad274f60000033e0044\"}"
+    },
+    {
+      "req": "file.trimacl.conv.report",
+      "params": {},
+      "nested": false,
+      "note": "权限转换进度报告（参数未确认）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 38.1,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274fb6ad274f60000033e0045\"}"
+    },
+    {
+      "req": "file.trimacl.conv.report",
+      "params": {
+        "taskId": "x"
+      },
+      "nested": false,
+      "note": "权限转换进度报告（参数未确认）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 25.9,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274fb6ad274f60000033e0046\"}"
+    },
+    {
+      "req": "file.trimacl.conv.report",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+      },
+      "nested": false,
+      "note": "权限转换进度报告（参数未确认）",
+      "status": "param_error",
+      "errno": 8192,
+      "elapsed_ms": 19.1,
+      "resp_keys": [],
+      "sample": "{\"errno\": 8192, \"result\": \"fail\", \"reqid\": \"6ad274fb6ad274f60000033e0047\"}"
+    },
+    {
+      "req": "file.checkUpload",
+      "params": {
+        "size": 21,
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/trash-victim.txt",
+        "overwrite": 0
+      },
+      "nested": false,
+      "note": "上传前置检查（拿 uploadName）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 0.0,
+      "resp_keys": [
+        "uploadName"
+      ],
+      "sample": "{\"uploadName\": \"trash-victim.txt.~#0\", \"result\": \"succ\", \"reqid\": \"6ad274fb6ad274f60000033e0048\"}"
+    },
+    {
+      "req": "file.upload(HTTP)",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/trash-victim.txt",
+        "size": 21
+      },
+      "nested": false,
+      "note": "POST /upload（multipart）",
+      "status": "succ",
+      "errno": null,
+      "resp_keys": [
+        "http"
+      ],
+      "sample": "",
+      "elapsed_ms": null
+    },
+    {
+      "req": "file.rm",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/fnapi_filetest_20261017_030318/trash-victim.txt"
+        ],
+        "moveToTrashbin": true,
+        "details": {
+          "name": "trash-victim.txt",
+          "count": 1
+        }
+      },
+      "nested": false,
+      "note": "删除到回收站（可还原）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 33.7,
+      "resp_keys": [
+        "sysNotify",
+        "taskId"
+      ],
+      "sample": "{\"sysNotify\": \"taskId\", \"taskId\": \"FH2xO5G4SH2vJALYg+RtVQ==\", \"reqid\": \"6ad274fb6ad274f60000033e004a\"}",
+      "task_reqid": "6ad274fb6ad274f60000033e004a",
+      "task_status": "succ",
+      "task_sample": "{\"result\": \"succ\", \"reqid\": \"6ad274fb6ad274f60000033e004a\"}"
+    },
+    {
+      "req": "file.trash.list",
+      "params": {},
+      "nested": false,
+      "note": "回收站顶层条目（只读）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 14.1,
+      "resp_keys": [
+        "files",
+        "uver"
+      ],
+      "sample": "{\"files\": [{\"name\": \"terraria\", \"v\": 4, \"uid\": 1000, \"mtim\": 1788444772, \"btim\": 1787570070, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1787570070}, {\"name\": \"code\", \"v\": 4, \"uid\": 1000, \"mtim\": 1787677011, \"btim\": 1787677011, \"dir\": 1, \"rmUid\": 0, \"rmTime\": 1787677011}, {\"name\": \"MCserver\", \"v\": 4, \"uid\": 1000, \"mtim\": 1788102653, \"btim\": 1782839975, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1788102658}, {\"name\": \"palserver\", \"v\": 4, \"uid\": 1000, \"mtim\": 1789333175, \"btim\": 1788452067, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1788452067}, {\"name\": \"model\", \"v\": 1, \"uid\": 1000, \"mtim\": 1791979056, \"btim\": 1791979056, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1791979056}, {\"name\": \"tmp\", \"v\": 1, \"uid\": 1000, \"mtim\": 1792177403, \"btim\": 1792177172, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1792177172}, {\"name\": \"BACKUP\", \"v\": 3, \"uid\": 1000, \"mtim\": 1789457476, \"btim\": 1789457476, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1789457476}, {\"name\": \"photo\", \"v\": 3, \"uid\": 1000, \"mtim\": 1789457997, \"btim\": 1789457997, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1789457997}, {\"name\": \"video\", \"v\": 3, \"uid\": 1000, \"mtim\": 1790023295, \"btim\": 1790023295, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1790023295}, {\"name\": \"download\", \"v\": 3, \"uid\": 1000, \"mtim\": 1790026535, \"btim\": 1790026535, \"dir\": 1, \"rmUid\": 1000, \"rmTime\": 1790026535}], \"uver\": 117436739026944, \"reqid\": \"6ad274fb6ad274f60000033e004c\"}"
+    },
+    {
+      "req": "file.trash.list",
+      "params": {
+        "path": "/vol1/1000/tmp/fnapi_filetest_20261017_030318/sub"
+      },
+      "nested": false,
+      "note": "trash.list 传 path → 行为等同列目录",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 32.2,
+      "resp_keys": [
+        "files",
+        "uver"
+      ],
+      "sample": "{\"files\": [{\"name\": \"renamed.jpg\", \"uid\": 1000, \"size\": 1880200, \"mtim\": 1769517306, \"btim\": 1792177399}], \"uver\": 117436739026944, \"reqid\": \"6ad274fb6ad274f60000033e004d\"}"
+    },
+    {
+      "req": "file.trash.restore",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/fnapi_filetest_20261017_030318/trash-victim.txt"
+        ],
+        "overwrite": 1,
+        "details": {
+          "name": "trash-victim.txt",
+          "count": 1
+        }
+      },
+      "nested": false,
+      "note": "尝试还原（原路径）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 18.0,
+      "resp_keys": [
+        "sysNotify",
+        "taskId"
+      ],
+      "sample": "{\"sysNotify\": \"taskId\", \"taskId\": \"ZUiIKQQzQ32acF4U8ZCjLA==\", \"reqid\": \"6ad274fb6ad274f60000033e004e\"}",
+      "task_reqid": "6ad274fb6ad274f60000033e004e",
+      "task_status": "succ",
+      "task_sample": "{\"result\": \"succ\", \"reqid\": \"6ad274fb6ad274f60000033e004e\"}",
+      "skip_merge": true,
+      "skip_reason": "接口回 succ 但文件没真的还原，语义未确认"
+    },
+    {
+      "req": "file.rm",
+      "params": {
+        "files": [
+          "/vol1/1000/tmp/fnapi_filetest_20261017_030318"
+        ],
+        "moveToTrashbin": false,
+        "details": {
+          "name": "fnapi_filetest_20261017_030318",
+          "dir": 1,
+          "count": 1
+        }
+      },
+      "nested": false,
+      "note": "删除临时目录（自己建的，直接删）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 23.4,
+      "resp_keys": [
+        "sysNotify",
+        "taskId"
+      ],
+      "sample": "{\"sysNotify\": \"taskId\", \"taskId\": \"BFq02xqcS6qymQtD51GIeg==\", \"reqid\": \"6ad275076ad274f60000033e0062\"}",
+      "task_reqid": "6ad275076ad274f60000033e0062",
+      "task_status": "succ",
+      "task_sample": "{\"result\": \"succ\", \"reqid\": \"6ad275076ad274f60000033e0062\"}"
+    }
+  ]
+}

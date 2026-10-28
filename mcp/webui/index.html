@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>飞牛接口 MCP Server</title>
+<link rel="stylesheet" href="/static/style.css">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="logo">MCP</div>
+    <div>
+      <div class="title" id="appTitle">飞牛接口 MCP Server</div>
+      <div class="subtitle">476 个 WebSocket 接口 + 151 个相册 HTTP 接口 · 实测可用接口一键接入</div>
+    </div>
+    <div class="spacer"></div>
+    <span class="pill" id="connPill"><span class="dot"></span><span id="connText">检测中…</span></span>
+    <button class="icon-btn" id="themeBtn" title="切换深色/浅色">◐</button>
+    <button class="icon-btn" id="refreshBtn" title="刷新状态">↻</button>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="kpis">
+    <div class="kpi accent">
+      <div class="n" id="kpiWs">—<small> 个</small></div>
+      <div class="k">WebSocket 接口</div>
+    </div>
+    <div class="kpi ok">
+      <div class="n" id="kpiWsOk">—</div>
+      <div class="k">实测可用（WS）</div>
+    </div>
+    <div class="kpi accent">
+      <div class="n" id="kpiHttp">—<small> 个</small></div>
+      <div class="k">相册 HTTP 接口</div>
+    </div>
+    <div class="kpi ok">
+      <div class="n" id="kpiHttpOk">—</div>
+      <div class="k">实测可用（HTTP）</div>
+    </div>
+    <div class="kpi">
+      <div class="n" id="kpiTools">—</div>
+      <div class="k">MCP 工具</div>
+    </div>
+  </div>
+
+  <!-- ============ 飞牛连接配置 ============ -->
+  <section class="block" id="connBlock">
+    <div class="block-head">
+      <h2>飞牛连接配置</h2>
+      <span class="hint">MCP Server 用这里的账号登录 NAS；改完点「保存并重连」立即生效</span>
+      <div class="spacer"></div>
+      <span class="pill" id="connPill2"><span class="dot"></span><span id="connTarget">—</span></span>
+    </div>
+
+    <div class="card conn-card">
+      <div class="conn-grid">
+        <div class="field">
+          <label>飞牛 NAS 的 IP / 主机名</label>
+          <div class="with-btn">
+            <input id="fHost" placeholder="127.0.0.1" autocomplete="off" spellcheck="false">
+            <button type="button" class="btn ghost tiny" id="useLocal" title="应用就装在 NAS 上，填 127.0.0.1 即可">本机</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>端口</label>
+          <input id="fPort" placeholder="5666" autocomplete="off">
+        </div>
+        <div class="field">
+          <label>账号</label>
+          <input id="fUser" placeholder="输入 NAS 账号" autocomplete="username">
+        </div>
+        <div class="field">
+          <label>密码 <span class="muted" id="passHint">（已配置，留空表示不修改）</span></label>
+          <input id="fPass" type="password" placeholder="不修改请留空" autocomplete="new-password">
+        </div>
+        <div class="field conn-wide">
+          <label>HTTP 地址（相册接口用，可留空自动按 IP/端口拼）</label>
+          <input id="fBase" placeholder="留空即可，例如 http://192.168.1.10:5666" autocomplete="off">
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="saveCfg">保存并重连</button>
+        <button class="btn ghost" id="testConn">测试连接</button>
+        <span class="msg" id="connMsg"></span>
+        <span class="muted small" style="margin-left:auto" id="connExtra"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 两种 MCP 连接方式 ============ -->
+  <section class="block">
+    <div class="block-head">
+      <h2>MCP 连接方式</h2>
+      <span class="hint">两种传输都实现，按客户端支持情况二选一；开关即时生效</span>
+    </div>
+
+    <div class="transports">
+      <!-- Streamable HTTP -->
+      <div class="transport on" id="cardMcp">
+        <div class="head">
+          <span class="name">Streamable HTTP</span>
+          <span class="tag rec">推荐</span>
+          <div class="spacer"></div>
+          <label class="switch">
+            <input type="checkbox" id="swMcp" checked>
+            <span class="track"></span>
+          </label>
+        </div>
+        <div class="desc">
+          新版 MCP 标准传输：单个 <code>POST /mcp</code> 端点，请求/响应直连，兼容 Claude Code、
+          Cursor、Cherry Studio、n8n 等主流客户端。
+        </div>
+        <div class="endpoint">
+          <code id="urlMcp">/mcp</code>
+          <button class="copy" data-copy="urlMcp">复制</button>
+        </div>
+        <pre id="snippetMcp">加载中…</pre>
+      </div>
+
+      <!-- HTTP + SSE -->
+      <div class="transport on" id="cardSse">
+        <div class="head">
+          <span class="name">HTTP + SSE</span>
+          <span class="tag">兼容旧版</span>
+          <div class="spacer"></div>
+          <label class="switch">
+            <input type="checkbox" id="swSse" checked>
+            <span class="track"></span>
+          </label>
+        </div>
+        <div class="desc">
+          旧版 MCP HTTP 传输：<code>GET /sse</code> 建长连接、通过事件下发
+          <code>/messages</code> 端点，适合只支持 SSE 的客户端。
+        </div>
+        <div class="endpoint">
+          <code id="urlSse">/sse</code>
+          <button class="copy" data-copy="urlSse">复制</button>
+        </div>
+        <pre id="snippetSse">加载中…</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 标签页 ============ -->
+  <div class="tabs">
+    <button class="tab active" data-tab="available">可用接口<span class="badge" id="tabCount">—</span></button>
+    <button class="tab" data-tab="docs">接口文档</button>
+    <button class="tab" data-tab="settings">设置</button>
+    <button class="tab" data-tab="logs">日志</button>
+  </div>
+
+  <!-- 可用接口 -->
+  <div class="panel active" id="panel-available">
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="搜索接口名 / 分组 / 中文用途，例如 file.ls、分享、album">
+      <select id="protoSel">
+        <option value="all">全部接口</option>
+        <option value="ws">只看 WebSocket</option>
+        <option value="http">只看相册 HTTP</option>
+      </select>
+      <select id="availSel">
+        <option value="1">只看实测可用</option>
+        <option value="0">包含未实测/不可用</option>
+      </select>
+      <button class="btn ghost" id="reloadList">刷新</button>
+      <span class="count" id="listCount">—</span>
+    </div>
+    <div class="table-wrap">
+      <table class="list">
+        <thead>
+          <tr>
+            <th style="width:64px">协议</th>
+            <th style="width:26%">接口</th>
+            <th style="width:110px">分组</th>
+            <th>说明</th>
+            <th style="width:200px">参数</th>
+            <th style="width:110px">实测状态</th>
+          </tr>
+        </thead>
+        <tbody id="rows"><tr><td colspan="6" class="muted">加载中…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size:12.3px;margin-top:10px">
+      说明：「✅ 实测通过」= 在真机上真实调用成功并返回数据；「⚠ 需要参数」= 接口存在，
+      补齐参数即可用（参数名见右侧）；「— 未实测」= 静态扫描到但还没在真机上验证。
+      可用接口同时也能通过通用工具 <code>fnnas_interface_call</code> /
+      <code>fnnas_http_api_call</code> 调用。
+    </p>
+  </div>
+
+  <!-- 接口文档 -->
+  <div class="panel" id="panel-docs">
+    <div class="toolbar">
+      <a class="btn ghost" href="/docs" target="_blank" rel="noopener">在新标签打开完整文档 ↗</a>
+      <span class="count">单文件 HTML：搜索、分组筛选、每个接口的返回字段与实测报文</span>
+    </div>
+    <iframe class="doc-frame" id="docFrame" src="about:blank" loading="lazy"></iframe>
+  </div>
+
+  <!-- 设置 -->
+  <div class="panel" id="panel-settings">
+    <p class="muted small" style="margin:0 0 14px">NAS 连接（IP / 账号 / 密码）在首页「飞牛连接配置」里改；这里只放工具与客户端配置。</p>
+    <div class="settings">
+      <div class="card">
+        <h3>工具与传输</h3>
+        <div class="sub">控制暴露给 AI 客户端的工具范围。</div>
+        <div class="field">
+          <label class="switch" style="margin-bottom:4px">
+            <input type="checkbox" id="swUnverified">
+            <span class="track"></span>
+            <span class="label">在 <code>tools/list</code> 里包含未实测的精选工具</span>
+          </label>
+        </div>
+        <div class="sub" style="margin-top:10px">
+          通用工具（<code>fnnas_interface_call</code> / <code>fnnas_http_api_call</code>）
+          始终可以调用全部 476 + 151 个接口，不受这个开关影响。
+        </div>
+        <hr style="border:none;border-top:1px solid var(--line);margin:16px 0">
+        <h3>客户端配置示例</h3>
+        <pre class="logs" id="clientSample" style="max-height:240px">加载中…</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 日志 -->
+  <div class="panel" id="panel-logs">
+    <div class="toolbar">
+      <button class="btn ghost" id="reloadLogs">刷新日志</button>
+      <span class="count" id="logCount">—</span>
+    </div>
+    <pre class="logs" id="logs">加载中…</pre>
+  </div>
+
+  <footer>
+    <span id="footVersion">fnnas-mcp</span>
+    <span>接口总数：<b id="footTotal">—</b></span>
+    <span>连接：<b id="footConn">—</b></span>
+    <span>文档：<a href="/docs" target="_blank">/docs</a></span>
+    <span>项目：fnnas-api（抓包 + SDK + 文档 + MCP）</span>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

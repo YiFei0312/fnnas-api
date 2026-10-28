@@ -1,7 +1,43 @@
 import time
 import random
 import os
+from urllib.parse import urlparse
+
 from .exceptions import BadRequestError
+
+
+def ws_is_open(ws) -> bool:
+    """
+    判断 websockets 连接是否还活着。
+    websockets 15 及以前是 ws.closed，17 起换成了 ws.state（State.OPEN），
+    这里做个兼容，避免 SDK 被库版本绑死。
+    """
+    if ws is None:
+        return False
+    closed = getattr(ws, "closed", None)
+    if closed is not None:
+        return not closed
+    state = getattr(ws, "state", None)
+    name = getattr(state, "name", None)
+    if name:
+        return name == "OPEN"
+    return True
+
+
+def http_base_from_ws(url: str) -> str:
+    """
+    由 websocket 地址推导 http 基地址：
+        ws://192.168.1.4:5666/websocket?type=main -> http://192.168.1.4:5666
+        wss://nas.example.com/websocket          -> https://nas.example.com
+    """
+    p = urlparse(url)
+    scheme = {"ws": "http", "wss": "https", "http": "http", "https": "https"}.get(p.scheme, "http")
+    path = p.path or ""
+    for suffix in ("/websocket", "/ws"):
+        if suffix in path:
+            path = path.split(suffix)[0]
+            break
+    return f"{scheme}://{p.netloc}{path.rstrip('/')}"
 
 
 def _get_reqid():

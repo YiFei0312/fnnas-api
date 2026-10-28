@@ -1,0 +1,731 @@
+{
+ "appcgi.accountsrv.v1.token.list": {
+  "purpose": "获取应用 Token 列表（需先安装对应应用）"
+ },
+ "appcgi.backup.logger.list": {
+  "purpose": "获取备份日志（需要参数）"
+ },
+ "appcgi.backup.storage.checkConnection": {
+  "purpose": "检查备份存储位置连通性（需要参数）"
+ },
+ "appcgi.backup.storage.getAuthUrl": {
+  "purpose": "获取云盘授权链接（需要参数）"
+ },
+ "appcgi.backup.storage.getQuota": {
+  "purpose": "获取备份存储位置的配额（需要参数）"
+ },
+ "appcgi.backup.storage.list": {
+  "purpose": "获取备份存储位置列表"
+ },
+ "appcgi.backup.storage.listDir": {
+  "purpose": "浏览备份存储位置中的目录（需要参数）"
+ },
+ "appcgi.backup.task.detail": {
+  "purpose": "获取备份任务详情（需要参数）"
+ },
+ "appcgi.backup.task.list": {
+  "purpose": "获取备份任务列表（需要参数）"
+ },
+ "appcgi.eventlogger.common.archive.get": {
+  "purpose": "获取事件日志归档状态"
+ },
+ "appcgi.eventlogger.common.list": {
+  "purpose": "查询系统事件日志（需要参数）"
+ },
+ "appcgi.filestor.getAppDirList": {
+  "purpose": "获取应用数据目录列表"
+ },
+ "appcgi.filestor.getSysPartInfo": {
+  "purpose": "获取系统分区占用（同 stor.getSysPartInfo）"
+ },
+ "appcgi.filestor.getTeamDirList": {
+  "purpose": "获取团队空间目录列表"
+ },
+ "appcgi.filestor.isMountPoint": {
+  "purpose": "判断路径是否为挂载点（需要参数）"
+ },
+ "appcgi.finder.fileSearch": {
+  "purpose": "搜索文件（key 关键字 + path 搜索范围）"
+ },
+ "appcgi.finder.searchOtherSharing": {
+  "purpose": "搜索其它共享中的文件（需要参数）"
+ },
+ "appcgi.ipblocker.queryAllowList": {
+  "purpose": "获取 IP 允许名单"
+ },
+ "appcgi.ipblocker.queryAutoBlockRule": {
+  "purpose": "获取自动封禁规则（失败次数/时长）"
+ },
+ "appcgi.ipblocker.queryDenyList": {
+  "purpose": "获取 IP 拒绝（封禁）名单"
+ },
+ "appcgi.iscsimgr.iscsi.lun.list": {
+  "purpose": "获取 iSCSI LUN 列表（需先安装 iSCSI 应用）"
+ },
+ "appcgi.license.soft.get": {
+  "purpose": "获取软件授权信息（需要参数）"
+ },
+ "appcgi.license.soft.ipc.get": {
+  "purpose": "获取 IPC 授权信息（需要参数）"
+ },
+ "appcgi.license.soft.list": {
+  "purpose": "获取软件授权列表（需要参数）"
+ },
+ "appcgi.license.soft.trial.applystatus": {
+  "purpose": "查询软件试用申请状态"
+ },
+ "appcgi.mountmgr.check": {
+  "purpose": "检查挂载配置连通性（需要参数）"
+ },
+ "appcgi.mountmgr.list": {
+  "purpose": "获取远程挂载列表"
+ },
+ "appcgi.mountmgr.mountInfo": {
+  "purpose": "获取挂载点信息（需要参数）"
+ },
+ "appcgi.mountmgr.setting.detail": {
+  "purpose": "获取挂载设置详情"
+ },
+ "appcgi.mountmgr.shares": {
+  "purpose": "获取可挂载的远端共享（需要参数）"
+ },
+ "appcgi.mountmgr.task.detail": {
+  "purpose": "获取挂载任务详情（需要参数）"
+ },
+ "appcgi.mountmgr.task.list": {
+  "purpose": "获取挂载任务列表"
+ },
+ "appcgi.netsvr.cert.getuse": {
+  "purpose": "获取当前正在使用的证书"
+ },
+ "appcgi.netsvr.cert.list": {
+  "purpose": "获取证书列表"
+ },
+ "appcgi.netsvr.conn.getconfig": {
+  "purpose": "获取远程访问（FN Connect）配置"
+ },
+ "appcgi.netsvr.conn.status": {
+  "purpose": "获取远程访问连接状态"
+ },
+ "appcgi.netsvr.ddns.provider.list": {
+  "purpose": "获取支持的 DDNS 服务商列表"
+ },
+ "appcgi.netsvr.ddns.record.detail": {
+  "purpose": "获取单条 DDNS 记录详情（需要参数）"
+ },
+ "appcgi.netsvr.ddns.record.list": {
+  "purpose": "获取 DDNS 解析记录列表"
+ },
+ "appcgi.netsvr.domain.list": {
+  "purpose": "获取已配置的访问域名"
+ },
+ "appcgi.netsvr.fnassistant.info": {
+  "purpose": "获取飞牛助手（局域网发现）信息"
+ },
+ "appcgi.netsvr.network.list": {
+  "purpose": "获取可用的外网网络接口"
+ },
+ "appcgi.network.gen.info": {
+  "purpose": "获取网络通用信息（该版本返回 100000004）"
+ },
+ "appcgi.network.gw.getting": {
+  "purpose": "获取网关设置（http/https 端口、强制 HTTPS、重定向）"
+ },
+ "appcgi.network.gw.setting": {
+  "purpose": "修改网关设置（写操作）"
+ },
+ "appcgi.network.net.getMultiGWStatus": {
+  "purpose": "获取多网关（多 WAN）状态"
+ },
+ "appcgi.network.net.getNicPerformanceMode": {
+  "purpose": "获取网卡性能模式"
+ },
+ "appcgi.network.net.info": {
+  "purpose": "获取单个网卡详情（需要参数）"
+ },
+ "appcgi.network.net.list": {
+  "purpose": "获取网卡列表（IP、速率、状态、绑定关系）"
+ },
+ "appcgi.network.net.state": {
+  "purpose": "获取网卡状态（需要参数）"
+ },
+ "appcgi.network.route.list": {
+  "purpose": "获取路由表（该版本返回 100000004）"
+ },
+ "appcgi.network.ssh.status": {
+  "purpose": "获取 SSH 开关状态"
+ },
+ "appcgi.network.static.list": {
+  "purpose": "获取静态路由（该版本返回 100000004）"
+ },
+ "appcgi.network.wifi.getKnownAPInfo": {
+  "purpose": "获取已保存的 WiFi 信息（需要参数）"
+ },
+ "appcgi.resmon.alert.getBeepEvents": {
+  "purpose": "获取蜂鸣告警事件"
+ },
+ "appcgi.resmon.alert.getBeepReasons": {
+  "purpose": "获取蜂鸣告警原因"
+ },
+ "appcgi.resmon.alert.getSupportedBeepEvents": {
+  "purpose": "获取设备支持的蜂鸣告警类型"
+ },
+ "appcgi.resmon.battery": {
+  "purpose": "电池状态（无电池设备时报 100030002）"
+ },
+ "appcgi.resmon.cpu": {
+  "purpose": "CPU 实时状态（型号、核心/线程、频率、温度、占用率）"
+ },
+ "appcgi.resmon.disk": {
+  "purpose": "磁盘 IO 实时状态（读写速率、IOPS、繁忙度）"
+ },
+ "appcgi.resmon.gen": {
+  "purpose": "获取监控总览（需要参数）"
+ },
+ "appcgi.resmon.gpu": {
+  "purpose": "GPU 状态（无 GPU 时为空）"
+ },
+ "appcgi.resmon.mem": {
+  "purpose": "内存实时状态（总量、已用、可用、缓存、Swap）"
+ },
+ "appcgi.resmon.npu": {
+  "purpose": "NPU 状态（无 NPU 时为空）"
+ },
+ "appcgi.resmon.proc.list": {
+  "purpose": "进程列表（PID、CPU/内存占用）"
+ },
+ "appcgi.resmon.proc.srv": {
+  "purpose": "受管服务进程状态"
+ },
+ "appcgi.resmon.sysFan": {
+  "purpose": "风扇转速与温度"
+ },
+ "appcgi.sac.desktop.v1.getConfig": {
+  "purpose": "获取桌面配置"
+ },
+ "appcgi.sac.entry.v1.appStoreList": {
+  "purpose": "获取应用商店列表"
+ },
+ "appcgi.sac.entry.v1.dockerList": {
+  "purpose": "获取 Docker 应用列表"
+ },
+ "appcgi.sac.entry.v1.fileAssociations.list": {
+  "purpose": "获取文件类型关联的应用"
+ },
+ "appcgi.sac.entry.v1.getEntryList": {
+  "purpose": "获取桌面应用入口列表"
+ },
+ "appcgi.sac.entry.v1.getUserDesktop": {
+  "purpose": "获取用户桌面布局"
+ },
+ "appcgi.sac.externalnotify.v1.email.getAccessToken": {
+  "purpose": "获取邮箱授权 Token（需要参数）"
+ },
+ "appcgi.sac.externalnotify.v1.email.getConfig": {
+  "purpose": "获取邮件通知配置"
+ },
+ "appcgi.sac.externalnotify.v1.email.getProviders": {
+  "purpose": "获取邮件服务商列表"
+ },
+ "appcgi.sac.i18n.v1.config.get": {
+  "purpose": "获取界面语言配置"
+ },
+ "appcgi.sac.license.v1.config.get": {
+  "purpose": "获取授权配置"
+ },
+ "appcgi.sac.ups.v1.check": {
+  "purpose": "检测 UPS 连接（需要参数）"
+ },
+ "appcgi.sac.ups.v1.list": {
+  "purpose": "获取 UPS 设备列表"
+ },
+ "appcgi.sac.ups.v1.status": {
+  "purpose": "获取 UPS 状态（电量、供电方式）"
+ },
+ "appcgi.screen.getImageUploadPath": {
+  "purpose": "获取启动图上传路径"
+ },
+ "appcgi.screen.getOptions": {
+  "purpose": "获取屏幕可选项（需安装屏幕相关应用）"
+ },
+ "appcgi.screen.getScreenImage": {
+  "purpose": "获取启动画面图片（需安装屏幕相关应用）"
+ },
+ "appcgi.screen.getScreenSize": {
+  "purpose": "获取屏幕分辨率"
+ },
+ "appcgi.screen.getScreenVideo": {
+  "purpose": "获取启动视频"
+ },
+ "appcgi.screen.isSleeping": {
+  "purpose": "查询屏幕是否休眠"
+ },
+ "appcgi.security.firewall.getting": {
+  "purpose": "获取防火墙配置"
+ },
+ "appcgi.security.safeCode.getting": {
+  "purpose": "获取安全码配置"
+ },
+ "appcgi.share.dlna.opt": {
+  "purpose": "读取 DLNA 配置"
+ },
+ "appcgi.share.dlna.share.opt": {
+  "purpose": "读取 DLNA 各共享目录的配置"
+ },
+ "appcgi.share.ftp.opt": {
+  "purpose": "读取 FTP 配置（开关、端口、编码）"
+ },
+ "appcgi.share.ftp.share.opt": {
+  "purpose": "读取 FTP 各共享目录的配置"
+ },
+ "appcgi.share.nfs.opt": {
+  "purpose": "读取 NFS 共享配置"
+ },
+ "appcgi.share.nfs.share.opt": {
+  "purpose": "读取 NFS 各共享目录的配置"
+ },
+ "appcgi.share.smb.opt": {
+  "purpose": "读取 SMB 共享配置（启用状态、工作组、端口）"
+ },
+ "appcgi.share.smb.share.opt": {
+  "purpose": "读取 SMB 各共享目录的配置"
+ },
+ "appcgi.share.team.allowShare": {
+  "purpose": "查询团队空间是否允许共享"
+ },
+ "appcgi.share.webdav.opt": {
+  "purpose": "读取 WebDAV 配置"
+ },
+ "appcgi.share.webdav.share.opt": {
+  "purpose": "读取 WebDAV 各共享目录的配置"
+ },
+ "appcgi.sharesvr.share.link.clear": {
+  "purpose": "清空分享链接（管理员可清全部用户，返回删除条数）"
+ },
+ "appcgi.sharesvr.share.link.create": {
+  "purpose": "创建分享链接（可设提取码、有效期、可访问次数）"
+ },
+ "appcgi.sharesvr.share.link.default": {
+  "purpose": "保存分享链接默认配置（写操作；新版前端用的是 .default.set）"
+ },
+ "appcgi.sharesvr.share.link.default.get": {
+  "purpose": "读取分享链接默认配置（域名模式 / 自定义域名 / 限速 / fnDefault 前缀）"
+ },
+ "appcgi.sharesvr.share.link.default.set": {
+  "purpose": "设置分享链接默认域名与限速（写操作）"
+ },
+ "appcgi.sharesvr.share.link.get": {
+  "purpose": "查询单条分享链接详情（含分享的文件列表）"
+ },
+ "appcgi.sharesvr.share.link.list": {
+  "purpose": "分页查询分享链接列表（可按名称搜索，管理员可看全部用户）"
+ },
+ "appcgi.sharesvr.share.link.remove": {
+  "purpose": "批量删除分享链接（按 id 列表，返回失败清单）"
+ },
+ "appcgi.sharesvr.share.link.update": {
+  "purpose": "修改分享链接（改名 / 改提取码 / 改有效期 / 改次数）"
+ },
+ "appcgi.sharesvr.share.permission.get": {
+  "purpose": "读取谁能创建分享链接"
+ },
+ "appcgi.sharesvr.share.permission.set": {
+  "purpose": "设置谁能创建分享链接（写操作）"
+ },
+ "appcgi.sharesvr.share.uploadpermission.get": {
+  "purpose": "读取分享链接里谁可以上传"
+ },
+ "appcgi.sharesvr.share.uploadpermission.set": {
+  "purpose": "设置分享链接的上传权限（写操作）"
+ },
+ "appcgi.sysinfo.getBootOnPowerFlag": {
+  "purpose": "获取「来电自启」设置（不支持的机型报 100060031）"
+ },
+ "appcgi.sysinfo.getFanMode": {
+  "purpose": "获取风扇模式（静音/均衡/全速等）"
+ },
+ "appcgi.sysinfo.getHardwareInfo": {
+  "purpose": "获取硬件信息（CPU、内存、主板、BIOS、系统盘）"
+ },
+ "appcgi.sysinfo.getHostName": {
+  "purpose": "获取主机名、系统版本、是否已创建用户"
+ },
+ "appcgi.sysinfo.getMachineId": {
+  "purpose": "获取设备唯一 ID"
+ },
+ "appcgi.sysinfo.getNetInfo": {
+  "purpose": "获取网卡硬件信息（该版本返回 100000004，未启用）"
+ },
+ "appcgi.sysinfo.getPowerPlanStatus": {
+  "purpose": "获取当前电源计划状态"
+ },
+ "appcgi.sysinfo.getReservedPartition": {
+  "purpose": "获取保留分区信息（无保留分区时报 100060001）"
+ },
+ "appcgi.sysinfo.getTimeSetting": {
+  "purpose": "获取时间设置（时区、NTP）"
+ },
+ "appcgi.sysinfo.getTimezoneList": {
+  "purpose": "获取可选时区列表"
+ },
+ "appcgi.sysinfo.getTrimDisk": {
+  "purpose": "获取整机系统盘/引导盘信息"
+ },
+ "appcgi.sysinfo.getTrimMachineFeature": {
+  "purpose": "获取整机功能特性（本机超时未返回）"
+ },
+ "appcgi.sysinfo.getTrimMachineType": {
+  "purpose": "获取整机型号信息"
+ },
+ "appcgi.sysinfo.getTrimVersion": {
+  "purpose": "获取系统版本、版本分支与平台"
+ },
+ "appcgi.sysinfo.getUptime": {
+  "purpose": "获取开机时长（秒）"
+ },
+ "appcgi.sysinfo.isTrimMachine": {
+  "purpose": "判断是否为飞牛整机"
+ },
+ "appcgi.sysinfo.listPowerPlan": {
+  "purpose": "获取电源计划列表"
+ },
+ "appcgi.sysinfo.setFanMode": {
+  "purpose": "设置风扇模式（写操作）"
+ },
+ "appcgi.sysinfo.setHostName": {
+  "purpose": "修改主机名（写操作）"
+ },
+ "appcgi.sysinfo.setTimeSetting": {
+  "purpose": "设置系统时间/时区（写操作）"
+ },
+ "appcgi.sysrestore.getInfo": {
+  "purpose": "获取系统还原总览信息"
+ },
+ "appcgi.sysrestore.getSysBackupInfo": {
+  "purpose": "获取系统备份信息"
+ },
+ "appcgi.sysrestore.getSysBackupTask": {
+  "purpose": "获取系统备份任务（无任务时报 100160045）"
+ },
+ "appcgi.sysrestore.getSysconfUploadPath": {
+  "purpose": "获取系统配置上传路径"
+ },
+ "appcgi.tfa.security.v1.device.list": {
+  "purpose": "获取两步验证绑定设备列表"
+ },
+ "appcgi.tfa.security.v1.me.getConfig": {
+  "purpose": "获取当前账号的两步验证配置"
+ },
+ "appcgi.tfa.security.v1.twofa.getConfig": {
+  "purpose": "获取两步验证全局配置"
+ },
+ "appcgi.tfa.security.v1.user.getTwofaConfig": {
+  "purpose": "获取指定用户的两步验证配置（需要参数）"
+ },
+ "appcgi.usersrv.getAppUserList": {
+  "purpose": "获取应用侧的用户列表"
+ },
+ "file.access": {
+  "purpose": "检查权限位（参数 `files` 数组，返回 `access[]`，`access[0] & 6` 非 0 即可读写）"
+ },
+ "file.calc": {
+  "purpose": "统计文件数量与占用（参数 `files` 数组，同步返回 fileCount / dirCount / fileSizeTotal / space）"
+ },
+ "file.cancel": {
+  "purpose": "取消进行中的文件任务（参数形态未确认：taskId/taskIds/id 都报 8192）"
+ },
+ "file.checkUpload": {
+  "purpose": "上传前预检（`{size, path, overwrite}`，overwrite 0=跳过/1=覆盖/2=保留两者；返回 uploadName 用于 HTTP 上传）"
+ },
+ "file.chown": {
+  "purpose": "修改文件属主（`{files 数组, uid, gid}`，异步任务）"
+ },
+ "file.compress": {
+  "purpose": "压缩文件/目录（异步任务；`{description, path, files, level, details}`，path 是输出压缩包）"
+ },
+ "file.cp": {
+  "purpose": "复制文件/目录（异步任务；`{files, pathTo, overwrite, details}`，pathTo 是目标目录）"
+ },
+ "file.download": {
+  "purpose": "取下载地址（参数 `files` 数组，返回带签名的 HTTP uri，实测 GET 下来字节数与原文件一致）"
+ },
+ "file.extract": {
+  "purpose": "解压压缩包（异步任务；`{description, path, file, overwrite, details}`；别传空的 fromCharset）"
+ },
+ "file.fav.add": {
+  "purpose": "添加收藏（参数 `path`，加完会推 `sysNotify=fileFav, type=add`）"
+ },
+ "file.fav.del": {
+  "purpose": "删除收藏（参数 `path`，一次一个）"
+ },
+ "file.fav.list": {
+  "purpose": "获取收藏夹列表"
+ },
+ "file.getAcl": {
+  "purpose": "读取 ACL 权限（参数 `{path, getProp?}`，返回 permset / defaultPermset）"
+ },
+ "file.ls": {
+  "purpose": "列出目录内容（文件/文件夹、大小、时间）。成功响应是平铺的 `{files, uver}`，没有 result 字段"
+ },
+ "file.lsDir": {
+  "purpose": "列出目录内容（分页/精简版，字段与 file.ls 类似）"
+ },
+ "file.mkdir": {
+  "purpose": "新建文件夹（`{path}` 用绝对路径，含新目录名）"
+ },
+ "file.mv": {
+  "purpose": "移动文件/目录（异步任务；参数同 file.cp）"
+ },
+ "file.prop": {
+  "purpose": "批量获取路径属性（参数 `files` 数组，返回 `prop[]`；不存在的路径外层仍 succ，条目里 errno=4100）"
+ },
+ "file.recent.add": {
+  "purpose": "记录一次最近访问"
+ },
+ "file.recent.clear": {
+  "purpose": "清空最近访问记录（无参数）"
+ },
+ "file.recent.del": {
+  "purpose": "删除最近访问（参数 `path` 是**数组**，和 file.fav.del 不一样）"
+ },
+ "file.recent.list": {
+  "purpose": "获取最近访问列表"
+ },
+ "file.rename": {
+  "purpose": "重命名文件/目录（`{path, newName}`，同步接口，失败直接回 errno）"
+ },
+ "file.rm": {
+  "purpose": "删除文件/文件夹（异步任务：ack 后靠同 reqid 推送看结果；`moveToTrashbin` true=进回收站）"
+ },
+ "file.setAcl": {
+  "purpose": "设置 ACL（旧接口；实测 errno 10000002 接口不存在，用 file.setAcl2）"
+ },
+ "file.setAcl2": {
+  "purpose": "设置文件/目录 ACL（`{files, permset, details, sub?}`，异步任务，是 UI 在用的那个）"
+ },
+ "file.share.add": {
+  "purpose": "创建文件分享（旧接口；实测 errno 10000002 接口不存在，勿用）"
+ },
+ "file.share.add2": {
+  "purpose": "创建文件分享（旧接口；实测只认 path/shareName，仍缺必填参数，未能创建成功）"
+ },
+ "file.share.del2": {
+  "purpose": "删除某个路径的分享（旧接口，参数 path，幂等：没有分享也返回 succ）"
+ },
+ "file.share.info": {
+  "purpose": "按路径查询文件分享信息（旧接口，实测只接受 path；无分享时只返回 uver）"
+ },
+ "file.share.list": {
+  "purpose": "列出当前用户的文件分享（旧接口；没有分享时只返回 succ，无数据）"
+ },
+ "file.share.listOthers": {
+  "purpose": "列出他人分享给我的文件（旧接口；没有时只返回 uver）"
+ },
+ "file.size": {
+  "purpose": "计算单个路径占用大小（参数是 `file` 一个路径，返回 `{size, space}`；不是异步任务）"
+ },
+ "file.team.lsDir": {
+  "purpose": "列出团队空间目录内容（本机没有团队空间，返回 uver）"
+ },
+ "file.team.trash.clear": {
+  "purpose": "清空团队空间回收站"
+ },
+ "file.team.trash.list": {
+  "purpose": "获取团队空间回收站列表"
+ },
+ "file.team.trash.listTrashbin": {
+  "purpose": "获取团队空间回收站（回收站视图）"
+ },
+ "file.team.trash.restore": {
+  "purpose": "还原团队空间回收站文件"
+ },
+ "file.trash.clear": {
+  "purpose": "清空回收站（写操作，不可恢复；会影响其它条目，未实测）"
+ },
+ "file.trash.list": {
+  "purpose": "回收站列表（`{}`/`{uid}` 返回顶层条目，字段 rmUid/rmTime；传 `path` 时实测行为等同列该目录）"
+ },
+ "file.trash.restore": {
+  "purpose": "从回收站还原（⚠ 实测：接口回 succ、任务也回 succ，但传原路径**并没有真的还原**，`files` 要传的形态未确认，别依赖）"
+ },
+ "file.trimacl.conv": {
+  "purpose": "转换文件权限为 fnOS ACL 模型（参数未确认，前端未调用）"
+ },
+ "file.trimacl.conv.report": {
+  "purpose": "查询权限转换进度报告（参数未确认，前端未调用）"
+ },
+ "file.usage": {
+  "purpose": "存储占用统计（异步任务：返回 taskId，分类用量（app/docker/vm/iscsi/…）靠推送回）"
+ },
+ "liveupdate.check": {
+  "purpose": "检查系统更新"
+ },
+ "liveupdate.status": {
+  "purpose": "获取更新状态/分支"
+ },
+ "notify.list": {
+  "purpose": "分页获取通知列表"
+ },
+ "notify.unreadTotal": {
+  "purpose": "获取未读通知数量"
+ },
+ "power.poweroff": {
+  "purpose": "关机（写操作）"
+ },
+ "power.reboot": {
+  "purpose": "重启（写操作）"
+ },
+ "stor.calcSpace": {
+  "purpose": "汇总容量：系统盘、存储空间总量/可用量、HDD/SSD/USB 数量"
+ },
+ "stor.diskHealth": {
+  "purpose": "读取硬盘健康状态（需要 disk 参数）"
+ },
+ "stor.diskSmart": {
+  "purpose": "读取硬盘 SMART 健康数据（需要 disk 参数）"
+ },
+ "stor.general": {
+  "purpose": "存储总览：阵列与块设备信息"
+ },
+ "stor.getConf": {
+  "purpose": "获取存储配置（需要参数）"
+ },
+ "stor.getDiskIdleTime": {
+  "purpose": "获取硬盘空闲休眠时间设置"
+ },
+ "stor.getDiskWakeup": {
+  "purpose": "获取硬盘唤醒相关设置"
+ },
+ "stor.getGlobal": {
+  "purpose": "获取存储全局参数（ZFS ARC 上限、写入并发等）"
+ },
+ "stor.getRemovableConf": {
+  "purpose": "获取可移动设备的使用策略"
+ },
+ "stor.getSysPartInfo": {
+  "purpose": "获取系统分区（/）的总量与剩余空间"
+ },
+ "stor.getTeamStorage": {
+  "purpose": "获取团队空间存储信息（需要参数）"
+ },
+ "stor.getUserStorage": {
+  "purpose": "获取用户可见的存储空间与配额"
+ },
+ "stor.listCachedev": {
+  "purpose": "列出作为缓存/加速的硬盘"
+ },
+ "stor.listDisk": {
+  "purpose": "列出所有物理硬盘（型号、序列号、容量、健康、所属存储）"
+ },
+ "stor.listFreeDisk": {
+  "purpose": "列出未使用的空闲硬盘"
+ },
+ "stor.listRemovable": {
+  "purpose": "列出可移动设备（U 盘、移动硬盘）"
+ },
+ "stor.listStor": {
+  "purpose": "列出存储空间（阵列/单盘/RAID 信息）"
+ },
+ "stor.mount": {
+  "purpose": "挂载存储空间（写操作）"
+ },
+ "stor.readdDisk": {
+  "purpose": "重新识别/上线硬盘（写操作，需要参数）"
+ },
+ "stor.readdDiskToCache": {
+  "purpose": "将硬盘重新加入缓存组（写操作，需要参数）"
+ },
+ "stor.runSmartTest": {
+  "purpose": "执行硬盘 SMART 自检（写操作）"
+ },
+ "stor.setUserStorage": {
+  "purpose": "设置用户在各存储空间的配额（写操作）"
+ },
+ "stor.state2": {
+  "purpose": "获取存储/阵列的当前状态"
+ },
+ "stor.stop": {
+  "purpose": "停止存储空间（写操作）"
+ },
+ "stor.umount": {
+  "purpose": "卸载存储空间（写操作）"
+ },
+ "stor.zImport": {
+  "purpose": "导入 ZFS 存储池（写操作）"
+ },
+ "taskState.list": {
+  "purpose": "获取后台任务列表"
+ },
+ "user.2fa.loginVerify": {
+  "purpose": "两步验证登录校验（写操作）"
+ },
+ "user.2fa.resetPassword": {
+  "purpose": "通过两步验证重置密码（写操作）"
+ },
+ "user.active": {
+  "purpose": "获取当前会话/账号的激活状态"
+ },
+ "user.add": {
+  "purpose": "新增用户（写操作）"
+ },
+ "user.changePassword": {
+  "purpose": "修改用户密码（写操作）"
+ },
+ "user.checkNewGroup": {
+  "purpose": "校验新用户组名是否可用（需要 group 参数）"
+ },
+ "user.checkNewUser": {
+  "purpose": "校验新用户名是否可用（需要 user 参数）"
+ },
+ "user.del": {
+  "purpose": "删除用户（写操作）"
+ },
+ "user.groupAdd": {
+  "purpose": "新增用户组（写操作）"
+ },
+ "user.groupAddUsers": {
+  "purpose": "把用户加入用户组（写操作）"
+ },
+ "user.groupDel": {
+  "purpose": "删除用户组（写操作）"
+ },
+ "user.groupDelUsers": {
+  "purpose": "把用户移出用户组（写操作）"
+ },
+ "user.groupUsers": {
+  "purpose": "获取用户组及其成员"
+ },
+ "user.info": {
+  "purpose": "获取用户详细信息（不传 user 时查自己）"
+ },
+ "user.isAdmin": {
+  "purpose": "判断当前账号是否管理员"
+ },
+ "user.list": {
+  "purpose": "获取所有用户列表"
+ },
+ "user.listLoginDevice": {
+  "purpose": "获取当前账号的登录设备列表"
+ },
+ "user.listUG": {
+  "purpose": "获取用户与用户组的关系数据"
+ },
+ "user.mod": {
+  "purpose": "修改用户信息（写操作）"
+ },
+ "user.setAdmin": {
+  "purpose": "设置/取消用户管理员权限（写操作）"
+ },
+ "usrdat.get": {
+  "purpose": "读取前端 key-value 数据（需要 name 参数）"
+ },
+ "usrdat.set": {
+  "purpose": "写入前端 key-value 数据（写操作）"
+ },
+ "util.crypto.getRSAPub": {
+  "purpose": "获取登录用的 RSA 公钥与会话 ID（免签名）"
+ },
+ "util.getSI": {
+  "purpose": "获取会话 ID（免签名）"
+ }
+}

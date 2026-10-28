@@ -296,7 +296,7 @@ class FileClient extends BaseClient {
     const res = await this._checkUpload(local_path, nas_path, overwrite);
     const uploadName = res.uploadName;
 
-    const url = 'http://192.168.1.12:5666/upload';
+    const url = 'http://192.168.1.143:5666/upload';
     const headers = {
       'Referer': 'http://192.1688.143:5666/p/assets/upload.worker-CPfLJtMs.js',
       'Trim-Overwrite': overwrite.toString(),
@@ -373,7 +373,7 @@ class FileClient extends BaseClient {
   }
 
   async download() {
-    // http://192.168.1.4:5666/multiple-download?token=REDACTED-TOKEN
+    // http://192.168.1.4:5666/multiple-download?token=0
   }
 
   async _checkUpload(local_path, nas_path, overwrite = 2) {

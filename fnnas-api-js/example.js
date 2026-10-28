@@ -9,10 +9,10 @@ async function example1_basic_usage() {
   const client = new MainClient();
   console.log('=== 示例1: 基本信息 ===');
   try {
-    await client.connect('ws://192.168.1.10:5666/websocket');
+    await client.connect(process.env.FN_WS_URL || 'ws://127.0.0.1:5666/websocket');
     console.log('连接成功');
     
-    await client.login('demo-user', 'your-password');
+    await client.login(process.env.fn_username || '', process.env.fn_password || '');
     console.log('登录成功');
     
     const userInfo = await client.user_info();
@@ -29,8 +29,8 @@ async function example2_get_storage() {
   const client = new MainClient();
   
   try {
-    await client.connect('ws://192.168.1.10:5666/websocket');
-    await client.login('demo-user', 'your-password');
+    await client.connect(process.env.FN_WS_URL || 'ws://127.0.0.1:5666/websocket');
+    await client.login(process.env.fn_username || '', process.env.fn_password || '');
     
     const storageInfo = await client.get_user_storage();
     console.log('存储信息:', JSON.stringify(storageInfo, null, 2));
@@ -46,8 +46,8 @@ async function example3_list_files() {
   const client = new FnOsClient();
   
   try {
-    await client.connect('ws://192.168.1.10:5666/websocket');
-    await client.login('demo-user', 'your-password');
+    await client.connect(process.env.FN_WS_URL || 'ws://127.0.0.1:5666/websocket');
+    await client.login(process.env.fn_username || '', process.env.fn_password || '');
     
     const fileList = await client.fileList('vol1');
     console.log('文件列表:', JSON.stringify(fileList, null, 2));
@@ -63,12 +63,12 @@ async function example4_upload_file() {
   const client = new FnOsClient();
   
   try {
-    await client.connect('ws://192.168.1.10:5666/websocket');
-    await client.login('demo-user', 'your-password');
+    await client.connect(process.env.FN_WS_URL || 'ws://127.0.0.1:5666/websocket');
+    await client.login(process.env.fn_username || '', process.env.fn_password || '');
     
     const result = await client.upload(
       './test.txt',
-      '/vol1/1000/zhnyglpt_service/test.txt',
+      '/vol1/1000/sample/test.txt',
       1
     );
     console.log('上传结果:', result);
@@ -84,10 +84,10 @@ async function example5_search_files() {
   const client = new FnOsClient();
   
   try {
-    await client.connect('ws://192.168.1.10:5666/websocket');
-    await client.login('demo-user', 'your-password');
+    await client.connect(process.env.FN_WS_URL || 'ws://127.0.0.1:5666/websocket');
+    await client.login(process.env.fn_username || '', process.env.fn_password || '');
     
-    const searchResult = await client.file_search('test', ['/vol1/1000/zhnyglpt_service']);
+    const searchResult = await client.file_search('test', ['/vol1/1000/sample']);
     console.log('搜索结果:', JSON.stringify(searchResult, null, 2));
     
     await client.close();
@@ -101,8 +101,8 @@ async function example6_change_port_settings() {
   const client = new MainClient();
   
   try {
-    await client.connect('ws://192.168.1.10:5666/websocket');
-    await client.login('demo-user', 'your-password');
+    await client.connect(process.env.FN_WS_URL || 'ws://127.0.0.1:5666/websocket');
+    await client.login(process.env.fn_username || '', process.env.fn_password || '');
     
     const result = await client.setting_port({
       force_https: false,
@@ -123,8 +123,8 @@ async function example7_file_observer() {
   const client = new FnOsClient();
   
   try {
-    await client.connect('ws://192.168.1.10:5666/websocket');
-    await client.login('demo-user', 'your-password');
+    await client.connect(process.env.FN_WS_URL || 'ws://127.0.0.1:5666/websocket');
+    await client.login(process.env.fn_username || '', process.env.fn_password || '');
     
     await client.start_observer({
       nas_path: '/home/sync',

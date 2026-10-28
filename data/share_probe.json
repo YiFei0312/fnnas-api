@@ -1,0 +1,276 @@
+{
+  "generated_at": "2026-10-17 03:13:44",
+  "url": "ws://192.168.1.10:5666/websocket?type=main",
+  "username": "demo-user",
+  "path": "/vol1/1000/tmp",
+  "share_id": "1b1b1a96b1c142bb9f",
+  "kept": false,
+  "flat_list_status": "param_error",
+  "calls": [
+    {
+      "req": "appcgi.sharesvr.share.link.default.get",
+      "params": null,
+      "nested": false,
+      "note": "分享域名/限速默认值",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 229.3,
+      "resp_keys": [
+        "data"
+      ],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad27767000003440003\", \"data\": {\"mode\": \"default\", \"ddns\": \"\", \"customize\": {\"protocol\": \"\", \"domain\": \"\", \"port\": \"\", \"host\": \"\"}, \"fnDefault\": \"http://192.168.1.11:5666\", \"rateLimit\": {\"upload\": 0, \"download\": 0}}}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.permission.get",
+      "params": null,
+      "nested": false,
+      "note": "谁能创建分享",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 4.1,
+      "resp_keys": [
+        "data"
+      ],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad27767000003440004\", \"data\": {\"mode\": \"all\"}}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.uploadpermission.get",
+      "params": null,
+      "nested": false,
+      "note": "谁能上传",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 12.0,
+      "resp_keys": [
+        "data"
+      ],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad27767000003440005\", \"data\": {\"mode\": \"admin\"}}"
+    },
+    {
+      "req": "file.share.list",
+      "params": null,
+      "nested": false,
+      "note": "旧接口：我的分享列表",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 25.7,
+      "resp_keys": [],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad27767000003440006\"}"
+    },
+    {
+      "req": "file.share.listOthers",
+      "params": null,
+      "nested": false,
+      "note": "旧接口：别人分享给我的",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 6.5,
+      "resp_keys": [
+        "uver"
+      ],
+      "sample": "{\"uver\": 117436739026944, \"result\": \"succ\", \"reqid\": \"6ad277686ad27767000003440007\"}"
+    },
+    {
+      "req": "file.share.info",
+      "params": {
+        "path": "/vol1/1000/tmp/20260127_195353.jpg"
+      },
+      "nested": false,
+      "note": "旧接口：按路径查分享",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 40.4,
+      "resp_keys": [
+        "uver"
+      ],
+      "sample": "{\"uver\": 117436739026944, \"result\": \"succ\", \"reqid\": \"6ad277686ad27767000003440009\"}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.link.get",
+      "params": {
+        "id": "probe-not-exists"
+      },
+      "nested": true,
+      "note": "不存在的 id → Not Found",
+      "status": "error",
+      "errno": 3000006,
+      "elapsed_ms": 7.9,
+      "resp_keys": [
+        "data",
+        "errmsg"
+      ],
+      "sample": "{\"result\": \"fail\", \"errno\": 3000006, \"reqid\": \"6ad277686ad2776700000344000a\", \"errmsg\": \"Not Found Error\", \"data\": null}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.link.list",
+      "params": {
+        "page": 1,
+        "pageSize": 100,
+        "keyword": "",
+        "isAdmin": false,
+        "type": 0,
+        "sortColumn": "createdTime",
+        "sortType": "DESC"
+      },
+      "nested": true,
+      "note": "分享列表",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 16.4,
+      "resp_keys": [
+        "data"
+      ],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad2776700000344000b\", \"data\": {\"total\": 1, \"list\": [{\"id\": \"448c18b09396495a9c\", \"name\": \"20260127_195353.jpg\", \"maxAccess\": 0, \"access\": 1, \"validTo\": 1792775589, \"passwd\": \"\", \"uid\": 1000, \"type\": 1, \"status\": \"valid\", \"accessStatus\": \"valid\", \"createdTime\": 1792170790426, \"uploadConfig\": {\"path\": \"\", \"desc\": \"\", \"fileSizeLimit\": 0, \"fileType\": \"\"}}]}}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.link.list",
+      "params": {
+        "page": 1,
+        "pageSize": 100,
+        "keyword": "",
+        "isAdmin": false,
+        "type": 0,
+        "sortColumn": "createdTime",
+        "sortType": "DESC"
+      },
+      "nested": false,
+      "note": "平铺：Invalid Params",
+      "status": "param_error",
+      "errno": 3000001,
+      "elapsed_ms": 0.0,
+      "resp_keys": [
+        "data",
+        "errmsg"
+      ],
+      "sample": "{\"result\": \"fail\", \"errno\": 3000001, \"reqid\": \"6ad277686ad2776700000344000d\", \"errmsg\": \"Invalid Params\", \"data\": null}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.link.create",
+      "params": {
+        "name": "probe-share-1792178024",
+        "files": [
+          "/vol1/1000/tmp/20260127_195353.jpg"
+        ],
+        "maxAccess": 3,
+        "passwd": "probe1234",
+        "validTo": 1792181624
+      },
+      "nested": true,
+      "note": "创建分享",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 193.0,
+      "resp_keys": [
+        "data"
+      ],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad2776700000344000e\", \"data\": {\"id\": \"1b1b1a96b1c142bb9f\", \"name\": \"probe-share-1792178024\", \"maxAccess\": 3, \"access\": 0, \"validTo\": 1792181624, \"passwd\": \"probe1234\", \"uid\": 1000, \"type\": 1, \"status\": \"valid\", \"accessStatus\": \"valid\", \"createdTime\": 1792178024223, \"uploadConfig\": {\"path\": \"\", \"desc\": \"\", \"fileSizeLimit\": 0, \"fileType\": \"\"}}}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.link.get",
+      "params": {
+        "id": "1b1b1a96b1c142bb9f"
+      },
+      "nested": true,
+      "note": "详情（含 files）",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 12.1,
+      "resp_keys": [
+        "data"
+      ],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad2776700000344000f\", \"data\": {\"id\": \"1b1b1a96b1c142bb9f\", \"name\": \"probe-share-1792178024\", \"maxAccess\": 3, \"access\": 0, \"validTo\": 1792181624, \"passwd\": \"probe1234\", \"uid\": 1000, \"type\": 1, \"status\": \"valid\", \"accessStatus\": \"valid\", \"createdTime\": 1792178024223, \"files\": [{\"path\": \"/vol1/1000/tmp\", \"file\": \"20260127_195353.jpg\", \"isDir\": 0}], \"uploadConfig\": {\"path\": \"\", \"desc\": \"\", \"fileSizeLimit\": 0, \"fileType\": \"\"}}}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.link.list",
+      "params": {
+        "page": 1,
+        "pageSize": 100,
+        "keyword": "",
+        "isAdmin": false,
+        "type": 0,
+        "sortColumn": "createdTime",
+        "sortType": "DESC"
+      },
+      "nested": true,
+      "note": "列表应出现 1 条",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 6.6,
+      "resp_keys": [
+        "data"
+      ],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad27767000003440010\", \"data\": {\"total\": 2, \"list\": [{\"id\": \"1b1b1a96b1c142bb9f\", \"name\": \"probe-share-1792178024\", \"maxAccess\": 3, \"access\": 0, \"validTo\": 1792181624, \"passwd\": \"probe1234\", \"uid\": 1000, \"type\": 1, \"status\": \"valid\", \"accessStatus\": \"valid\", \"createdTime\": 1792178024223, \"uploadConfig\": {\"path\": \"\", \"desc\": \"\", \"fileSizeLimit\": 0, \"fileType\": \"\"}}, {\"id\": \"448c18b09396495a9c\", \"name\": \"20260127_195353.jpg\", \"maxAccess\": 0, \"access\": 1, \"validTo\": 1792775589, \"passwd\": \"\", \"uid\": 1000, \"type\": 1, \"status\": \"valid\", \"accessStatus\": \"valid\", \"createdTime\": 1792170790426, \"uploadConfig\": {\"path\": \"\", \"desc\": \"\", \"fileSizeLimit\": 0, \"fileType\": \"\"}}]}}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.link.update",
+      "params": {
+        "id": "1b1b1a96b1c142bb9f",
+        "name": "probe-share-1792178024-edit",
+        "maxAccess": 0,
+        "validTo": 0
+      },
+      "nested": true,
+      "note": "修改分享",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 15.3,
+      "resp_keys": [
+        "data"
+      ],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad27767000003440011\", \"data\": {\"id\": \"1b1b1a96b1c142bb9f\", \"name\": \"probe-share-1792178024-edit\", \"maxAccess\": 0, \"access\": 0, \"validTo\": 0, \"passwd\": \"\", \"uid\": 1000, \"type\": 1, \"status\": \"valid\", \"accessStatus\": \"valid\", \"createdTime\": 1792178024223, \"uploadConfig\": {\"path\": \"\", \"desc\": \"\", \"fileSizeLimit\": 0, \"fileType\": \"\"}}}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.link.get",
+      "params": {
+        "id": "1b1b1a96b1c142bb9f"
+      },
+      "nested": true,
+      "note": "改完复查",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 0.0,
+      "resp_keys": [
+        "data"
+      ],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad27767000003440012\", \"data\": {\"id\": \"1b1b1a96b1c142bb9f\", \"name\": \"probe-share-1792178024-edit\", \"maxAccess\": 0, \"access\": 0, \"validTo\": 0, \"passwd\": \"\", \"uid\": 1000, \"type\": 1, \"status\": \"valid\", \"accessStatus\": \"valid\", \"createdTime\": 1792178024223, \"files\": [{\"path\": \"/vol1/1000/tmp\", \"file\": \"20260127_195353.jpg\", \"isDir\": 0}], \"uploadConfig\": {\"path\": \"\", \"desc\": \"\", \"fileSizeLimit\": 0, \"fileType\": \"\"}}}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.link.remove",
+      "params": {
+        "idList": [
+          "1b1b1a96b1c142bb9f"
+        ]
+      },
+      "nested": true,
+      "note": "删除分享",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 16.1,
+      "resp_keys": [
+        "data"
+      ],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad27767000003440013\", \"data\": {\"failedCount\": 0, \"failedIdList\": []}}"
+    },
+    {
+      "req": "appcgi.sharesvr.share.link.list",
+      "params": {
+        "page": 1,
+        "pageSize": 100,
+        "keyword": "",
+        "isAdmin": false,
+        "type": 0,
+        "sortColumn": "createdTime",
+        "sortType": "DESC"
+      },
+      "nested": true,
+      "note": "删除后列表",
+      "status": "succ",
+      "errno": null,
+      "elapsed_ms": 10.7,
+      "resp_keys": [
+        "data"
+      ],
+      "sample": "{\"result\": \"succ\", \"reqid\": \"6ad277686ad27767000003440014\", \"data\": {\"total\": 1, \"list\": [{\"id\": \"448c18b09396495a9c\", \"name\": \"20260127_195353.jpg\", \"maxAccess\": 0, \"access\": 1, \"validTo\": 1792775589, \"passwd\": \"\", \"uid\": 1000, \"type\": 1, \"status\": \"valid\", \"accessStatus\": \"valid\", \"createdTime\": 1792170790426, \"uploadConfig\": {\"path\": \"\", \"desc\": \"\", \"fileSizeLimit\": 0, \"fileType\": \"\"}}]}}"
+    }
+  ]
+}

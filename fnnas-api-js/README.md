@@ -189,7 +189,7 @@ client.add_handler('util.crypto.getRSAPub', async (client, data) => {
 
 ## 硬编码修改
 
-- 将 `192.168.1.12` 替换为 `你的ip`
+- 将 `192.168.1.143` 替换为 `你的ip`
 - 将 `5666` 替换为 `你的端口`
 - 将 `wcz` 替换为 `你的用户名`
 - 将 `wcz520178` 替换为 `你的密码`

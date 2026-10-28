@@ -109,7 +109,7 @@ if __name__ == '__main__':
         "req": "user.login",
         "si": "0"
     }
-    # t = '{"reqid":"67f852e900000000000000000003","user":"1","password":"1","deviceType":"Browser","deviceName":"Windows-Google Chrome","stay":false,"req":"user.login","si":"72057615512764624"}'
+    # t = '{"reqid":"67f852e900000000000000000003","user":"1","password":"1","deviceType":"Browser","deviceName":"Windows-Google Chrome","stay":false,"req":"user.login","si":"0"}'
     t = json.dumps(t, separators=(',', ':'))
     result = get_signature_req(t, public_key_str)
     print(json.dumps(result, separators=(',', ':')))

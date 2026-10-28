@@ -1,0 +1,5563 @@
+{
+  "meta": {
+    "generated_at": "2026-10-17 03:16:18",
+    "base": "http://192.168.1.10:5666",
+    "count": 476,
+    "readonly": 184,
+    "write": 292,
+    "unknown_reqs": [
+      "apis.tfa.getMineConfig",
+      "app.getdefinstvolume",
+      "app.geticon",
+      "app.info",
+      "app.list",
+      "app.listvolume",
+      "exconn.getDomain",
+      "icenter.gen",
+      "icenter.svc",
+      "log.graph",
+      "log.list",
+      "remoteDir.list",
+      "target.checked",
+      "usrdat.getArray",
+      "usrdat.getArrayUpdateTime",
+      "usrdat.isArrayValueExists"
+    ],
+    "suspect_reqs": [
+      "app.install",
+      "app.restart",
+      "app.setdefinstvolume",
+      "app.start",
+      "app.stop",
+      "app.uninstall",
+      "data.dirList",
+      "dd.MM.y",
+      "dd.MM.yyyy",
+      "exconn.setDomain",
+      "log.clear",
+      "monthLeft.dateInput",
+      "monthLeft.timeInput",
+      "monthRight.dateInput",
+      "monthRight.timeInput",
+      "remoteDir.add",
+      "remoteDir.del",
+      "remoteDir.mount",
+      "remoteDir.umount",
+      "target.value",
+      "trim.media",
+      "trim.photos",
+      "y.MM.dd"
+    ],
+    "source": {
+      "reqs": "data/reqs.json",
+      "probe": "data/probe_status.json"
+    }
+  },
+  "spec": {
+    "appcgi.accountsrv.v1.token.edit": {
+      "group": "appcgi.accountsrv",
+      "method": "v1_token_edit",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.accountsrv.v1.token.list": {
+      "group": "appcgi.accountsrv",
+      "method": "v1_token_list",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.accountsrv.v1.token.revoke": {
+      "group": "appcgi.accountsrv",
+      "method": "v1_token_revoke",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.logger.list": {
+      "group": "appcgi.backup",
+      "method": "logger_list",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.backup.nas.find": {
+      "group": "appcgi.backup",
+      "method": "nas_find",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.storage.add": {
+      "group": "appcgi.backup",
+      "method": "storage_add",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.storage.checkConnection": {
+      "group": "appcgi.backup",
+      "method": "storage_check_connection",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.backup.storage.createDir": {
+      "group": "appcgi.backup",
+      "method": "storage_create_dir",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.storage.delete": {
+      "group": "appcgi.backup",
+      "method": "storage_delete",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.storage.getAuthUrl": {
+      "group": "appcgi.backup",
+      "method": "storage_get_auth_url",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.backup.storage.getQuota": {
+      "group": "appcgi.backup",
+      "method": "storage_get_quota",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.backup.storage.list": {
+      "group": "appcgi.backup",
+      "method": "storage_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.backup.storage.listDir": {
+      "group": "appcgi.backup",
+      "method": "storage_list_dir",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.backup.storage.update": {
+      "group": "appcgi.backup",
+      "method": "storage_update",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.task.add": {
+      "group": "appcgi.backup",
+      "method": "task_add",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.task.delete": {
+      "group": "appcgi.backup",
+      "method": "task_delete",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.task.detail": {
+      "group": "appcgi.backup",
+      "method": "task_detail",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.backup.task.disable": {
+      "group": "appcgi.backup",
+      "method": "task_disable",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.task.enable": {
+      "group": "appcgi.backup",
+      "method": "task_enable",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.task.list": {
+      "group": "appcgi.backup",
+      "method": "task_list",
+      "status": "param_error",
+      "readonly": true,
+      "params": "（实测缺参数，参数名待补）"
+    },
+    "appcgi.backup.task.operations": {
+      "group": "appcgi.backup",
+      "method": "task_operations",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.task.run": {
+      "group": "appcgi.backup",
+      "method": "task_run",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.task.stop": {
+      "group": "appcgi.backup",
+      "method": "task_stop",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.backup.task.update": {
+      "group": "appcgi.backup",
+      "method": "task_update",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.eventlogger.common.archive": {
+      "group": "appcgi.eventlogger",
+      "method": "common_archive",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.eventlogger.common.archive.get": {
+      "group": "appcgi.eventlogger",
+      "method": "common_archive_get",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.eventlogger.common.clear": {
+      "group": "appcgi.eventlogger",
+      "method": "common_clear",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.eventlogger.common.export": {
+      "group": "appcgi.eventlogger",
+      "method": "common_export",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.eventlogger.common.list": {
+      "group": "appcgi.eventlogger",
+      "method": "common_list",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.eventlogger.debuglog.copyStart": {
+      "group": "appcgi.eventlogger",
+      "method": "debuglog_copy_start",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.eventlogger.debuglog.copyStop": {
+      "group": "appcgi.eventlogger",
+      "method": "debuglog_copy_stop",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.filestor.getAppDirList": {
+      "group": "appcgi.filestor",
+      "method": "get_app_dir_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.filestor.getSysPartInfo": {
+      "group": "appcgi.filestor",
+      "method": "get_sys_part_info",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.filestor.getTeamDirList": {
+      "group": "appcgi.filestor",
+      "method": "get_team_dir_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.filestor.isMountPoint": {
+      "group": "appcgi.filestor",
+      "method": "is_mount_point",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.finder.cancelSearch": {
+      "group": "appcgi.finder",
+      "method": "cancel_search",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.finder.fileSearch": {
+      "group": "appcgi.finder",
+      "method": "file_search",
+      "status": "unverified",
+      "readonly": false,
+      "params": "key, path"
+    },
+    "appcgi.finder.searchOtherSharing": {
+      "group": "appcgi.finder",
+      "method": "search_other_sharing",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.finder.trashSearch": {
+      "group": "appcgi.finder",
+      "method": "trash_search",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.ipblocker.addAllowList": {
+      "group": "appcgi.ipblocker",
+      "method": "add_allow_list",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.ipblocker.addDenyList": {
+      "group": "appcgi.ipblocker",
+      "method": "add_deny_list",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.ipblocker.autoBlock": {
+      "group": "appcgi.ipblocker",
+      "method": "auto_block",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.ipblocker.autoBlockRule": {
+      "group": "appcgi.ipblocker",
+      "method": "auto_block_rule",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.ipblocker.deleteAllowList": {
+      "group": "appcgi.ipblocker",
+      "method": "delete_allow_list",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.ipblocker.deleteDenyList": {
+      "group": "appcgi.ipblocker",
+      "method": "delete_deny_list",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.ipblocker.queryAllowList": {
+      "group": "appcgi.ipblocker",
+      "method": "query_allow_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.ipblocker.queryAutoBlockRule": {
+      "group": "appcgi.ipblocker",
+      "method": "query_auto_block_rule",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.ipblocker.queryDenyList": {
+      "group": "appcgi.ipblocker",
+      "method": "query_deny_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.iscsimgr.iscsi.lun.list": {
+      "group": "appcgi.iscsimgr",
+      "method": "iscsi_lun_list",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.license.soft.code.active": {
+      "group": "appcgi.license",
+      "method": "soft_code_active",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.license.soft.code.license": {
+      "group": "appcgi.license",
+      "method": "soft_code_license",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.license.soft.get": {
+      "group": "appcgi.license",
+      "method": "soft_get",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.license.soft.ipc.get": {
+      "group": "appcgi.license",
+      "method": "soft_ipc_get",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.license.soft.list": {
+      "group": "appcgi.license",
+      "method": "soft_list",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.license.soft.recover": {
+      "group": "appcgi.license",
+      "method": "soft_recover",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.license.soft.remove": {
+      "group": "appcgi.license",
+      "method": "soft_remove",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.license.soft.test.sendnotify": {
+      "group": "appcgi.license",
+      "method": "soft_test_sendnotify",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.license.soft.trial": {
+      "group": "appcgi.license",
+      "method": "soft_trial",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.license.soft.trial.applystatus": {
+      "group": "appcgi.license",
+      "method": "soft_trial_applystatus",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.mountmgr.cache.refresh": {
+      "group": "appcgi.mountmgr",
+      "method": "cache_refresh",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.mountmgr.check": {
+      "group": "appcgi.mountmgr",
+      "method": "check",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.mountmgr.dfs.acquireUploadCacheDir": {
+      "group": "appcgi.mountmgr",
+      "method": "dfs_acquire_upload_cache_dir",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.mountmgr.dfs.cleanUploadCacheDir": {
+      "group": "appcgi.mountmgr",
+      "method": "dfs_clean_upload_cache_dir",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.mountmgr.dfs.startUpload": {
+      "group": "appcgi.mountmgr",
+      "method": "dfs_start_upload",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.mountmgr.list": {
+      "group": "appcgi.mountmgr",
+      "method": "list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.mountmgr.mount": {
+      "group": "appcgi.mountmgr",
+      "method": "mount",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.mountmgr.mountInfo": {
+      "group": "appcgi.mountmgr",
+      "method": "mount_info",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.mountmgr.setting.detail": {
+      "group": "appcgi.mountmgr",
+      "method": "setting_detail",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.mountmgr.setting.update": {
+      "group": "appcgi.mountmgr",
+      "method": "setting_update",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.mountmgr.shares": {
+      "group": "appcgi.mountmgr",
+      "method": "shares",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.mountmgr.task.cancel": {
+      "group": "appcgi.mountmgr",
+      "method": "task_cancel",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.mountmgr.task.detail": {
+      "group": "appcgi.mountmgr",
+      "method": "task_detail",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.mountmgr.task.list": {
+      "group": "appcgi.mountmgr",
+      "method": "task_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.mountmgr.umount": {
+      "group": "appcgi.mountmgr",
+      "method": "umount",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.cert.apply": {
+      "group": "appcgi.netsvr",
+      "method": "cert_apply",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.cert.applystatus": {
+      "group": "appcgi.netsvr",
+      "method": "cert_applystatus",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.cert.export": {
+      "group": "appcgi.netsvr",
+      "method": "cert_export",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.cert.getuse": {
+      "group": "appcgi.netsvr",
+      "method": "cert_getuse",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.netsvr.cert.list": {
+      "group": "appcgi.netsvr",
+      "method": "cert_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.netsvr.cert.remove": {
+      "group": "appcgi.netsvr",
+      "method": "cert_remove",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.cert.renew": {
+      "group": "appcgi.netsvr",
+      "method": "cert_renew",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.cert.replace": {
+      "group": "appcgi.netsvr",
+      "method": "cert_replace",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.cert.setuse": {
+      "group": "appcgi.netsvr",
+      "method": "cert_setuse",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.cert.sysreset": {
+      "group": "appcgi.netsvr",
+      "method": "cert_sysreset",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.cert.upload": {
+      "group": "appcgi.netsvr",
+      "method": "cert_upload",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.conn.change": {
+      "group": "appcgi.netsvr",
+      "method": "conn_change",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.conn.create": {
+      "group": "appcgi.netsvr",
+      "method": "conn_create",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.conn.getconfig": {
+      "group": "appcgi.netsvr",
+      "method": "conn_getconfig",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.netsvr.conn.open": {
+      "group": "appcgi.netsvr",
+      "method": "conn_open",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.conn.quit": {
+      "group": "appcgi.netsvr",
+      "method": "conn_quit",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.conn.setconfig": {
+      "group": "appcgi.netsvr",
+      "method": "conn_setconfig",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.conn.status": {
+      "group": "appcgi.netsvr",
+      "method": "conn_status",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.netsvr.ddns.provider.list": {
+      "group": "appcgi.netsvr",
+      "method": "ddns_provider_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.netsvr.ddns.record.create": {
+      "group": "appcgi.netsvr",
+      "method": "ddns_record_create",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.ddns.record.detail": {
+      "group": "appcgi.netsvr",
+      "method": "ddns_record_detail",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.netsvr.ddns.record.list": {
+      "group": "appcgi.netsvr",
+      "method": "ddns_record_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.netsvr.ddns.record.refresh": {
+      "group": "appcgi.netsvr",
+      "method": "ddns_record_refresh",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.ddns.record.remove": {
+      "group": "appcgi.netsvr",
+      "method": "ddns_record_remove",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.ddns.record.test": {
+      "group": "appcgi.netsvr",
+      "method": "ddns_record_test",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.ddns.record.update": {
+      "group": "appcgi.netsvr",
+      "method": "ddns_record_update",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.domain.list": {
+      "group": "appcgi.netsvr",
+      "method": "domain_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.netsvr.domain.sharecheck": {
+      "group": "appcgi.netsvr",
+      "method": "domain_sharecheck",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.fnassistant.close": {
+      "group": "appcgi.netsvr",
+      "method": "fnassistant_close",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.fnassistant.info": {
+      "group": "appcgi.netsvr",
+      "method": "fnassistant_info",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.netsvr.fnassistant.open": {
+      "group": "appcgi.netsvr",
+      "method": "fnassistant_open",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.netsvr.network.list": {
+      "group": "appcgi.netsvr",
+      "method": "network_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.gen.info": {
+      "group": "appcgi.network",
+      "method": "gen_info",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.gen.set": {
+      "group": "appcgi.network",
+      "method": "gen_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.gw.getting": {
+      "group": "appcgi.network",
+      "method": "gw_getting",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.gw.setting": {
+      "group": "appcgi.network",
+      "method": "gw_setting",
+      "status": "unverified",
+      "readonly": false,
+      "params": "data"
+    },
+    "appcgi.network.hostname": {
+      "group": "appcgi.network",
+      "method": "hostname",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.add": {
+      "group": "appcgi.network",
+      "method": "net_add",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.arping": {
+      "group": "appcgi.network",
+      "method": "net_arping",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.bridge": {
+      "group": "appcgi.network",
+      "method": "net_bridge",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.conn": {
+      "group": "appcgi.network",
+      "method": "net_conn",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.del": {
+      "group": "appcgi.network",
+      "method": "net_del",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.detect": {
+      "group": "appcgi.network",
+      "method": "net_detect",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.disc": {
+      "group": "appcgi.network",
+      "method": "net_disc",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.getMultiGWStatus": {
+      "group": "appcgi.network",
+      "method": "net_get_multi_gw_status",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.net.getNicPerformanceMode": {
+      "group": "appcgi.network",
+      "method": "net_get_nic_performance_mode",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.net.info": {
+      "group": "appcgi.network",
+      "method": "net_info",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.net.list": {
+      "group": "appcgi.network",
+      "method": "net_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.net.reset": {
+      "group": "appcgi.network",
+      "method": "net_reset",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.set": {
+      "group": "appcgi.network",
+      "method": "net_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.setMultiGW": {
+      "group": "appcgi.network",
+      "method": "net_set_multi_gw",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.setNicPerformanceMode": {
+      "group": "appcgi.network",
+      "method": "net_set_nic_performance_mode",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.net.state": {
+      "group": "appcgi.network",
+      "method": "net_state",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.route.list": {
+      "group": "appcgi.network",
+      "method": "route_list",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.ssh.set": {
+      "group": "appcgi.network",
+      "method": "ssh_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.ssh.status": {
+      "group": "appcgi.network",
+      "method": "ssh_status",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.ssh.switch": {
+      "group": "appcgi.network",
+      "method": "ssh_switch",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.static.add": {
+      "group": "appcgi.network",
+      "method": "static_add",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.static.del": {
+      "group": "appcgi.network",
+      "method": "static_del",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.static.list": {
+      "group": "appcgi.network",
+      "method": "static_list",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.static.set": {
+      "group": "appcgi.network",
+      "method": "static_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.wifi.apList": {
+      "group": "appcgi.network",
+      "method": "wifi_ap_list",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.wifi.close": {
+      "group": "appcgi.network",
+      "method": "wifi_close",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.wifi.connectHiddenAP": {
+      "group": "appcgi.network",
+      "method": "wifi_connect_hidden_ap",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.wifi.connectKnownAP": {
+      "group": "appcgi.network",
+      "method": "wifi_connect_known_ap",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.wifi.connectUnknownAP": {
+      "group": "appcgi.network",
+      "method": "wifi_connect_unknown_ap",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.wifi.connectedAP": {
+      "group": "appcgi.network",
+      "method": "wifi_connected_ap",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.wifi.getKnownAPInfo": {
+      "group": "appcgi.network",
+      "method": "wifi_get_known_ap_info",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.network.wifi.ignoreKnownAP": {
+      "group": "appcgi.network",
+      "method": "wifi_ignore_known_ap",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.wifi.open": {
+      "group": "appcgi.network",
+      "method": "wifi_open",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.network.wifi.setKnownAPInfo": {
+      "group": "appcgi.network",
+      "method": "wifi_set_known_ap_info",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.resmon.alert.getBeepEvents": {
+      "group": "appcgi.resmon",
+      "method": "alert_get_beep_events",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.alert.getBeepReasons": {
+      "group": "appcgi.resmon",
+      "method": "alert_get_beep_reasons",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.alert.getSupportedBeepEvents": {
+      "group": "appcgi.resmon",
+      "method": "alert_get_supported_beep_events",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.alert.muteBeeper": {
+      "group": "appcgi.resmon",
+      "method": "alert_mute_beeper",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.resmon.alert.setBeepEvents": {
+      "group": "appcgi.resmon",
+      "method": "alert_set_beep_events",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.resmon.battery": {
+      "group": "appcgi.resmon",
+      "method": "battery",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.cpu": {
+      "group": "appcgi.resmon",
+      "method": "cpu",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.disk": {
+      "group": "appcgi.resmon",
+      "method": "disk",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.gen": {
+      "group": "appcgi.resmon",
+      "method": "gen",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.gpu": {
+      "group": "appcgi.resmon",
+      "method": "gpu",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.mem": {
+      "group": "appcgi.resmon",
+      "method": "mem",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.npu": {
+      "group": "appcgi.resmon",
+      "method": "npu",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.proc.list": {
+      "group": "appcgi.resmon",
+      "method": "proc_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.proc.signal": {
+      "group": "appcgi.resmon",
+      "method": "proc_signal",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.resmon.proc.srv": {
+      "group": "appcgi.resmon",
+      "method": "proc_srv",
+      "status": "other",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.resmon.sysFan": {
+      "group": "appcgi.resmon",
+      "method": "sys_fan",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.desktop.v1.getConfig": {
+      "group": "appcgi.sac",
+      "method": "desktop_v1_get_config",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.desktop.v1.markWallpaper": {
+      "group": "appcgi.sac",
+      "method": "desktop_v1_mark_wallpaper",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.desktop.v1.removeWallpaper": {
+      "group": "appcgi.sac",
+      "method": "desktop_v1_remove_wallpaper",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.desktop.v1.setBgColor": {
+      "group": "appcgi.sac",
+      "method": "desktop_v1_set_bg_color",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.desktop.v1.setColor": {
+      "group": "appcgi.sac",
+      "method": "desktop_v1_set_color",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.desktop.v1.setFillMode": {
+      "group": "appcgi.sac",
+      "method": "desktop_v1_set_fill_mode",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.desktop.v1.setTheme": {
+      "group": "appcgi.sac",
+      "method": "desktop_v1_set_theme",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.desktop.v1.setWallpaper": {
+      "group": "appcgi.sac",
+      "method": "desktop_v1_set_wallpaper",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.desktop.v1.setWallpaperType": {
+      "group": "appcgi.sac",
+      "method": "desktop_v1_set_wallpaper_type",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.addUserDesktopEntry": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_add_user_desktop_entry",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.appStoreList": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_app_store_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.delUserDesktopEntry": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_del_user_desktop_entry",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.dockerList": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_docker_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.editUserDesktopEntry": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_edit_user_desktop_entry",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.exchangeEntryToken": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_exchange_entry_token",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.fileAssociations.all": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_file_associations_all",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.fileAssociations.list": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_file_associations_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.fileAssociations.setDefault": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_file_associations_set_default",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.getEntryList": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_get_entry_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.getUserDesktop": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_get_user_desktop",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.entry.v1.recordDesktopSort": {
+      "group": "appcgi.sac",
+      "method": "entry_v1_record_desktop_sort",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.externalnotify.v1.email.buildOAuthURL": {
+      "group": "appcgi.sac",
+      "method": "externalnotify_v1_email_build_o_auth_url",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.externalnotify.v1.email.getAccessToken": {
+      "group": "appcgi.sac",
+      "method": "externalnotify_v1_email_get_access_token",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.externalnotify.v1.email.getConfig": {
+      "group": "appcgi.sac",
+      "method": "externalnotify_v1_email_get_config",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.externalnotify.v1.email.getProviders": {
+      "group": "appcgi.sac",
+      "method": "externalnotify_v1_email_get_providers",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.externalnotify.v1.email.revokeOAuth": {
+      "group": "appcgi.sac",
+      "method": "externalnotify_v1_email_revoke_o_auth",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.externalnotify.v1.email.sendTestEmail": {
+      "group": "appcgi.sac",
+      "method": "externalnotify_v1_email_send_test_email",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.externalnotify.v1.email.startOrUpdateServerConfig": {
+      "group": "appcgi.sac",
+      "method": "externalnotify_v1_email_start_or_update_server_config",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.externalnotify.v1.email.stop": {
+      "group": "appcgi.sac",
+      "method": "externalnotify_v1_email_stop",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.externalnotify.v1.email.updateConfig": {
+      "group": "appcgi.sac",
+      "method": "externalnotify_v1_email_update_config",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.i18n.v1.config.get": {
+      "group": "appcgi.sac",
+      "method": "i18n_v1_config_get",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.i18n.v1.config.set": {
+      "group": "appcgi.sac",
+      "method": "i18n_v1_config_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.license.v1.config.get": {
+      "group": "appcgi.sac",
+      "method": "license_v1_config_get",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.license.v1.config.set": {
+      "group": "appcgi.sac",
+      "method": "license_v1_config_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.ups.v1.bindOrUnbind": {
+      "group": "appcgi.sac",
+      "method": "ups_v1_bind_or_unbind",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.ups.v1.check": {
+      "group": "appcgi.sac",
+      "method": "ups_v1_check",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.ups.v1.deviceList": {
+      "group": "appcgi.sac",
+      "method": "ups_v1_device_list",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sac.ups.v1.list": {
+      "group": "appcgi.sac",
+      "method": "ups_v1_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sac.ups.v1.status": {
+      "group": "appcgi.sac",
+      "method": "ups_v1_status",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.screen.getImageUploadPath": {
+      "group": "appcgi.screen",
+      "method": "get_image_upload_path",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.screen.getOptions": {
+      "group": "appcgi.screen",
+      "method": "get_options",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.screen.getScreenImage": {
+      "group": "appcgi.screen",
+      "method": "get_screen_image",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.screen.getScreenSize": {
+      "group": "appcgi.screen",
+      "method": "get_screen_size",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.screen.getScreenVideo": {
+      "group": "appcgi.screen",
+      "method": "get_screen_video",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.screen.isSleeping": {
+      "group": "appcgi.screen",
+      "method": "is_sleeping",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.screen.setOptions": {
+      "group": "appcgi.screen",
+      "method": "set_options",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.screen.setScreenImage": {
+      "group": "appcgi.screen",
+      "method": "set_screen_image",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.screen.setScreenVideo": {
+      "group": "appcgi.screen",
+      "method": "set_screen_video",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.security.firewall.getting": {
+      "group": "appcgi.security",
+      "method": "firewall_getting",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.security.firewall.iflist": {
+      "group": "appcgi.security",
+      "method": "firewall_iflist",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.security.firewall.ifstat": {
+      "group": "appcgi.security",
+      "method": "firewall_ifstat",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.security.firewall.servlist": {
+      "group": "appcgi.security",
+      "method": "firewall_servlist",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.security.firewall.setting": {
+      "group": "appcgi.security",
+      "method": "firewall_setting",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.security.flowaudit.traffic": {
+      "group": "appcgi.security",
+      "method": "flowaudit_traffic",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.security.safeCode.getting": {
+      "group": "appcgi.security",
+      "method": "safe_code_getting",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.security.safeCode.setting": {
+      "group": "appcgi.security",
+      "method": "safe_code_setting",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.check.port": {
+      "group": "appcgi.share",
+      "method": "check_port",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.dlna.opt": {
+      "group": "appcgi.share",
+      "method": "dlna_opt",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.share.dlna.set": {
+      "group": "appcgi.share",
+      "method": "dlna_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.dlna.share.opt": {
+      "group": "appcgi.share",
+      "method": "dlna_share_opt",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.share.dlna.share.set": {
+      "group": "appcgi.share",
+      "method": "dlna_share_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.ftp.opt": {
+      "group": "appcgi.share",
+      "method": "ftp_opt",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.share.ftp.set": {
+      "group": "appcgi.share",
+      "method": "ftp_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.ftp.share.opt": {
+      "group": "appcgi.share",
+      "method": "ftp_share_opt",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.share.ftp.share.set": {
+      "group": "appcgi.share",
+      "method": "ftp_share_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.nfs.opt": {
+      "group": "appcgi.share",
+      "method": "nfs_opt",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.share.nfs.set": {
+      "group": "appcgi.share",
+      "method": "nfs_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.nfs.share.opt": {
+      "group": "appcgi.share",
+      "method": "nfs_share_opt",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.share.nfs.share.set": {
+      "group": "appcgi.share",
+      "method": "nfs_share_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.smb.opt": {
+      "group": "appcgi.share",
+      "method": "smb_opt",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.share.smb.set": {
+      "group": "appcgi.share",
+      "method": "smb_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.smb.share.opt": {
+      "group": "appcgi.share",
+      "method": "smb_share_opt",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.share.smb.share.set": {
+      "group": "appcgi.share",
+      "method": "smb_share_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.smb.tm.set": {
+      "group": "appcgi.share",
+      "method": "smb_tm_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.team.allowShare": {
+      "group": "appcgi.share",
+      "method": "team_allow_share",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.share.webdav.opt": {
+      "group": "appcgi.share",
+      "method": "webdav_opt",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.share.webdav.set": {
+      "group": "appcgi.share",
+      "method": "webdav_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.share.webdav.share.opt": {
+      "group": "appcgi.share",
+      "method": "webdav_share_opt",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.share.webdav.share.set": {
+      "group": "appcgi.share",
+      "method": "webdav_share_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sharesvr.share.link.clear": {
+      "group": "appcgi.sharesvr",
+      "method": "share_link_clear",
+      "status": "unverified",
+      "readonly": false,
+      "params": "isAdmin"
+    },
+    "appcgi.sharesvr.share.link.create": {
+      "group": "appcgi.sharesvr",
+      "method": "share_link_create",
+      "status": "succ",
+      "readonly": false,
+      "params": "name, files, maxAccess, passwd, validTo, type, uploadConfig"
+    },
+    "appcgi.sharesvr.share.link.default": {
+      "group": "appcgi.sharesvr",
+      "method": "share_link_default",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sharesvr.share.link.default.get": {
+      "group": "appcgi.sharesvr",
+      "method": "share_link_default_get",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sharesvr.share.link.default.set": {
+      "group": "appcgi.sharesvr",
+      "method": "share_link_default_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": "mode, customize, rateLimit"
+    },
+    "appcgi.sharesvr.share.link.get": {
+      "group": "appcgi.sharesvr",
+      "method": "share_link_get",
+      "status": "succ",
+      "readonly": true,
+      "params": "id"
+    },
+    "appcgi.sharesvr.share.link.list": {
+      "group": "appcgi.sharesvr",
+      "method": "share_link_list",
+      "status": "succ",
+      "readonly": true,
+      "params": "page, pageSize, keyword, isAdmin, type, sortColumn, sortType"
+    },
+    "appcgi.sharesvr.share.link.remove": {
+      "group": "appcgi.sharesvr",
+      "method": "share_link_remove",
+      "status": "succ",
+      "readonly": false,
+      "params": "idList"
+    },
+    "appcgi.sharesvr.share.link.update": {
+      "group": "appcgi.sharesvr",
+      "method": "share_link_update",
+      "status": "succ",
+      "readonly": false,
+      "params": "id, name, maxAccess, passwd, validTo"
+    },
+    "appcgi.sharesvr.share.permission.get": {
+      "group": "appcgi.sharesvr",
+      "method": "share_permission_get",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sharesvr.share.permission.set": {
+      "group": "appcgi.sharesvr",
+      "method": "share_permission_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": "mode"
+    },
+    "appcgi.sharesvr.share.uploadpermission.get": {
+      "group": "appcgi.sharesvr",
+      "method": "share_uploadpermission_get",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sharesvr.share.uploadpermission.set": {
+      "group": "appcgi.sharesvr",
+      "method": "share_uploadpermission_set",
+      "status": "unverified",
+      "readonly": false,
+      "params": "mode"
+    },
+    "appcgi.sysinfo.addPowerPlan": {
+      "group": "appcgi.sysinfo",
+      "method": "add_power_plan",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysinfo.deletePowerPlan": {
+      "group": "appcgi.sysinfo",
+      "method": "delete_power_plan",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysinfo.getBootOnPowerFlag": {
+      "group": "appcgi.sysinfo",
+      "method": "get_boot_on_power_flag",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getFanMode": {
+      "group": "appcgi.sysinfo",
+      "method": "get_fan_mode",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getHardwareInfo": {
+      "group": "appcgi.sysinfo",
+      "method": "get_hardware_info",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getHostName": {
+      "group": "appcgi.sysinfo",
+      "method": "get_host_name",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getMachineId": {
+      "group": "appcgi.sysinfo",
+      "method": "get_machine_id",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getNetInfo": {
+      "group": "appcgi.sysinfo",
+      "method": "get_net_info",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getPowerPlanStatus": {
+      "group": "appcgi.sysinfo",
+      "method": "get_power_plan_status",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getReservedPartition": {
+      "group": "appcgi.sysinfo",
+      "method": "get_reserved_partition",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getTimeSetting": {
+      "group": "appcgi.sysinfo",
+      "method": "get_time_setting",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getTimezoneList": {
+      "group": "appcgi.sysinfo",
+      "method": "get_timezone_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getTrimDisk": {
+      "group": "appcgi.sysinfo",
+      "method": "get_trim_disk",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getTrimMachineFeature": {
+      "group": "appcgi.sysinfo",
+      "method": "get_trim_machine_feature",
+      "status": "timeout",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getTrimMachineType": {
+      "group": "appcgi.sysinfo",
+      "method": "get_trim_machine_type",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getTrimVersion": {
+      "group": "appcgi.sysinfo",
+      "method": "get_trim_version",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.getUptime": {
+      "group": "appcgi.sysinfo",
+      "method": "get_uptime",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.initHostName": {
+      "group": "appcgi.sysinfo",
+      "method": "init_host_name",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysinfo.isTrimMachine": {
+      "group": "appcgi.sysinfo",
+      "method": "is_trim_machine",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.listPowerPlan": {
+      "group": "appcgi.sysinfo",
+      "method": "list_power_plan",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysinfo.modifyPowerPlan": {
+      "group": "appcgi.sysinfo",
+      "method": "modify_power_plan",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysinfo.nextPowerOffTime": {
+      "group": "appcgi.sysinfo",
+      "method": "next_power_off_time",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysinfo.setBootOnPowerFlag": {
+      "group": "appcgi.sysinfo",
+      "method": "set_boot_on_power_flag",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysinfo.setFanMode": {
+      "group": "appcgi.sysinfo",
+      "method": "set_fan_mode",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysinfo.setHostName": {
+      "group": "appcgi.sysinfo",
+      "method": "set_host_name",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysinfo.setPowerPlanStatus": {
+      "group": "appcgi.sysinfo",
+      "method": "set_power_plan_status",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysinfo.setTimeSetting": {
+      "group": "appcgi.sysinfo",
+      "method": "set_time_setting",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysrestore.addSysBackupTask": {
+      "group": "appcgi.sysrestore",
+      "method": "add_sys_backup_task",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysrestore.deleteSysBackupBin": {
+      "group": "appcgi.sysrestore",
+      "method": "delete_sys_backup_bin",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysrestore.doSysBackup": {
+      "group": "appcgi.sysrestore",
+      "method": "do_sys_backup",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysrestore.exportSysconf": {
+      "group": "appcgi.sysrestore",
+      "method": "export_sysconf",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysrestore.getInfo": {
+      "group": "appcgi.sysrestore",
+      "method": "get_info",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysrestore.getSysBackupInfo": {
+      "group": "appcgi.sysrestore",
+      "method": "get_sys_backup_info",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysrestore.getSysBackupTask": {
+      "group": "appcgi.sysrestore",
+      "method": "get_sys_backup_task",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysrestore.getSysconfUploadPath": {
+      "group": "appcgi.sysrestore",
+      "method": "get_sysconf_upload_path",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.sysrestore.importSysconf": {
+      "group": "appcgi.sysrestore",
+      "method": "import_sysconf",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysrestore.modifySysBackupTask": {
+      "group": "appcgi.sysrestore",
+      "method": "modify_sys_backup_task",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysrestore.setSystemRecovery": {
+      "group": "appcgi.sysrestore",
+      "method": "set_system_recovery",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.sysrestore.sysconfImportProgress": {
+      "group": "appcgi.sysrestore",
+      "method": "sysconf_import_progress",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.device.list": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_device_list",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.device.trust": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_device_trust",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.device.untrust": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_device_untrust",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.email.bind": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_email_bind",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.email.bindBeforeVerify": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_email_bind_before_verify",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.email.sendBindCode": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_email_send_bind_code",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.login.resetPasswordSendEmail": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_login_reset_password_send_email",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.login.resetPasswordVerify": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_login_reset_password_verify",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.login.sendEmailCode": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_login_send_email_code",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.login.totpVerify": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_login_totp_verify",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.me.getConfig": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_me_get_config",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.me.twofa.bind": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_me_twofa_bind",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.me.twofa.bindBeforeVerify": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_me_twofa_bind_before_verify",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.me.twofa.disable": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_me_twofa_disable",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.me.twofa.totpVerify": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_me_twofa_totp_verify",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.twofa.disable": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_twofa_disable",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.twofa.enable": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_twofa_enable",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.twofa.getConfig": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_twofa_get_config",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.user.disableTwofa": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_user_disable_twofa",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.tfa.security.v1.user.getTwofaConfig": {
+      "group": "appcgi.tfa",
+      "method": "security_v1_user_get_twofa_config",
+      "status": "error",
+      "readonly": true,
+      "params": ""
+    },
+    "appcgi.usersrv.authUser": {
+      "group": "appcgi.usersrv",
+      "method": "auth_user",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "appcgi.usersrv.getAppUserList": {
+      "group": "appcgi.usersrv",
+      "method": "get_app_user_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "file.access": {
+      "group": "file",
+      "method": "access",
+      "status": "succ",
+      "readonly": true,
+      "params": "files"
+    },
+    "file.calc": {
+      "group": "file",
+      "method": "calc",
+      "status": "succ",
+      "readonly": true,
+      "params": "files"
+    },
+    "file.cancel": {
+      "group": "file",
+      "method": "cancel",
+      "status": "param_error",
+      "readonly": false,
+      "params": "taskId"
+    },
+    "file.checkUpload": {
+      "group": "file",
+      "method": "check_upload",
+      "status": "succ",
+      "readonly": true,
+      "params": "size, path, overwrite"
+    },
+    "file.chown": {
+      "group": "file",
+      "method": "chown",
+      "status": "succ",
+      "readonly": false,
+      "params": "files, uid, gid"
+    },
+    "file.compress": {
+      "group": "file",
+      "method": "compress",
+      "status": "succ",
+      "readonly": false,
+      "params": "description, path, files, level, passwd, details"
+    },
+    "file.cp": {
+      "group": "file",
+      "method": "cp",
+      "status": "succ",
+      "readonly": false,
+      "params": "files, pathTo, overwrite, details"
+    },
+    "file.download": {
+      "group": "file",
+      "method": "download",
+      "status": "succ",
+      "readonly": false,
+      "params": "files"
+    },
+    "file.extract": {
+      "group": "file",
+      "method": "extract",
+      "status": "succ",
+      "readonly": false,
+      "params": "description, path, file, overwrite, fromCharset, details"
+    },
+    "file.fav.add": {
+      "group": "file",
+      "method": "fav_add",
+      "status": "succ",
+      "readonly": false,
+      "params": "path"
+    },
+    "file.fav.del": {
+      "group": "file",
+      "method": "fav_del",
+      "status": "succ",
+      "readonly": false,
+      "params": "path"
+    },
+    "file.fav.list": {
+      "group": "file",
+      "method": "fav_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "file.getAcl": {
+      "group": "file",
+      "method": "get_acl",
+      "status": "succ",
+      "readonly": true,
+      "params": "path, getProp"
+    },
+    "file.ls": {
+      "group": "file",
+      "method": "ls",
+      "status": "succ",
+      "readonly": true,
+      "params": "path"
+    },
+    "file.lsDir": {
+      "group": "file",
+      "method": "ls_dir",
+      "status": "succ",
+      "readonly": true,
+      "params": "path"
+    },
+    "file.mkdir": {
+      "group": "file",
+      "method": "mkdir",
+      "status": "succ",
+      "readonly": false,
+      "params": "path"
+    },
+    "file.mv": {
+      "group": "file",
+      "method": "mv",
+      "status": "succ",
+      "readonly": false,
+      "params": "files, pathTo, overwrite, details"
+    },
+    "file.prop": {
+      "group": "file",
+      "method": "prop",
+      "status": "succ",
+      "readonly": true,
+      "params": "files"
+    },
+    "file.recent.add": {
+      "group": "file",
+      "method": "recent_add",
+      "status": "succ",
+      "readonly": false,
+      "params": "path"
+    },
+    "file.recent.clear": {
+      "group": "file",
+      "method": "recent_clear",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "file.recent.del": {
+      "group": "file",
+      "method": "recent_del",
+      "status": "succ",
+      "readonly": false,
+      "params": "path"
+    },
+    "file.recent.list": {
+      "group": "file",
+      "method": "recent_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "file.rename": {
+      "group": "file",
+      "method": "rename",
+      "status": "succ",
+      "readonly": false,
+      "params": "path, newName"
+    },
+    "file.rm": {
+      "group": "file",
+      "method": "rm",
+      "status": "succ",
+      "readonly": false,
+      "params": "files, moveToTrashbin, details"
+    },
+    "file.setAcl": {
+      "group": "file",
+      "method": "set_acl",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "file.setAcl2": {
+      "group": "file",
+      "method": "set_acl2",
+      "status": "succ",
+      "readonly": false,
+      "params": "files, permset, details, sub"
+    },
+    "file.share.add": {
+      "group": "file",
+      "method": "share_add",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "file.share.add2": {
+      "group": "file",
+      "method": "share_add2",
+      "status": "unverified",
+      "readonly": false,
+      "params": "path, shareName"
+    },
+    "file.share.del2": {
+      "group": "file",
+      "method": "share_del2",
+      "status": "unverified",
+      "readonly": false,
+      "params": "path"
+    },
+    "file.share.info": {
+      "group": "file",
+      "method": "share_info",
+      "status": "succ",
+      "readonly": true,
+      "params": "path"
+    },
+    "file.share.list": {
+      "group": "file",
+      "method": "share_list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "file.share.listOthers": {
+      "group": "file",
+      "method": "share_list_others",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "file.size": {
+      "group": "file",
+      "method": "size",
+      "status": "succ",
+      "readonly": true,
+      "params": "file"
+    },
+    "file.team.lsDir": {
+      "group": "file",
+      "method": "team_ls_dir",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "file.team.trash.clear": {
+      "group": "file",
+      "method": "team_trash_clear",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "file.team.trash.list": {
+      "group": "file",
+      "method": "team_trash_list",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "file.team.trash.listTrashbin": {
+      "group": "file",
+      "method": "team_trash_list_trashbin",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "file.team.trash.restore": {
+      "group": "file",
+      "method": "team_trash_restore",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "file.trash.clear": {
+      "group": "file",
+      "method": "trash_clear",
+      "status": "unverified",
+      "readonly": false,
+      "params": "uid"
+    },
+    "file.trash.list": {
+      "group": "file",
+      "method": "trash_list",
+      "status": "succ",
+      "readonly": true,
+      "params": "uid, path, key"
+    },
+    "file.trash.restore": {
+      "group": "file",
+      "method": "trash_restore",
+      "status": "unverified",
+      "readonly": false,
+      "params": "files, details, overwrite"
+    },
+    "file.trimacl.conv": {
+      "group": "file",
+      "method": "trimacl_conv",
+      "status": "param_error",
+      "readonly": false,
+      "params": ""
+    },
+    "file.trimacl.conv.report": {
+      "group": "file",
+      "method": "trimacl_conv_report",
+      "status": "param_error",
+      "readonly": false,
+      "params": ""
+    },
+    "file.usage": {
+      "group": "file",
+      "method": "usage",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "liveupdate.check": {
+      "group": "liveupdate",
+      "method": "check",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "liveupdate.fixapt": {
+      "group": "liveupdate",
+      "method": "fixapt",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "liveupdate.status": {
+      "group": "liveupdate",
+      "method": "status",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "liveupdate.update": {
+      "group": "liveupdate",
+      "method": "update",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "notify.del": {
+      "group": "notify",
+      "method": "del_",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "notify.delAll": {
+      "group": "notify",
+      "method": "del_all",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "notify.list": {
+      "group": "notify",
+      "method": "list",
+      "status": "succ",
+      "readonly": true,
+      "params": "page, pageSize"
+    },
+    "notify.setRead": {
+      "group": "notify",
+      "method": "set_read",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "notify.setReadAll": {
+      "group": "notify",
+      "method": "set_read_all",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "notify.unreadTotal": {
+      "group": "notify",
+      "method": "unread_total",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "power.poweroff": {
+      "group": "power",
+      "method": "poweroff",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "power.reboot": {
+      "group": "power",
+      "method": "reboot",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.abortSmartTest": {
+      "group": "stor",
+      "method": "abort_smart_test",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.addDisk": {
+      "group": "stor",
+      "method": "add_disk",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.addSpareDisk": {
+      "group": "stor",
+      "method": "add_spare_disk",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.attachCache": {
+      "group": "stor",
+      "method": "attach_cache",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.btrfs.scrub": {
+      "group": "stor",
+      "method": "btrfs_scrub",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.cachedevState": {
+      "group": "stor",
+      "method": "cachedev_state",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.calcSpace": {
+      "group": "stor",
+      "method": "calc_space",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.create": {
+      "group": "stor",
+      "method": "create",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.createCache": {
+      "group": "stor",
+      "method": "create_cache",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.delRec": {
+      "group": "stor",
+      "method": "del_rec",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.detachCache": {
+      "group": "stor",
+      "method": "detach_cache",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.detachCacheAndActive": {
+      "group": "stor",
+      "method": "detach_cache_and_active",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.diskHealth": {
+      "group": "stor",
+      "method": "disk_health",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.diskMount": {
+      "group": "stor",
+      "method": "disk_mount",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.diskSmart": {
+      "group": "stor",
+      "method": "disk_smart",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.eject": {
+      "group": "stor",
+      "method": "eject",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.enableSmart": {
+      "group": "stor",
+      "method": "enable_smart",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.extend": {
+      "group": "stor",
+      "method": "extend",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.general": {
+      "group": "stor",
+      "method": "general",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.getConf": {
+      "group": "stor",
+      "method": "get_conf",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.getDiskIdleTime": {
+      "group": "stor",
+      "method": "get_disk_idle_time",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.getDiskWakeup": {
+      "group": "stor",
+      "method": "get_disk_wakeup",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.getGlobal": {
+      "group": "stor",
+      "method": "get_global",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.getRemovableConf": {
+      "group": "stor",
+      "method": "get_removable_conf",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.getSysPartInfo": {
+      "group": "stor",
+      "method": "get_sys_part_info",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.getTeamStorage": {
+      "group": "stor",
+      "method": "get_team_storage",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.getUserStorage": {
+      "group": "stor",
+      "method": "get_user_storage",
+      "status": "succ",
+      "readonly": true,
+      "params": "quotaInfo, spaceInfo, storInfo"
+    },
+    "stor.listCachedev": {
+      "group": "stor",
+      "method": "list_cachedev",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.listDisk": {
+      "group": "stor",
+      "method": "list_disk",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.listFreeDisk": {
+      "group": "stor",
+      "method": "list_free_disk",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.listRemovable": {
+      "group": "stor",
+      "method": "list_removable",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.listStor": {
+      "group": "stor",
+      "method": "list_stor",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.llbitmap.proactiveSync": {
+      "group": "stor",
+      "method": "llbitmap_proactive_sync",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.lvActive": {
+      "group": "stor",
+      "method": "lv_active",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.makeTeamStorage": {
+      "group": "stor",
+      "method": "make_team_storage",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.mount": {
+      "group": "stor",
+      "method": "mount",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.readdDisk": {
+      "group": "stor",
+      "method": "readd_disk",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.readdDiskToCache": {
+      "group": "stor",
+      "method": "readd_disk_to_cache",
+      "status": "param_error",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.recoverCache": {
+      "group": "stor",
+      "method": "recover_cache",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.removeDisk": {
+      "group": "stor",
+      "method": "remove_disk",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.removeDiskCheck": {
+      "group": "stor",
+      "method": "remove_disk_check",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.removeWarn": {
+      "group": "stor",
+      "method": "remove_warn",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.replaceDisk": {
+      "group": "stor",
+      "method": "replace_disk",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.resize": {
+      "group": "stor",
+      "method": "resize",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.runSmartTest": {
+      "group": "stor",
+      "method": "run_smart_test",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.setConf": {
+      "group": "stor",
+      "method": "set_conf",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.setDiskIdleTime": {
+      "group": "stor",
+      "method": "set_disk_idle_time",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.setDiskWakeup": {
+      "group": "stor",
+      "method": "set_disk_wakeup",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.setGlobal": {
+      "group": "stor",
+      "method": "set_global",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.setRemovableConf": {
+      "group": "stor",
+      "method": "set_removable_conf",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.setTeamStorage": {
+      "group": "stor",
+      "method": "set_team_storage",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.setTrashbin": {
+      "group": "stor",
+      "method": "set_trashbin",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.setUserStorage": {
+      "group": "stor",
+      "method": "set_user_storage",
+      "status": "unverified",
+      "readonly": false,
+      "params": "set"
+    },
+    "stor.state2": {
+      "group": "stor",
+      "method": "state2",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "stor.stop": {
+      "group": "stor",
+      "method": "stop",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.storAddDiskInfo": {
+      "group": "stor",
+      "method": "stor_add_disk_info",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.umount": {
+      "group": "stor",
+      "method": "umount",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.zClear": {
+      "group": "stor",
+      "method": "z_clear",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.zExport": {
+      "group": "stor",
+      "method": "z_export",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.zImport": {
+      "group": "stor",
+      "method": "z_import",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.zImportList": {
+      "group": "stor",
+      "method": "z_import_list",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.zOnline": {
+      "group": "stor",
+      "method": "z_online",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.zRecover": {
+      "group": "stor",
+      "method": "z_recover",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "stor.zScrub": {
+      "group": "stor",
+      "method": "z_scrub",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "taskState.list": {
+      "group": "taskState",
+      "method": "list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "user.2fa.loginVerify": {
+      "group": "user",
+      "method": "user_2fa_login_verify",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.2fa.resetPassword": {
+      "group": "user",
+      "method": "user_2fa_reset_password",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.active": {
+      "group": "user",
+      "method": "active",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "user.add": {
+      "group": "user",
+      "method": "add",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.add1000": {
+      "group": "user",
+      "method": "add1000",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.auth": {
+      "group": "user",
+      "method": "auth",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.authToken": {
+      "group": "user",
+      "method": "auth_token",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.changePassword": {
+      "group": "user",
+      "method": "change_password",
+      "status": "unverified",
+      "readonly": false,
+      "params": "user, password, newPassword, removeToken"
+    },
+    "user.checkNewGroup": {
+      "group": "user",
+      "method": "check_new_group",
+      "status": "param_error",
+      "readonly": true,
+      "params": "group"
+    },
+    "user.checkNewUser": {
+      "group": "user",
+      "method": "check_new_user",
+      "status": "param_error",
+      "readonly": true,
+      "params": "user"
+    },
+    "user.del": {
+      "group": "user",
+      "method": "del_",
+      "status": "unverified",
+      "readonly": false,
+      "params": "user"
+    },
+    "user.groupAdd": {
+      "group": "user",
+      "method": "group_add",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.groupAddUsers": {
+      "group": "user",
+      "method": "group_add_users",
+      "status": "unverified",
+      "readonly": false,
+      "params": "group, users"
+    },
+    "user.groupDel": {
+      "group": "user",
+      "method": "group_del",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.groupDelUsers": {
+      "group": "user",
+      "method": "group_del_users",
+      "status": "unverified",
+      "readonly": false,
+      "params": "group, users"
+    },
+    "user.groupInfo": {
+      "group": "user",
+      "method": "group_info",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.groupList": {
+      "group": "user",
+      "method": "group_list",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.groupMod": {
+      "group": "user",
+      "method": "group_mod",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.groupSetUsers": {
+      "group": "user",
+      "method": "group_set_users",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.groupUsers": {
+      "group": "user",
+      "method": "group_users",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "user.info": {
+      "group": "user",
+      "method": "info",
+      "status": "succ",
+      "readonly": true,
+      "params": "user"
+    },
+    "user.isAdmin": {
+      "group": "user",
+      "method": "is_admin",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "user.kickLoginDevice": {
+      "group": "user",
+      "method": "kick_login_device",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.list": {
+      "group": "user",
+      "method": "list",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "user.listLoginDevice": {
+      "group": "user",
+      "method": "list_login_device",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "user.listUG": {
+      "group": "user",
+      "method": "list_ug",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "user.login": {
+      "group": "user",
+      "method": "login",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.loginIntl": {
+      "group": "user",
+      "method": "login_intl",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.logout": {
+      "group": "user",
+      "method": "logout",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.mod": {
+      "group": "user",
+      "method": "mod",
+      "status": "unverified",
+      "readonly": false,
+      "params": "user, comment, newName, disableUser, allowSSH"
+    },
+    "user.setAdmin": {
+      "group": "user",
+      "method": "set_admin",
+      "status": "unverified",
+      "readonly": false,
+      "params": "user, setAdmin"
+    },
+    "user.tokenLogin": {
+      "group": "user",
+      "method": "token_login",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "user.unfreeze": {
+      "group": "user",
+      "method": "unfreeze",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "usrdat.del": {
+      "group": "usrdat",
+      "method": "del_",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "usrdat.delArray": {
+      "group": "usrdat",
+      "method": "del_array",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "usrdat.get": {
+      "group": "usrdat",
+      "method": "get",
+      "status": "param_error",
+      "readonly": true,
+      "params": "key(推测)"
+    },
+    "usrdat.set": {
+      "group": "usrdat",
+      "method": "set",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "usrdat.setArray": {
+      "group": "usrdat",
+      "method": "set_array",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    },
+    "util.crypto.getRSAPub": {
+      "group": "util",
+      "method": "crypto_get_rsa_pub",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "util.getSI": {
+      "group": "util",
+      "method": "get_si",
+      "status": "succ",
+      "readonly": true,
+      "params": ""
+    },
+    "util.trimaclNotify": {
+      "group": "util",
+      "method": "trimacl_notify",
+      "status": "unverified",
+      "readonly": false,
+      "params": ""
+    }
+  },
+  "aliases": {
+    "appcgi.accountsrv.v1.token.edit": [
+      "updateAuthorizedDeviceScopes"
+    ],
+    "appcgi.accountsrv.v1.token.list": [
+      "listAuthorizedDevice"
+    ],
+    "appcgi.accountsrv.v1.token.revoke": [
+      "delAuthorizedDevice"
+    ],
+    "appcgi.backup.logger.list": [
+      "logList"
+    ],
+    "appcgi.backup.nas.find": [
+      "findNas"
+    ],
+    "appcgi.backup.storage.add": [
+      "addStorage"
+    ],
+    "appcgi.backup.storage.checkConnection": [
+      "checkConnection"
+    ],
+    "appcgi.backup.storage.createDir": [
+      "createDir"
+    ],
+    "appcgi.backup.storage.delete": [
+      "deleteStorage"
+    ],
+    "appcgi.backup.storage.getAuthUrl": [
+      "getAuthUrl"
+    ],
+    "appcgi.backup.storage.getQuota": [
+      "getQuota"
+    ],
+    "appcgi.backup.storage.list": [
+      "storageList"
+    ],
+    "appcgi.backup.storage.listDir": [
+      "listDir"
+    ],
+    "appcgi.backup.storage.update": [
+      "updateStorage"
+    ],
+    "appcgi.backup.task.add": [
+      "addTask"
+    ],
+    "appcgi.backup.task.delete": [
+      "deleteTask"
+    ],
+    "appcgi.backup.task.detail": [
+      "taskDetails"
+    ],
+    "appcgi.backup.task.disable": [
+      "disableTask"
+    ],
+    "appcgi.backup.task.enable": [
+      "enableTask"
+    ],
+    "appcgi.backup.task.list": [
+      "taskList"
+    ],
+    "appcgi.backup.task.operations": [
+      "operationList"
+    ],
+    "appcgi.backup.task.run": [
+      "runTask"
+    ],
+    "appcgi.backup.task.stop": [
+      "stopTask"
+    ],
+    "appcgi.backup.task.update": [
+      "updateTask"
+    ],
+    "appcgi.eventlogger.common.archive": [
+      "archiveLoggerSet"
+    ],
+    "appcgi.eventlogger.common.archive.get": [
+      "archiveLoggerSetQuery"
+    ],
+    "appcgi.eventlogger.common.clear": [
+      "clearLogger"
+    ],
+    "appcgi.eventlogger.common.export": [
+      "exportLogger"
+    ],
+    "appcgi.eventlogger.common.list": [
+      "getLogger"
+    ],
+    "appcgi.eventlogger.debuglog.copyStart": [
+      "debuglogCopy"
+    ],
+    "appcgi.eventlogger.debuglog.copyStop": [
+      "debuglogCopyStop"
+    ],
+    "appcgi.filestor.getAppDirList": [
+      "getAppDirList"
+    ],
+    "appcgi.filestor.getSysPartInfo": [
+      "getSysPartInfo"
+    ],
+    "appcgi.filestor.getTeamDirList": [
+      "getTeamDirList"
+    ],
+    "appcgi.filestor.isMountPoint": [
+      "isMountPoint"
+    ],
+    "appcgi.finder.cancelSearch": [
+      "cancelSearch"
+    ],
+    "appcgi.finder.fileSearch": [
+      "search"
+    ],
+    "appcgi.finder.searchOtherSharing": [
+      "shareSearchOthers"
+    ],
+    "appcgi.finder.trashSearch": [
+      "trashSearch"
+    ],
+    "appcgi.ipblocker.addAllowList": [
+      "addAllowList"
+    ],
+    "appcgi.ipblocker.addDenyList": [
+      "addDenyList"
+    ],
+    "appcgi.ipblocker.autoBlock": [
+      "autoBlock"
+    ],
+    "appcgi.ipblocker.autoBlockRule": [
+      "autoBlockRule"
+    ],
+    "appcgi.ipblocker.deleteAllowList": [
+      "deleteAllowList"
+    ],
+    "appcgi.ipblocker.deleteDenyList": [
+      "deleteDenyList"
+    ],
+    "appcgi.ipblocker.queryAllowList": [
+      "queryAllowList"
+    ],
+    "appcgi.ipblocker.queryAutoBlockRule": [
+      "queryAutoBlockRule"
+    ],
+    "appcgi.ipblocker.queryDenyList": [
+      "queryDenyList"
+    ],
+    "appcgi.iscsimgr.iscsi.lun.list": [
+      "lunList"
+    ],
+    "appcgi.license.soft.code.active": [
+      "active"
+    ],
+    "appcgi.license.soft.code.license": [
+      "info"
+    ],
+    "appcgi.license.soft.get": [
+      "get"
+    ],
+    "appcgi.license.soft.ipc.get": [
+      "ipcGet"
+    ],
+    "appcgi.license.soft.list": [
+      "list"
+    ],
+    "appcgi.license.soft.recover": [
+      "recover"
+    ],
+    "appcgi.license.soft.remove": [
+      "remove"
+    ],
+    "appcgi.license.soft.test.sendnotify": [
+      "sendnotify"
+    ],
+    "appcgi.license.soft.trial": [
+      "trial"
+    ],
+    "appcgi.license.soft.trial.applystatus": [
+      "trialApplyStatus"
+    ],
+    "appcgi.mountmgr.cache.refresh": [
+      "refreshCache"
+    ],
+    "appcgi.mountmgr.check": [
+      "check"
+    ],
+    "appcgi.mountmgr.dfs.acquireUploadCacheDir": [
+      "acquireUploadCacheDir"
+    ],
+    "appcgi.mountmgr.dfs.cleanUploadCacheDir": [
+      "cleanUploadCacheDir"
+    ],
+    "appcgi.mountmgr.dfs.startUpload": [
+      "startUpload"
+    ],
+    "appcgi.mountmgr.list": [
+      "list"
+    ],
+    "appcgi.mountmgr.mount": [
+      "mount"
+    ],
+    "appcgi.mountmgr.mountInfo": [
+      "mountInfo"
+    ],
+    "appcgi.mountmgr.setting.detail": [
+      "getSelectedVolForRemoteMountUpload"
+    ],
+    "appcgi.mountmgr.setting.update": [
+      "setSelectedVolForRemoteMountUpload"
+    ],
+    "appcgi.mountmgr.shares": [
+      "shares"
+    ],
+    "appcgi.mountmgr.task.cancel": [
+      "taskCancel"
+    ],
+    "appcgi.mountmgr.task.detail": [
+      "taskDetail"
+    ],
+    "appcgi.mountmgr.task.list": [
+      "taskList"
+    ],
+    "appcgi.mountmgr.umount": [
+      "umount"
+    ],
+    "appcgi.netsvr.cert.apply": [
+      "applyCert"
+    ],
+    "appcgi.netsvr.cert.applystatus": [
+      "getCertTaskStatus"
+    ],
+    "appcgi.netsvr.cert.export": [
+      "exportCert"
+    ],
+    "appcgi.netsvr.cert.getuse": [
+      "getUseCert"
+    ],
+    "appcgi.netsvr.cert.list": [
+      "getCertList"
+    ],
+    "appcgi.netsvr.cert.remove": [
+      "deleteCert"
+    ],
+    "appcgi.netsvr.cert.renew": [
+      "renewCert"
+    ],
+    "appcgi.netsvr.cert.replace": [
+      "replaceCert"
+    ],
+    "appcgi.netsvr.cert.setuse": [
+      "setUsedCert"
+    ],
+    "appcgi.netsvr.cert.sysreset": [
+      "updateSystemCert"
+    ],
+    "appcgi.netsvr.cert.upload": [
+      "uploadCert"
+    ],
+    "appcgi.netsvr.conn.change": [
+      "updateFnConnectInfo"
+    ],
+    "appcgi.netsvr.conn.create": [
+      "createFnConnectInfo"
+    ],
+    "appcgi.netsvr.conn.getconfig": [
+      "getFnConnectConfig"
+    ],
+    "appcgi.netsvr.conn.open": [
+      "openFnContentStatus"
+    ],
+    "appcgi.netsvr.conn.quit": [
+      "updateFnConnectStatus"
+    ],
+    "appcgi.netsvr.conn.setconfig": [
+      "setFnConnectConfig"
+    ],
+    "appcgi.netsvr.conn.status": [
+      "getFnConnectInfo"
+    ],
+    "appcgi.netsvr.ddns.provider.list": [
+      "getDDNSProviderList"
+    ],
+    "appcgi.netsvr.ddns.record.create": [
+      "createDDNS"
+    ],
+    "appcgi.netsvr.ddns.record.detail": [
+      "getDDNSInfo"
+    ],
+    "appcgi.netsvr.ddns.record.list": [
+      "getDDNSList"
+    ],
+    "appcgi.netsvr.ddns.record.refresh": [
+      "refreshDdns"
+    ],
+    "appcgi.netsvr.ddns.record.remove": [
+      "deleteDdns"
+    ],
+    "appcgi.netsvr.ddns.record.test": [
+      "testDDNSRecord"
+    ],
+    "appcgi.netsvr.ddns.record.update": [
+      "updateDDNS"
+    ],
+    "appcgi.netsvr.domain.list": [
+      "getTrimDomainList"
+    ],
+    "appcgi.netsvr.domain.sharecheck": [
+      "checkFnShareLink"
+    ],
+    "appcgi.netsvr.fnassistant.close": [
+      "closeAssistance"
+    ],
+    "appcgi.netsvr.fnassistant.info": [
+      "getAssistanceInfo"
+    ],
+    "appcgi.netsvr.fnassistant.open": [
+      "openAssistance"
+    ],
+    "appcgi.netsvr.network.list": [
+      "getNetworkInfo"
+    ],
+    "appcgi.network.gen.info": [
+      "genInfo"
+    ],
+    "appcgi.network.gen.set": [
+      "genSet"
+    ],
+    "appcgi.network.gw.getting": [
+      "getting"
+    ],
+    "appcgi.network.gw.setting": [
+      "setting"
+    ],
+    "appcgi.network.hostname": [
+      "hostname"
+    ],
+    "appcgi.network.net.add": [
+      "networkAdd"
+    ],
+    "appcgi.network.net.arping": [
+      "netArPing"
+    ],
+    "appcgi.network.net.bridge": [
+      "createBridge"
+    ],
+    "appcgi.network.net.conn": [
+      "networkConnect"
+    ],
+    "appcgi.network.net.del": [
+      "networkDelete"
+    ],
+    "appcgi.network.net.detect": [
+      "networkDetect"
+    ],
+    "appcgi.network.net.disc": [
+      "networkDisconnect"
+    ],
+    "appcgi.network.net.getMultiGWStatus": [
+      "getMultiGWStatus"
+    ],
+    "appcgi.network.net.getNicPerformanceMode": [
+      "getNicPerformanceMode"
+    ],
+    "appcgi.network.net.info": [
+      "netInfo"
+    ],
+    "appcgi.network.net.list": [
+      "netList"
+    ],
+    "appcgi.network.net.reset": [
+      "resetNetwork"
+    ],
+    "appcgi.network.net.set": [
+      "netSet"
+    ],
+    "appcgi.network.net.setMultiGW": [
+      "setMultiGW"
+    ],
+    "appcgi.network.net.setNicPerformanceMode": [
+      "setNicPerformanceMode"
+    ],
+    "appcgi.network.net.state": [
+      "networkState"
+    ],
+    "appcgi.network.route.list": [
+      "routeList"
+    ],
+    "appcgi.network.ssh.set": [
+      "setSSH"
+    ],
+    "appcgi.network.ssh.status": [
+      "sshStatus"
+    ],
+    "appcgi.network.ssh.switch": [
+      "switchSSH"
+    ],
+    "appcgi.network.static.add": [
+      "staticAdd"
+    ],
+    "appcgi.network.static.del": [
+      "staticDel"
+    ],
+    "appcgi.network.static.list": [
+      "staticList"
+    ],
+    "appcgi.network.static.set": [
+      "staticSet"
+    ],
+    "appcgi.network.wifi.apList": [
+      "getWifiList"
+    ],
+    "appcgi.network.wifi.close": [
+      "closeWifi"
+    ],
+    "appcgi.network.wifi.connectHiddenAP": [
+      "connectHiddenAP"
+    ],
+    "appcgi.network.wifi.connectKnownAP": [
+      "connectKnownAP"
+    ],
+    "appcgi.network.wifi.connectUnknownAP": [
+      "connectUnknownAP"
+    ],
+    "appcgi.network.wifi.connectedAP": [
+      "connectedAP"
+    ],
+    "appcgi.network.wifi.getKnownAPInfo": [
+      "getKnownAPInfo"
+    ],
+    "appcgi.network.wifi.ignoreKnownAP": [
+      "ignoreKnownAP"
+    ],
+    "appcgi.network.wifi.open": [
+      "openWifi"
+    ],
+    "appcgi.network.wifi.setKnownAPInfo": [
+      "setKnownAPInfo"
+    ],
+    "appcgi.resmon.alert.getBeepEvents": [
+      "getBeepEvents"
+    ],
+    "appcgi.resmon.alert.getBeepReasons": [
+      "getBeepReasons"
+    ],
+    "appcgi.resmon.alert.getSupportedBeepEvents": [
+      "getSupportedBeepEvents"
+    ],
+    "appcgi.resmon.alert.muteBeeper": [
+      "muteBeeper"
+    ],
+    "appcgi.resmon.alert.setBeepEvents": [
+      "setBeepEvents"
+    ],
+    "appcgi.resmon.battery": [
+      "battery"
+    ],
+    "appcgi.resmon.cpu": [
+      "cpu"
+    ],
+    "appcgi.resmon.disk": [
+      "disk"
+    ],
+    "appcgi.resmon.gen": [
+      "gen"
+    ],
+    "appcgi.resmon.gpu": [
+      "gpu"
+    ],
+    "appcgi.resmon.mem": [
+      "mem"
+    ],
+    "appcgi.resmon.npu": [
+      "npu"
+    ],
+    "appcgi.resmon.proc.list": [
+      "getProcList"
+    ],
+    "appcgi.resmon.proc.signal": [
+      "procSignal"
+    ],
+    "appcgi.resmon.proc.srv": [
+      "getProcSrv"
+    ],
+    "appcgi.resmon.sysFan": [
+      "sysFan"
+    ],
+    "appcgi.sac.desktop.v1.getConfig": [
+      "desktopConfig"
+    ],
+    "appcgi.sac.desktop.v1.markWallpaper": [
+      "desktopMarkWallpaper"
+    ],
+    "appcgi.sac.desktop.v1.removeWallpaper": [
+      "desktopRemoveWallpaper"
+    ],
+    "appcgi.sac.desktop.v1.setBgColor": [
+      "desktopSetBgColor"
+    ],
+    "appcgi.sac.desktop.v1.setColor": [
+      "desktopSetColor"
+    ],
+    "appcgi.sac.desktop.v1.setFillMode": [
+      "desktopSetFillMode"
+    ],
+    "appcgi.sac.desktop.v1.setTheme": [
+      "desktopSetTheme"
+    ],
+    "appcgi.sac.desktop.v1.setWallpaper": [
+      "desktopSetWallpaper"
+    ],
+    "appcgi.sac.desktop.v1.setWallpaperType": [
+      "desktopSetWallpaperType"
+    ],
+    "appcgi.sac.entry.v1.addUserDesktopEntry": [
+      "addUserDesktopEntry"
+    ],
+    "appcgi.sac.entry.v1.appStoreList": [
+      "appStoreList"
+    ],
+    "appcgi.sac.entry.v1.delUserDesktopEntry": [
+      "delUserDesktopEntry"
+    ],
+    "appcgi.sac.entry.v1.dockerList": [
+      "dockerList"
+    ],
+    "appcgi.sac.entry.v1.editUserDesktopEntry": [
+      "editUserDesktopEntry"
+    ],
+    "appcgi.sac.entry.v1.exchangeEntryToken": [
+      "exchangeEntryToken"
+    ],
+    "appcgi.sac.entry.v1.fileAssociations.all": [
+      "all"
+    ],
+    "appcgi.sac.entry.v1.fileAssociations.list": [
+      "list"
+    ],
+    "appcgi.sac.entry.v1.fileAssociations.setDefault": [
+      "setDefault"
+    ],
+    "appcgi.sac.entry.v1.getEntryList": [
+      "getEntryList"
+    ],
+    "appcgi.sac.entry.v1.getUserDesktop": [
+      "getUserDesktop"
+    ],
+    "appcgi.sac.entry.v1.recordDesktopSort": [
+      "recordDesktopSort"
+    ],
+    "appcgi.sac.externalnotify.v1.email.buildOAuthURL": [
+      "buildOAuthURL"
+    ],
+    "appcgi.sac.externalnotify.v1.email.getAccessToken": [
+      "getAccessToken"
+    ],
+    "appcgi.sac.externalnotify.v1.email.getConfig": [
+      "getEmailConfig"
+    ],
+    "appcgi.sac.externalnotify.v1.email.getProviders": [
+      "getEmailProviders"
+    ],
+    "appcgi.sac.externalnotify.v1.email.revokeOAuth": [
+      "revokeOAuth"
+    ],
+    "appcgi.sac.externalnotify.v1.email.sendTestEmail": [
+      "sendTestEmail"
+    ],
+    "appcgi.sac.externalnotify.v1.email.startOrUpdateServerConfig": [
+      "startOrUpdateEmailConfig"
+    ],
+    "appcgi.sac.externalnotify.v1.email.stop": [
+      "stopEmailServer"
+    ],
+    "appcgi.sac.externalnotify.v1.email.updateConfig": [
+      "updateSubjectPrefix"
+    ],
+    "appcgi.sac.i18n.v1.config.get": [
+      "getI18nConfig"
+    ],
+    "appcgi.sac.i18n.v1.config.set": [
+      "setI18nConfig"
+    ],
+    "appcgi.sac.license.v1.config.get": [
+      "licenseConfig"
+    ],
+    "appcgi.sac.license.v1.config.set": [
+      "setLicenseConfig"
+    ],
+    "appcgi.sac.ups.v1.bindOrUnbind": [
+      "upsBindOrUnbind"
+    ],
+    "appcgi.sac.ups.v1.check": [
+      "upsCheck"
+    ],
+    "appcgi.sac.ups.v1.deviceList": [
+      "upsDeviceList"
+    ],
+    "appcgi.sac.ups.v1.list": [
+      "upsList"
+    ],
+    "appcgi.sac.ups.v1.status": [
+      "upsStatus"
+    ],
+    "appcgi.screen.getImageUploadPath": [
+      "getImageUploadPath"
+    ],
+    "appcgi.screen.getOptions": [
+      "getOptions"
+    ],
+    "appcgi.screen.getScreenImage": [
+      "getScreenImage"
+    ],
+    "appcgi.screen.getScreenSize": [
+      "getScreenSize"
+    ],
+    "appcgi.screen.getScreenVideo": [
+      "getScreenVideo"
+    ],
+    "appcgi.screen.isSleeping": [
+      "isSleeping"
+    ],
+    "appcgi.screen.setOptions": [
+      "setOptions"
+    ],
+    "appcgi.screen.setScreenImage": [
+      "setScreenImage"
+    ],
+    "appcgi.screen.setScreenVideo": [
+      "setScreenVideo"
+    ],
+    "appcgi.security.firewall.getting": [
+      "getConfig"
+    ],
+    "appcgi.security.firewall.iflist": [
+      "getIflist"
+    ],
+    "appcgi.security.firewall.ifstat": [
+      "getIfstat"
+    ],
+    "appcgi.security.firewall.servlist": [
+      "getServlist"
+    ],
+    "appcgi.security.firewall.setting": [
+      "setConfig"
+    ],
+    "appcgi.security.flowaudit.traffic": [
+      "getFlowauditTraffic"
+    ],
+    "appcgi.security.safeCode.getting": [
+      "safeCodeGetting"
+    ],
+    "appcgi.security.safeCode.setting": [
+      "safeCodeSetting"
+    ],
+    "appcgi.share.check.port": [
+      "checkPort"
+    ],
+    "appcgi.share.dlna.opt": [
+      "dlnaOpt"
+    ],
+    "appcgi.share.dlna.set": [
+      "dlnaSet"
+    ],
+    "appcgi.share.dlna.share.opt": [
+      "dlnaShareOpt"
+    ],
+    "appcgi.share.dlna.share.set": [
+      "dlnaShareSet"
+    ],
+    "appcgi.share.ftp.opt": [
+      "ftpOpt"
+    ],
+    "appcgi.share.ftp.set": [
+      "ftpSet"
+    ],
+    "appcgi.share.ftp.share.opt": [
+      "ftpShareOpt"
+    ],
+    "appcgi.share.ftp.share.set": [
+      "ftpShareSet"
+    ],
+    "appcgi.share.nfs.opt": [
+      "nfsOpt"
+    ],
+    "appcgi.share.nfs.set": [
+      "nfsSet"
+    ],
+    "appcgi.share.nfs.share.opt": [
+      "nfsShareOpt"
+    ],
+    "appcgi.share.nfs.share.set": [
+      "nfsShareSet"
+    ],
+    "appcgi.share.smb.opt": [
+      "smbOpt"
+    ],
+    "appcgi.share.smb.set": [
+      "smbSet"
+    ],
+    "appcgi.share.smb.share.opt": [
+      "smbShareOpt"
+    ],
+    "appcgi.share.smb.share.set": [
+      "smbShareSet"
+    ],
+    "appcgi.share.smb.tm.set": [
+      "smbTimeMachineSet"
+    ],
+    "appcgi.share.team.allowShare": [
+      "teamAllowShare"
+    ],
+    "appcgi.share.webdav.opt": [
+      "webdavOpt"
+    ],
+    "appcgi.share.webdav.set": [
+      "webdavSet"
+    ],
+    "appcgi.share.webdav.share.opt": [
+      "webdavShareOpt"
+    ],
+    "appcgi.share.webdav.share.set": [
+      "webdavShareSet"
+    ],
+    "appcgi.sharesvr.share.link.clear": [
+      "shareLinkClear"
+    ],
+    "appcgi.sharesvr.share.link.create": [
+      "shareLinkCreate"
+    ],
+    "appcgi.sharesvr.share.link.default": [
+      "shareLinkDefault"
+    ],
+    "appcgi.sharesvr.share.link.default.get": [
+      "shareLinkDefaultInfo"
+    ],
+    "appcgi.sharesvr.share.link.default.set": [
+      "shareLinkDefaultInfoSet"
+    ],
+    "appcgi.sharesvr.share.link.get": [
+      "shareLinkInfo"
+    ],
+    "appcgi.sharesvr.share.link.list": [
+      "shareLinkList"
+    ],
+    "appcgi.sharesvr.share.link.remove": [
+      "shareLinkRemove"
+    ],
+    "appcgi.sharesvr.share.link.update": [
+      "shareLinkUpdate"
+    ],
+    "appcgi.sharesvr.share.permission.get": [
+      "sharePermission"
+    ],
+    "appcgi.sharesvr.share.permission.set": [
+      "sharePermissionSet"
+    ],
+    "appcgi.sharesvr.share.uploadpermission.get": [
+      "shareUploadPermission"
+    ],
+    "appcgi.sharesvr.share.uploadpermission.set": [
+      "shareUploadPermissionSet"
+    ],
+    "appcgi.sysinfo.addPowerPlan": [
+      "addPowerPlan"
+    ],
+    "appcgi.sysinfo.deletePowerPlan": [
+      "deletePowerPlan"
+    ],
+    "appcgi.sysinfo.getBootOnPowerFlag": [
+      "getBootOnPowerFlag"
+    ],
+    "appcgi.sysinfo.getFanMode": [
+      "getFanMode"
+    ],
+    "appcgi.sysinfo.getHardwareInfo": [
+      "getHardwareInfo"
+    ],
+    "appcgi.sysinfo.getHostName": [
+      "getHostName"
+    ],
+    "appcgi.sysinfo.getMachineId": [
+      "getMachineId"
+    ],
+    "appcgi.sysinfo.getNetInfo": [
+      "getNetInfo"
+    ],
+    "appcgi.sysinfo.getPowerPlanStatus": [
+      "getPowerPlanStatus"
+    ],
+    "appcgi.sysinfo.getReservedPartition": [
+      "getReservedPartition"
+    ],
+    "appcgi.sysinfo.getTimeSetting": [
+      "getTimeSetting"
+    ],
+    "appcgi.sysinfo.getTimezoneList": [
+      "getTimezoneList"
+    ],
+    "appcgi.sysinfo.getTrimDisk": [
+      "getTrimDisk"
+    ],
+    "appcgi.sysinfo.getTrimMachineFeature": [
+      "getTrimMachineFeature"
+    ],
+    "appcgi.sysinfo.getTrimMachineType": [
+      "getTrimMachineType"
+    ],
+    "appcgi.sysinfo.getTrimVersion": [
+      "getTrimVersion"
+    ],
+    "appcgi.sysinfo.getUptime": [
+      "getUptime"
+    ],
+    "appcgi.sysinfo.initHostName": [
+      "initHostName"
+    ],
+    "appcgi.sysinfo.isTrimMachine": [
+      "isTrimMachine"
+    ],
+    "appcgi.sysinfo.listPowerPlan": [
+      "listPowerPlan"
+    ],
+    "appcgi.sysinfo.modifyPowerPlan": [
+      "modifyPowerPlan"
+    ],
+    "appcgi.sysinfo.nextPowerOffTime": [
+      "getNextPowerOffTime"
+    ],
+    "appcgi.sysinfo.setBootOnPowerFlag": [
+      "setBootOnPowerFlag"
+    ],
+    "appcgi.sysinfo.setFanMode": [
+      "setFanMode"
+    ],
+    "appcgi.sysinfo.setHostName": [
+      "updateHostName"
+    ],
+    "appcgi.sysinfo.setPowerPlanStatus": [
+      "setPowerPlanStatus"
+    ],
+    "appcgi.sysinfo.setTimeSetting": [
+      "setTimeSetting"
+    ],
+    "appcgi.sysrestore.addSysBackupTask": [
+      "addSysBackupTask"
+    ],
+    "appcgi.sysrestore.deleteSysBackupBin": [
+      "deleteSysBackupBin"
+    ],
+    "appcgi.sysrestore.doSysBackup": [
+      "doSysBackup"
+    ],
+    "appcgi.sysrestore.exportSysconf": [
+      "exportSysconf"
+    ],
+    "appcgi.sysrestore.getInfo": [
+      "getInfo"
+    ],
+    "appcgi.sysrestore.getSysBackupInfo": [
+      "getSysBackupInfo"
+    ],
+    "appcgi.sysrestore.getSysBackupTask": [
+      "getSysBackupTask"
+    ],
+    "appcgi.sysrestore.getSysconfUploadPath": [
+      "getSysconfUploadPath"
+    ],
+    "appcgi.sysrestore.importSysconf": [
+      "importSysconf"
+    ],
+    "appcgi.sysrestore.modifySysBackupTask": [
+      "modifySysBackupTask"
+    ],
+    "appcgi.sysrestore.setSystemRecovery": [
+      "setSystemRecovery"
+    ],
+    "appcgi.sysrestore.sysconfImportProgress": [
+      "sysconfImportProgress"
+    ],
+    "appcgi.tfa.security.v1.device.list": [
+      "getTrustDeviceList"
+    ],
+    "appcgi.tfa.security.v1.device.trust": [
+      "trustDevice"
+    ],
+    "appcgi.tfa.security.v1.device.untrust": [
+      "untrustDevice"
+    ],
+    "appcgi.tfa.security.v1.email.bind": [
+      "bindEmail"
+    ],
+    "appcgi.tfa.security.v1.email.bindBeforeVerify": [
+      "bindBeforeVerify"
+    ],
+    "appcgi.tfa.security.v1.email.sendBindCode": [
+      "sendBindCode"
+    ],
+    "appcgi.tfa.security.v1.login.resetPasswordSendEmail": [
+      "sendResetPasswordEmail"
+    ],
+    "appcgi.tfa.security.v1.login.resetPasswordVerify": [
+      "resetPasswordVerify"
+    ],
+    "appcgi.tfa.security.v1.login.sendEmailCode": [
+      "sendEmailBindCode"
+    ],
+    "appcgi.tfa.security.v1.login.totpVerify": [
+      "loginTotpVerify"
+    ],
+    "appcgi.tfa.security.v1.me.getConfig": [
+      "getMineConfig"
+    ],
+    "appcgi.tfa.security.v1.me.twofa.bind": [
+      "bindTfaMine"
+    ],
+    "appcgi.tfa.security.v1.me.twofa.bindBeforeVerify": [
+      "bindBeforeVerifyTotp"
+    ],
+    "appcgi.tfa.security.v1.me.twofa.disable": [
+      "disableTfaMine"
+    ],
+    "appcgi.tfa.security.v1.me.twofa.totpVerify": [
+      "totpVerify"
+    ],
+    "appcgi.tfa.security.v1.twofa.disable": [
+      "disableTfa"
+    ],
+    "appcgi.tfa.security.v1.twofa.enable": [
+      "enableTfa"
+    ],
+    "appcgi.tfa.security.v1.twofa.getConfig": [
+      "getConfig"
+    ],
+    "appcgi.tfa.security.v1.user.disableTwofa": [
+      "disableUserTfa"
+    ],
+    "appcgi.tfa.security.v1.user.getTwofaConfig": [
+      "getUserTfaInfo"
+    ],
+    "appcgi.usersrv.authUser": [
+      "authUser"
+    ],
+    "appcgi.usersrv.getAppUserList": [
+      "getAppDirList"
+    ],
+    "file.access": [
+      "access"
+    ],
+    "file.calc": [
+      "calc"
+    ],
+    "file.cancel": [
+      "cancel"
+    ],
+    "file.checkUpload": [
+      "checkUpload"
+    ],
+    "file.chown": [
+      "chown"
+    ],
+    "file.compress": [
+      "compress"
+    ],
+    "file.cp": [
+      "cp"
+    ],
+    "file.download": [
+      "download"
+    ],
+    "file.extract": [
+      "extract"
+    ],
+    "file.fav.add": [
+      "favAdd"
+    ],
+    "file.fav.del": [
+      "favDel"
+    ],
+    "file.fav.list": [
+      "favList"
+    ],
+    "file.getAcl": [
+      "getAcl"
+    ],
+    "file.ls": [
+      "ls"
+    ],
+    "file.lsDir": [
+      "lsDir"
+    ],
+    "file.mkdir": [
+      "mkdir"
+    ],
+    "file.mv": [
+      "mv"
+    ],
+    "file.prop": [
+      "prop"
+    ],
+    "file.recent.add": [
+      "recentAdd"
+    ],
+    "file.recent.clear": [
+      "recentClear"
+    ],
+    "file.recent.del": [
+      "recentDel"
+    ],
+    "file.recent.list": [
+      "recentList"
+    ],
+    "file.rename": [
+      "rename"
+    ],
+    "file.rm": [
+      "rm"
+    ],
+    "file.setAcl": [
+      "setAcl"
+    ],
+    "file.setAcl2": [
+      "setAcl2"
+    ],
+    "file.share.add": [
+      "shareAdd"
+    ],
+    "file.share.add2": [
+      "shareAdd2"
+    ],
+    "file.share.del2": [
+      "shareDel",
+      "shareDel2"
+    ],
+    "file.share.info": [
+      "shareInfo"
+    ],
+    "file.share.list": [
+      "shareList"
+    ],
+    "file.share.listOthers": [
+      "shareListOthers"
+    ],
+    "file.size": [
+      "size"
+    ],
+    "file.team.lsDir": [
+      "teamLsDir"
+    ],
+    "file.team.trash.clear": [
+      "teamTrashClear"
+    ],
+    "file.team.trash.list": [
+      "teamTrashList"
+    ],
+    "file.team.trash.listTrashbin": [
+      "teamTrashListTrashbin"
+    ],
+    "file.team.trash.restore": [
+      "teamTrashRestore"
+    ],
+    "file.trash.clear": [
+      "trashClear"
+    ],
+    "file.trash.list": [
+      "trashList"
+    ],
+    "file.trash.restore": [
+      "trashRestore"
+    ],
+    "file.trimacl.conv": [
+      "trimaclConv"
+    ],
+    "file.trimacl.conv.report": [
+      "trimaclConvReport"
+    ],
+    "file.usage": [
+      "usage"
+    ],
+    "liveupdate.check": [
+      "checkUpdate"
+    ],
+    "liveupdate.fixapt": [
+      "aptUpdate"
+    ],
+    "liveupdate.status": [
+      "updateStatus"
+    ],
+    "liveupdate.update": [
+      "update"
+    ],
+    "notify.del": [
+      "del"
+    ],
+    "notify.delAll": [
+      "delAll"
+    ],
+    "notify.list": [
+      "list"
+    ],
+    "notify.setRead": [
+      "setRead"
+    ],
+    "notify.setReadAll": [
+      "setReadAll"
+    ],
+    "notify.unreadTotal": [
+      "unreadTotal"
+    ],
+    "power.poweroff": [
+      "poweroff"
+    ],
+    "power.reboot": [
+      "reboot"
+    ],
+    "stor.abortSmartTest": [
+      "abortSmartTest"
+    ],
+    "stor.addDisk": [
+      "addDisk"
+    ],
+    "stor.addSpareDisk": [
+      "addSpareDisk"
+    ],
+    "stor.attachCache": [
+      "attachCache"
+    ],
+    "stor.btrfs.scrub": [
+      "btrfsScrub"
+    ],
+    "stor.cachedevState": [
+      "cachedevState"
+    ],
+    "stor.calcSpace": [
+      "calcSpace"
+    ],
+    "stor.create": [
+      "create"
+    ],
+    "stor.createCache": [
+      "createCache"
+    ],
+    "stor.delRec": [
+      "delRec"
+    ],
+    "stor.detachCache": [
+      "detachCache"
+    ],
+    "stor.detachCacheAndActive": [
+      "detachCacheAndActive"
+    ],
+    "stor.diskHealth": [
+      "diskHealth"
+    ],
+    "stor.diskMount": [
+      "diskMount"
+    ],
+    "stor.diskSmart": [
+      "diskSmart"
+    ],
+    "stor.eject": [
+      "eject"
+    ],
+    "stor.enableSmart": [
+      "enableSmart"
+    ],
+    "stor.extend": [
+      "extend"
+    ],
+    "stor.general": [
+      "getStorGeneral"
+    ],
+    "stor.getConf": [
+      "getConf"
+    ],
+    "stor.getDiskIdleTime": [
+      "getDiskIdleTime"
+    ],
+    "stor.getDiskWakeup": [
+      "getDiskWakeup"
+    ],
+    "stor.getGlobal": [
+      "getGlobal"
+    ],
+    "stor.getRemovableConf": [
+      "getRemovableConf"
+    ],
+    "stor.getSysPartInfo": [
+      "getSysPartInfo"
+    ],
+    "stor.getTeamStorage": [
+      "getTeamStorage"
+    ],
+    "stor.getUserStorage": [
+      "getUserStorage"
+    ],
+    "stor.listCachedev": [
+      "listCachedev"
+    ],
+    "stor.listDisk": [
+      "listDisk"
+    ],
+    "stor.listFreeDisk": [
+      "listFreeDisk"
+    ],
+    "stor.listRemovable": [
+      "listRemovable"
+    ],
+    "stor.listStor": [
+      "listStor"
+    ],
+    "stor.llbitmap.proactiveSync": [
+      "llBitmapProactiveSync"
+    ],
+    "stor.lvActive": [
+      "lvActive"
+    ],
+    "stor.makeTeamStorage": [
+      "makeTeamStorage"
+    ],
+    "stor.mount": [
+      "mount"
+    ],
+    "stor.readdDisk": [
+      "readdDisk"
+    ],
+    "stor.readdDiskToCache": [
+      "readdDiskToCache"
+    ],
+    "stor.recoverCache": [
+      "recoverCache"
+    ],
+    "stor.removeDisk": [
+      "removeDisk"
+    ],
+    "stor.removeDiskCheck": [
+      "removeDiskCheck"
+    ],
+    "stor.removeWarn": [
+      "removeWarn"
+    ],
+    "stor.replaceDisk": [
+      "replaceDisk"
+    ],
+    "stor.resize": [
+      "resize"
+    ],
+    "stor.runSmartTest": [
+      "runSmartTest"
+    ],
+    "stor.setConf": [
+      "setConf"
+    ],
+    "stor.setDiskIdleTime": [
+      "setDiskIdleTime"
+    ],
+    "stor.setDiskWakeup": [
+      "setDiskWakeup"
+    ],
+    "stor.setGlobal": [
+      "setGlobal"
+    ],
+    "stor.setRemovableConf": [
+      "setRemovableConf"
+    ],
+    "stor.setTeamStorage": [
+      "setTeamStorage"
+    ],
+    "stor.setTrashbin": [
+      "setTrashbin"
+    ],
+    "stor.setUserStorage": [
+      "setUserStorage"
+    ],
+    "stor.state2": [
+      "getStorBasic"
+    ],
+    "stor.stop": [
+      "stop"
+    ],
+    "stor.storAddDiskInfo": [
+      "storAddDiskInfo"
+    ],
+    "stor.umount": [
+      "umount"
+    ],
+    "stor.zClear": [
+      "zClear"
+    ],
+    "stor.zExport": [
+      "zExport"
+    ],
+    "stor.zImport": [
+      "zImport"
+    ],
+    "stor.zImportList": [
+      "zImportList"
+    ],
+    "stor.zOnline": [
+      "zOnline"
+    ],
+    "stor.zRecover": [
+      "zRecover"
+    ],
+    "stor.zScrub": [
+      "zScrub"
+    ],
+    "taskState.list": [
+      "list"
+    ],
+    "user.2fa.loginVerify": [
+      "loginVerify"
+    ],
+    "user.2fa.resetPassword": [
+      "resetPassword"
+    ],
+    "user.active": [
+      "active",
+      "req"
+    ],
+    "user.add": [
+      "add"
+    ],
+    "user.add1000": [
+      "add1000"
+    ],
+    "user.auth": [
+      "auth"
+    ],
+    "user.authToken": [
+      "authToken"
+    ],
+    "user.changePassword": [
+      "changePassword"
+    ],
+    "user.checkNewGroup": [
+      "checkNewGroup"
+    ],
+    "user.checkNewUser": [
+      "checkNewUser"
+    ],
+    "user.del": [
+      "del"
+    ],
+    "user.groupAdd": [
+      "groupAdd"
+    ],
+    "user.groupAddUsers": [
+      "groupAddUsers"
+    ],
+    "user.groupDel": [
+      "groupDel"
+    ],
+    "user.groupDelUsers": [
+      "groupDelUsers"
+    ],
+    "user.groupInfo": [
+      "groupInfo"
+    ],
+    "user.groupList": [
+      "groupList"
+    ],
+    "user.groupMod": [
+      "groupMod"
+    ],
+    "user.groupSetUsers": [
+      "groupSetUsers"
+    ],
+    "user.groupUsers": [
+      "groupUsers"
+    ],
+    "user.info": [
+      "info"
+    ],
+    "user.isAdmin": [
+      "isAdmin"
+    ],
+    "user.kickLoginDevice": [
+      "kickLoginDevice"
+    ],
+    "user.list": [
+      "list"
+    ],
+    "user.listLoginDevice": [
+      "listLoginDevice"
+    ],
+    "user.listUG": [
+      "listUG"
+    ],
+    "user.login": [
+      "login"
+    ],
+    "user.loginIntl": [
+      "loginIntl"
+    ],
+    "user.logout": [
+      "logout"
+    ],
+    "user.mod": [
+      "mod"
+    ],
+    "user.setAdmin": [
+      "setAdmin"
+    ],
+    "user.tokenLogin": [
+      "tokenLogin"
+    ],
+    "user.unfreeze": [
+      "unfreeze"
+    ],
+    "usrdat.del": [
+      "del"
+    ],
+    "usrdat.delArray": [
+      "delArray"
+    ],
+    "usrdat.get": [
+      "get"
+    ],
+    "usrdat.set": [
+      "set"
+    ],
+    "usrdat.setArray": [
+      "setArray"
+    ],
+    "util.crypto.getRSAPub": [
+      "getRSAPub"
+    ],
+    "util.getSI": [
+      "getSI"
+    ],
+    "util.trimaclNotify": [
+      "trimaclNotify"
+    ]
+  },
+  "sample_keys": {
+    "appcgi.accountsrv.v1.token.list": [
+      "data",
+      "errmsg"
+    ],
+    "appcgi.backup.logger.list": [
+      "req",
+      "rev"
+    ],
+    "appcgi.backup.storage.checkConnection": [
+      "req",
+      "rev"
+    ],
+    "appcgi.backup.storage.getAuthUrl": [
+      "req",
+      "rev"
+    ],
+    "appcgi.backup.storage.getQuota": [
+      "req",
+      "rev"
+    ],
+    "appcgi.backup.storage.list": [
+      "req",
+      "rev"
+    ],
+    "appcgi.backup.storage.listDir": [
+      "req",
+      "rev"
+    ],
+    "appcgi.backup.task.detail": [
+      "req",
+      "rev"
+    ],
+    "appcgi.backup.task.list": [
+      "req",
+      "rev"
+    ],
+    "appcgi.eventlogger.common.archive.get": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.eventlogger.common.list": [
+      "req",
+      "rev"
+    ],
+    "appcgi.filestor.getAppDirList": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.filestor.getSysPartInfo": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.filestor.getTeamDirList": [
+      "req",
+      "rev"
+    ],
+    "appcgi.filestor.isMountPoint": [
+      "req",
+      "rev"
+    ],
+    "appcgi.finder.searchOtherSharing": [
+      "req",
+      "rev"
+    ],
+    "appcgi.ipblocker.queryAllowList": [
+      "req",
+      "rev"
+    ],
+    "appcgi.ipblocker.queryAutoBlockRule": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.ipblocker.queryDenyList": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.license.soft.get": [
+      "data",
+      "errmsg"
+    ],
+    "appcgi.license.soft.ipc.get": [
+      "data",
+      "errmsg"
+    ],
+    "appcgi.license.soft.list": [
+      "data",
+      "errmsg"
+    ],
+    "appcgi.license.soft.trial.applystatus": [
+      "data"
+    ],
+    "appcgi.mountmgr.check": [
+      "errmsg"
+    ],
+    "appcgi.mountmgr.list": [
+      "rsp"
+    ],
+    "appcgi.mountmgr.mountInfo": [
+      "errmsg"
+    ],
+    "appcgi.mountmgr.setting.detail": [
+      "rsp"
+    ],
+    "appcgi.mountmgr.shares": [
+      "errmsg"
+    ],
+    "appcgi.mountmgr.task.detail": [
+      "errmsg"
+    ],
+    "appcgi.mountmgr.task.list": [
+      "rsp"
+    ],
+    "appcgi.netsvr.cert.getuse": [
+      "data"
+    ],
+    "appcgi.netsvr.cert.list": [
+      "data"
+    ],
+    "appcgi.netsvr.conn.getconfig": [
+      "data"
+    ],
+    "appcgi.netsvr.conn.status": [
+      "data"
+    ],
+    "appcgi.netsvr.ddns.provider.list": [
+      "data"
+    ],
+    "appcgi.netsvr.ddns.record.detail": [
+      "data",
+      "errmsg"
+    ],
+    "appcgi.netsvr.ddns.record.list": [
+      "data"
+    ],
+    "appcgi.netsvr.domain.list": [
+      "data"
+    ],
+    "appcgi.netsvr.fnassistant.info": [
+      "data"
+    ],
+    "appcgi.netsvr.network.list": [
+      "data"
+    ],
+    "appcgi.network.gen.info": [
+      "req",
+      "rev"
+    ],
+    "appcgi.network.gw.getting": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.network.net.getMultiGWStatus": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.network.net.getNicPerformanceMode": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.network.net.info": [
+      "req",
+      "rev"
+    ],
+    "appcgi.network.net.list": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.network.net.state": [
+      "req",
+      "rev"
+    ],
+    "appcgi.network.route.list": [
+      "req",
+      "rev"
+    ],
+    "appcgi.network.ssh.status": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.network.static.list": [
+      "req",
+      "rev"
+    ],
+    "appcgi.network.wifi.getKnownAPInfo": [
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.alert.getBeepEvents": [
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.alert.getBeepReasons": [
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.alert.getSupportedBeepEvents": [
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.battery": [
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.cpu": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.disk": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.gen": [
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.gpu": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.mem": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.npu": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.proc.list": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.proc.srv": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.resmon.sysFan": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sac.desktop.v1.getConfig": [
+      "data"
+    ],
+    "appcgi.sac.entry.v1.appStoreList": [
+      "data"
+    ],
+    "appcgi.sac.entry.v1.dockerList": [
+      "data"
+    ],
+    "appcgi.sac.entry.v1.fileAssociations.list": [
+      "data"
+    ],
+    "appcgi.sac.entry.v1.getEntryList": [
+      "data"
+    ],
+    "appcgi.sac.entry.v1.getUserDesktop": [
+      "data"
+    ],
+    "appcgi.sac.externalnotify.v1.email.getAccessToken": [
+      "data"
+    ],
+    "appcgi.sac.externalnotify.v1.email.getConfig": [
+      "data"
+    ],
+    "appcgi.sac.externalnotify.v1.email.getProviders": [
+      "data"
+    ],
+    "appcgi.sac.i18n.v1.config.get": [
+      "data"
+    ],
+    "appcgi.sac.license.v1.config.get": [
+      "data"
+    ],
+    "appcgi.sac.ups.v1.check": [
+      "data",
+      "errmsg"
+    ],
+    "appcgi.sac.ups.v1.list": [
+      "data"
+    ],
+    "appcgi.sac.ups.v1.status": [
+      "data"
+    ],
+    "appcgi.security.firewall.getting": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.security.safeCode.getting": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.share.dlna.opt": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.share.dlna.share.opt": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.share.ftp.opt": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.share.ftp.share.opt": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.share.nfs.opt": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.share.nfs.share.opt": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.share.smb.opt": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.share.smb.share.opt": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.share.team.allowShare": [
+      "req",
+      "rev"
+    ],
+    "appcgi.share.webdav.opt": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.share.webdav.share.opt": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sharesvr.share.link.create": [
+      "data"
+    ],
+    "appcgi.sharesvr.share.link.default.get": [
+      "data"
+    ],
+    "appcgi.sharesvr.share.link.get": [
+      "data"
+    ],
+    "appcgi.sharesvr.share.link.list": [
+      "data"
+    ],
+    "appcgi.sharesvr.share.link.remove": [
+      "data"
+    ],
+    "appcgi.sharesvr.share.link.update": [
+      "data"
+    ],
+    "appcgi.sharesvr.share.permission.get": [
+      "data"
+    ],
+    "appcgi.sharesvr.share.uploadpermission.get": [
+      "data"
+    ],
+    "appcgi.sysinfo.getBootOnPowerFlag": [
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getFanMode": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getHardwareInfo": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getHostName": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getMachineId": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getNetInfo": [
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getPowerPlanStatus": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getReservedPartition": [
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getTimeSetting": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getTimezoneList": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getTrimDisk": [
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getTrimMachineType": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getTrimVersion": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.getUptime": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.isTrimMachine": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysinfo.listPowerPlan": [
+      "req",
+      "rev"
+    ],
+    "appcgi.sysrestore.getInfo": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysrestore.getSysBackupInfo": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.sysrestore.getSysBackupTask": [
+      "req",
+      "rev"
+    ],
+    "appcgi.sysrestore.getSysconfUploadPath": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "appcgi.tfa.security.v1.device.list": [
+      "data"
+    ],
+    "appcgi.tfa.security.v1.me.getConfig": [
+      "data"
+    ],
+    "appcgi.tfa.security.v1.twofa.getConfig": [
+      "data"
+    ],
+    "appcgi.tfa.security.v1.user.getTwofaConfig": [
+      "data"
+    ],
+    "appcgi.usersrv.getAppUserList": [
+      "data",
+      "req",
+      "rev"
+    ],
+    "file.access": [
+      "access"
+    ],
+    "file.calc": [
+      "dirCount",
+      "fileCount",
+      "fileSizeTotal",
+      "space"
+    ],
+    "file.checkUpload": [
+      "uploadName"
+    ],
+    "file.chown": [
+      "sysNotify",
+      "taskId"
+    ],
+    "file.compress": [
+      "sysNotify",
+      "taskId"
+    ],
+    "file.cp": [
+      "sysNotify",
+      "taskId"
+    ],
+    "file.download": [
+      "download"
+    ],
+    "file.extract": [
+      "sysNotify",
+      "taskId"
+    ],
+    "file.fav.list": [
+      "fav",
+      "uver"
+    ],
+    "file.getAcl": [
+      "aclType",
+      "uver"
+    ],
+    "file.ls": [
+      "files",
+      "uver"
+    ],
+    "file.lsDir": [
+      "uver"
+    ],
+    "file.mv": [
+      "sysNotify",
+      "taskId"
+    ],
+    "file.prop": [
+      "prop",
+      "uver"
+    ],
+    "file.recent.list": [
+      "recent",
+      "uver"
+    ],
+    "file.rm": [
+      "sysNotify",
+      "taskId"
+    ],
+    "file.setAcl2": [
+      "sysNotify",
+      "taskId"
+    ],
+    "file.share.info": [
+      "uver"
+    ],
+    "file.share.listOthers": [
+      "uver"
+    ],
+    "file.size": [
+      "size"
+    ],
+    "file.team.lsDir": [
+      "uver"
+    ],
+    "file.team.trash.listTrashbin": [
+      "uver"
+    ],
+    "file.trash.list": [
+      "files",
+      "uver"
+    ],
+    "file.usage": [
+      "sysNotify",
+      "taskId"
+    ],
+    "liveupdate.check": [
+      "branchId"
+    ],
+    "notify.list": [
+      "page",
+      "pageTotal",
+      "total"
+    ],
+    "notify.unreadTotal": [
+      "unreadTotal"
+    ],
+    "stor.calcSpace": [
+      "HDD",
+      "SSD",
+      "USB",
+      "frsizeStor",
+      "frsizeSys",
+      "fssizeStor",
+      "fssizeSys",
+      "storTotal",
+      "sysDiskType"
+    ],
+    "stor.general": [
+      "array",
+      "block"
+    ],
+    "stor.getDiskIdleTime": [
+      "idleTime",
+      "idleTimeRemovable"
+    ],
+    "stor.getDiskWakeup": [
+      "wakeup"
+    ],
+    "stor.getGlobal": [
+      "zfs_arc_max",
+      "zfs_vdev_async_write_max_active"
+    ],
+    "stor.getRemovableConf": [
+      "permit"
+    ],
+    "stor.getSysPartInfo": [
+      "frsize",
+      "fssize"
+    ],
+    "stor.getUserStorage": [
+      "stor",
+      "uid"
+    ],
+    "stor.listCachedev": [
+      "disk"
+    ],
+    "stor.listDisk": [
+      "disk"
+    ],
+    "stor.listFreeDisk": [
+      "disk"
+    ],
+    "stor.listRemovable": [
+      "removable"
+    ],
+    "stor.listStor": [
+      "array"
+    ],
+    "stor.state2": [
+      "state"
+    ],
+    "user.groupUsers": [
+      "groups",
+      "uver"
+    ],
+    "user.info": [
+      "userInfo"
+    ],
+    "user.isAdmin": [
+      "admin"
+    ],
+    "user.list": [
+      "users",
+      "uver"
+    ],
+    "user.listLoginDevice": [
+      "loginDevice"
+    ],
+    "user.listUG": [
+      "uver"
+    ],
+    "util.crypto.getRSAPub": [
+      "pub",
+      "si"
+    ],
+    "util.getSI": [
+      "si"
+    ]
+  },
+  "events": [
+    "app.activated",
+    "app.appMeta",
+    "app.config.updated",
+    "app.hideservice",
+    "app.install.failed",
+    "app.installed",
+    "app.installing",
+    "app.showservice",
+    "app.start.failed",
+    "app.started",
+    "app.starting",
+    "app.stop.failed",
+    "app.stopped",
+    "app.stopping",
+    "app.uninstall.failed",
+    "app.uninstalled",
+    "app.uninstalling",
+    "app.update.failed",
+    "app.updated",
+    "app.updating",
+    "app.visibilitychange",
+    "appStore.updated",
+    "av01.0.04M.08",
+    "avc1.42e01e",
+    "com.apple.quicktime.HLS",
+    "dragError.cannotMoveDirectoryIntoItself",
+    "dragError.cannotMoveInCurrentDirectory",
+    "dragError.noFileSelectionToMove",
+    "dragError.notAllowMoveFileIntoRootDirectory",
+    "dragError.notAllowUploadFileAndDirectoriesIntoRootDirectory",
+    "dragError.notAllowUploadFileIntoRootDirectory",
+    "dragError.selectedIncludeTargetItself",
+    "dragError.targetPathError",
+    "file.upload",
+    "file.uploadFiles",
+    "format.date",
+    "hvc1.1.6.L120.90",
+    "net.ovs",
+    "net.set",
+    "org.id3",
+    "player.txt",
+    "remote.upload",
+    "storage.change",
+    "team.other",
+    "team.quota",
+    "team.trashbin",
+    "trim.account",
+    "trim.ai",
+    "trim.assistance",
+    "trim.docker",
+    "trim.preview",
+    "trim.setting",
+    "trim.snapshots",
+    "trim.vm",
+    "user.quota",
+    "user.trashbin"
+  ]
+}

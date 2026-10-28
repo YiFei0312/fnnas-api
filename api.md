@@ -1,5 +1,8 @@
 ### 飞牛api逻辑
 
+> 这份是早期的协议笔记。**全量接口清单（475 个，含实测报文）见 [docs/api/README.md](docs/api/README.md)**，
+> 接口怎么抓的见 [docs/capture.md](docs/capture.md)，协议细节见 [docs/protocol.md](docs/protocol.md)。
+
 根据浏览器抓包，飞牛大部分接口都是websocket协议
 
 上传用的http协议，但是要使用ws获取一个文件名，叫做checkUpload

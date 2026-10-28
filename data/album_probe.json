@@ -1,0 +1,414 @@
+{
+  "generated_at": "2026-10-17 16:43:01",
+  "base": "http://192.168.1.10:5666",
+  "username": "demo-user",
+  "album_id_used": 8,
+  "photo_ids_used": [
+    6958,
+    6957
+  ],
+  "albums_before": 0,
+  "albums_after": 0,
+  "restored": true,
+  "steps": [
+    {
+      "title": "当前用户",
+      "note": "GET /api/v1/user/info",
+      "ok": true,
+      "data": {
+        "id": 1,
+        "name": "demo-user",
+        "photoCount": null,
+        "videoCount": null,
+        "isAdmin": true,
+        "nasUid": 1000
+      }
+    },
+    {
+      "title": "照片统计",
+      "note": "GET /api/v1/user_photo/stat",
+      "ok": true,
+      "data": {
+        "id": 0,
+        "photoCount": 7253,
+        "videoCount": 272,
+        "isAdmin": false,
+        "nasUid": 0
+      }
+    },
+    {
+      "title": "存储空间",
+      "note": "GET /api/v2/server/pools",
+      "ok": true,
+      "data": {
+        "list": [
+          {
+            "name": "vol1",
+            "path": "/vol1/1000",
+            "writeable": true,
+            "readable": true,
+            "availableSpace": 235007451136
+          },
+          {
+            "name": "vol2",
+            "path": "/vol2/1000",
+            "writeable": true,
+            "readable": true,
+            "availableSpace": 458681745408
+          }
+        ]
+      }
+    },
+    {
+      "title": "应用版本",
+      "note": "GET /api/v1/app/version",
+      "ok": true,
+      "data": {
+        "version": "0.9.13"
+      }
+    },
+    {
+      "title": "相册列表（空）",
+      "note": "GET /api/v1/album/list?sort_by=…&offset=0&limit=…",
+      "ok": true,
+      "data": {
+        "list": []
+      }
+    },
+    {
+      "title": "我分享出去的相册",
+      "note": "GET /api/v1/album_grant/list_mine",
+      "ok": true,
+      "data": {
+        "count": null,
+        "hasNext": null,
+        "list": []
+      }
+    },
+    {
+      "title": "别人分享给我的相册",
+      "note": "GET /api/v1/album_grant/list_to_me",
+      "ok": true,
+      "data": {
+        "count": null,
+        "hasNext": null,
+        "list": []
+      }
+    },
+    {
+      "title": "照片时间线（按年月日分桶）",
+      "note": "GET /api/v1/gallery/timeline",
+      "ok": true,
+      "data": {
+        "list": [
+          {
+            "year": 2026,
+            "month": 10,
+            "day": 4,
+            "itemCount": 10
+          },
+          {
+            "year": 2026,
+            "month": 10,
+            "day": 2,
+            "itemCount": 8
+          }
+        ],
+        "nasDate": "2026-10-17"
+      }
+    },
+    {
+      "title": "照片列表（冒号日期格式）",
+      "note": "GET /api/v1/gallery/getList?start_time=…&end_time=…",
+      "ok": true,
+      "data": {
+        "count": null,
+        "hasNext": null,
+        "list": [
+          {
+            "id": 6958,
+            "ownerId": 0,
+            "dateTime": "2026:10:04 16:30:20",
+            "photoDateTime": "2026:10:04 16:30:20",
+            "timeZoneOffset": 480,
+            "fileType": "mp4",
+            "isRaw": false,
+            "category": "video",
+            "fileName": "sample.MP4",
+            "fileSize": 4603763329,
+            "description": "",
+            "isCollect": 0,
+            "mp": "11.1MP",
+            "filePath": "/vol3/1000/photo/sample/sample/sample.MP4",
+            "showFilePath": "",
+            "height": 3840,
+            "width": 2880,
+            "flash": -1,
+            "isLive": 0,
+            "mediaDuration": 302,
+            "rotation": 0,
+            "isCanPreview": 1,
+            "thumbnailStatus": 1,
+            "additional": {
+              "thumbnail": {
+                "mUrl": "/p/api/v1/stream/p/t/6958/m/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0",
+                "sUrl": "/p/api/v1/stream/p/t/6958/s/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0",
+                "xsUrl": "/p/api/v1/stream/p/t/6958/xs/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0",
+                "xxsUrl": "/p/api/v1/stream/p/t/6958/xxs/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0",
+                "videoUrl": "/p/api/v1/stream/v/6958",
+                "originalUrl": "/p/api/v1/stream/p/t/6958/o/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0"
+              },
+              "tags": []
+            },
+            "photoUUID": "b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0"
+          },
+          {
+            "id": 6957,
+            "ownerId": 0,
+            "dateTime": "2026:10:04 16:15:01",
+            "photoDateTime": "2026:10:04 16:15:01",
+            "timeZoneOffset": 480,
+            "fileType": "mp4",
+            "isRaw": false,
+            "category": "video",
+            "fileName": "sample.MP4",
+            "fileSize": 13013332945,
+            "description": "",
+            "isCollect": 0,
+            "mp": "11.1MP",
+            "filePath": "/vol3/1000/photo/sample/sample/sample.MP4",
+            "showFilePath": "",
+            "height": 2880,
+            "width": 3840,
+            "flash": -1,
+            "isLive": 0,
+            "mediaDuration": 860,
+            "rotation": 0,
+            "isCanPreview": 1,
+            "thumbnailStatus": 1,
+            "additional": {
+              "thumbnail": {
+                "mUrl": "/p/api/v1/stream/p/t/6957/m/eabe4178-e2fa-4c30-860e-1134c78489ec",
+                "sUrl": "/p/api/v1/stream/p/t/6957/s/eabe4178-e2fa-4c30-860e-1134c78489ec",
+                "xsUrl": "/p/api/v1/stream/p/t/6957/xs/eabe4178-e2fa-4c30-860e-1134c78489ec",
+                "xxsUrl": "/p/api/v1/stream/p/t/6957/xxs/eabe4178-e2fa-4c30-860e-1134c78489ec",
+                "videoUrl": "/p/api/v1/stream/v/6957",
+                "originalUrl": "/p/api/v1/stream/p/t/6957/o/eabe4178-e2fa-4c30-860e-1134c78489ec"
+              },
+              "tags": []
+            },
+            "photoUUID": "eabe4178-e2fa-4c30-860e-1134c78489ec"
+          }
+        ]
+      }
+    },
+    {
+      "title": "单张照片详情",
+      "note": "GET /api/v1/gallery/getOne?id=…",
+      "ok": true,
+      "data": {
+        "id": 6958,
+        "ownerId": 1,
+        "ownerName": "demo-user",
+        "dateTime": "2026:10:04 16:30:20",
+        "photoDateTime": "2026:10:04 16:30:20",
+        "timeZoneOffset": 480,
+        "fileType": "mp4",
+        "isRaw": false,
+        "category": "video",
+        "fileName": "sample.MP4",
+        "fileSize": 4603763329,
+        "description": "",
+        "isCollect": 0,
+        "mp": "11.1MP",
+        "filePath": "/vol3/1000/photo/sample/sample/sample.MP4",
+        "showFilePath": "",
+        "height": 3840,
+        "width": 2880,
+        "flash": -1,
+        "isLive": 0,
+        "mediaDuration": 302,
+        "rotation": 0,
+        "isCanPreview": 1,
+        "thumbnailStatus": 1,
+        "additional": {
+          "thumbnail": {
+            "mUrl": "/p/api/v1/stream/p/t/6958/m/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0",
+            "sUrl": "/p/api/v1/stream/p/t/6958/s/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0",
+            "xsUrl": "/p/api/v1/stream/p/t/6958/xs/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0",
+            "xxsUrl": "/p/api/v1/stream/p/t/6958/xxs/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0",
+            "videoUrl": "/p/api/v1/stream/v/6958",
+            "originalUrl": "/p/api/v1/stream/p/t/6958/o/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0"
+          },
+          "tags": []
+        },
+        "photoUUID": "b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0"
+      }
+    },
+    {
+      "title": "缩略图状态",
+      "note": "GET /api/v1/thumbnail/status?ids=…",
+      "ok": true,
+      "data": {
+        "list": [
+          {
+            "id": 6958,
+            "thumbnailStatus": 1
+          }
+        ]
+      }
+    },
+    {
+      "title": "创建相册",
+      "note": "POST /api/v1/album/create {album_name, ids}",
+      "ok": true,
+      "data": {
+        "albumId": 8,
+        "repeatCount": 0,
+        "successCount": 0
+      }
+    },
+    {
+      "title": "相册详情",
+      "note": "GET /api/v1/album/item?album_id=…",
+      "ok": true,
+      "data": {
+        "albumId": 8,
+        "albumName": "sample",
+        "source": "user",
+        "photoCount": 0,
+        "videoCount": 0,
+        "posterUrl": "",
+        "posterImgUrl": "",
+        "startDateTime": "",
+        "endDateTime": "",
+        "shared": 0,
+        "ownerId": 1,
+        "ownerName": "demo-user",
+        "grants": [],
+        "hasOtherUserPhoto": false,
+        "grantPermission": "",
+        "readableUsers": null,
+        "category": 0,
+        "birthday": "",
+        "displayType": 0,
+        "babyYear": 0,
+        "babyMonth": 0,
+        "babyDay": 0,
+        "lunarMonth": "",
+        "lunarDay": "",
+        "specialNode": null
+      }
+    },
+    {
+      "title": "相册时间线（camelCase 参数）",
+      "note": "GET /api/v1/album/normal/timeline?startTime=…&albumId=…",
+      "ok": true,
+      "data": {
+        "list": [],
+        "nasDate": "2026-10-17"
+      }
+    },
+    {
+      "title": "把照片加进相册",
+      "note": "POST /api/v1/gallery/addTo/album {ids, album_id}",
+      "ok": true,
+      "data": {
+        "albumId": 8,
+        "albumName": "sample",
+        "repeatCount": 2,
+        "successCount": 2
+      }
+    },
+    {
+      "title": "再看相册详情（photoCount 变了）",
+      "note": "GET /api/v1/album/item?album_id=…",
+      "ok": true,
+      "data": {
+        "albumId": 8,
+        "albumName": "sample",
+        "source": "user",
+        "photoCount": 0,
+        "videoCount": 2,
+        "posterUrl": "/p/api/v1/stream/p/t/6958/s/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0",
+        "posterImgUrl": "/p/api/v1/stream/p/t/6958/s/b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0",
+        "startDateTime": "2026:10:04 08:15:01",
+        "endDateTime": "2026:10:04 08:30:20",
+        "shared": 0,
+        "ownerId": 1,
+        "ownerName": "demo-user",
+        "grants": [],
+        "hasOtherUserPhoto": false,
+        "grantPermission": "",
+        "readableUsers": null,
+        "category": 0,
+        "birthday": "",
+        "displayType": 0,
+        "babyYear": 0,
+        "babyMonth": 0,
+        "babyDay": 0,
+        "lunarMonth": "",
+        "lunarDay": "",
+        "specialNode": null
+      }
+    },
+    {
+      "title": "照片归属哪些相册",
+      "note": "GET /api/v1/album/photo/belong?id=…",
+      "ok": true,
+      "data": {
+        "list": [
+          {
+            "albumId": 8,
+            "albumName": "sample",
+            "source": "user",
+            "photoCount": 0,
+            "videoCount": 2,
+            "posterUpId": 6958,
+            "posterUUID": "b3d32e71-0cbc-45c5-91aa-2f9f02e1d2e0",
+            "startDateTime": "2026:10:04 08:15:01",
+            "endDateTime": "2026:10:04 08:30:20",
+            "shared": 0,
+            "ownerId": 1,
+            "ownerName": "demo-user",
+            "category": 0,
+            "birthday": "",
+            "displayType": 0
+          }
+        ]
+      }
+    },
+    {
+      "title": "相册改名",
+      "note": "POST /api/v1/album/update/name {album_id, album_name}",
+      "ok": true,
+      "data": null
+    },
+    {
+      "title": "设置相册封面",
+      "note": "POST /api/v1/album/update/poster {album_id, id}",
+      "ok": true,
+      "data": null
+    },
+    {
+      "title": "把照片移出相册",
+      "note": "POST /api/v1/album/photo/remove {ids, album_id}",
+      "ok": true,
+      "data": null
+    },
+    {
+      "title": "删除相册",
+      "note": "POST /api/v1/album/delete {album_id}",
+      "ok": true,
+      "data": null
+    },
+    {
+      "title": "删完再看相册列表",
+      "note": "GET /api/v1/album/list",
+      "ok": true,
+      "data": {
+        "list": []
+      }
+    }
+  ]
+}

@@ -147,7 +147,7 @@
 **请求示例**
 
 ```json
-{sign}{"reqid":"reqid","user":"test","comment":"修改描述","newName":"test1","req":"user.mod"}
+{sign}{"reqid":"reqid","user":"test","comment":"修改描述","newName":"sample","req":"user.mod"}
 ```
 
 | 字段    | 类型     | 说明       |
