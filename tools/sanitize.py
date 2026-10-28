@@ -27,7 +27,10 @@ TEXT_EXTS = {".py", ".md", ".js", ".json", ".html", ".txt", ".css", ".svg",
              ".yaml", ".yml", ".sh", ".cfg", ".ini", ".toml", ".jsx", ".ts"}
 SKIP_DIRS = {".git", ".venv", "venv", "__pycache__", "node_modules",
              ".idea", "build", "dist", "captures", "web-cache"}
-SKIP_FILES = {"sanitize.local.json"}
+# 本工具自己的本地映射表（含真实值）与生成物不参与扫描：
+# docs/api/interfaces.html 是 tools/gen_html.py 从 data/*.json 生成的，
+# 数据脱敏后重新生成即可，直接改它反而会和生成逻辑打架。
+SKIP_FILES = {"sanitize.local.json", "interfaces.html"}
 
 # ---------------------------------------------------------------- 网络地址
 
@@ -69,13 +72,13 @@ _SIGN = re.compile(r"(?P<pre>\bsign=)(?P<val>[A-Za-z0-9+/=]{20,})")
 # 两种上下文分开处理，否则中文/空格会把路径截断、留下半截私人文件名：
 #   1) 引号里的路径（JSON / JS / 转义 JSON / HTML 的 &quot;）：一路吃到收尾引号；
 #   2) 正文里的裸路径（Markdown、注释）：吃到空白或中日韩标点为止，宁可少匹配。
-_SEG_CHARS_QUOTED = r"[^/\\\n\"']"          # 引号内：允许空格、中文，但不能含分隔符
+_SEG_CHARS_QUOTED = r"[^/\\\n\"'&<>]"       # 引号内：允许空格、中文，但到 HTML 实体/标签处截止
 _SEG_CHARS_BARE = r"[^/\s\"'\\\n<>&`\u3000-\u303f\uff00-\uffef]"
 
 _VOLUME_QUOTED = re.compile(
     r"(?<=[\"';])/?(?P<head>vol(?P<vol>\d+)/(?P<uid>\d+))"
     r"(?P<rest>(?:/" + _SEG_CHARS_QUOTED + r"+)*)"
-    r"(?=\\?[\"']|$)"
+    r"(?=\\?[\"']|&|$)"
 )
 _VOLUME_BARE = re.compile(
     r"(?<![\w\u4e00-\u9fff])/?(?P<head>vol(?P<vol>\d+)/(?P<uid>\d+))"
